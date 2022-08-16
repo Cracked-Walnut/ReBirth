@@ -1,0 +1,546 @@
+Game Title:
+    ReBirth
+
+Game Intro:
+    The Otherside and the King's lineage long ago formed an agreement to hold The Seal closed. 
+    ...
+    Long ago, the Seal was shattered.
+    ...
+    An evil emerged.
+    ...
+    ...
+    With the letter you've received, you ventured to these lands with the intent of investigating.
+    ...
+
+Game Loop:
+    Fight through a region of the world. Come across locked and unlocked doors. Discover bosses. Trade with
+    merchants. Acquire new talismans and other items in dungeons and caves.
+    Regions will have pathways connecting them which will be unlocked later.
+
+Gameplay:
+    - Put lifts into the game to connect larger areas
+    - Some of the tailor's outfits will only be obtainable by finding cloth and the appropriate dye
+
+Camera:
+    - Watch CodeMonkney's tutorial video: Cinemachine
+        - https://www.youtube.com/watch?v=Ml8ptNeezsU
+    - Subtle screenshake when connecting physical hits with enemies and objects
+
+Esoteric Artifacts:
+    - Known as checkpoints
+    - Esoteric Artifacts record the Hex Observer's choices.
+        To rewrite fate, history is reset.
+
+Map:
+    There will be a world map detailing world locations, and there will be maps detailing each individual area
+
+Story:
+    Setting:
+        Fantasy world (Forest, Desert, Ruins, Caves, Alternate Dimensions)
+
+    Problem:
+        The seal between the King's Realm and the Otherside has been breached.
+
+    Outcome:
+        These unnatural circumstances have led to corruption among the land's inhabitants,
+        causing mass panic and disorders, known as Hex Affliction
+
+    Solution:
+        Find the King's Seal to close the breach and restore order.
+
+(Spoilers) Deeper Story:
+    The Seal is an interdimensional rift created by the King's lineage to experiment with finding new life. These prospects would be expected to serve
+    the Royal Family in times of war.
+
+    This matter quickly got out of hand, and sparked the largest conflict in recent history. The world was torn. The kingdoms of the world, turned to dust.
+
+    Generations passed. People started to rebuild. Many moved on to brighter pastures. Some stayed in hopes a change would come.
+
+Drop Values:
+    - Guaranteed, 100% (1)
+    - Common, 50% (1/2)
+    - Uncommon, 25% (1/4)
+    - Rare, 12.5% (1/8)
+    - Ultra-Rare, 6.25% (1/16)
+    - Legendary, 3.125% (1/32)
+
+Boss Arenas:
+    - For Sanctuary Troll, player will drop into a large pit
+        - Upon defeating the Troll, the player be rewarded the Double Jump, which they can use to exit the pit
+    - All other bosses, gates will drop down, blocking all paths out of the arena until the boss is defeated
+
+Monster Journal:
+    Regular Monsters:
+        - Purple Beetle:
+            Behaviour: roams back and fourth at a frantic pace.
+            HP: 1
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - Red Beetle:
+            Behaviour: Larger than Purple Beetle. Tankier, and moves slower.
+            HP: 2
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - White Beetle:
+            Behaviour: roams back and fourth at a frantic pace.
+            HP: 2
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - Rancid Rat:
+            Behaviour: Usually found in packs. Can poison with bites.
+            HP: 1
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - Rancid Rat Mama:
+            Behaviour: Usually found in packs. Can poison with bites.
+            HP: 2
+            Atk: 2
+            Item Drops: Coins (Common)
+
+        - Fluff Boi:
+            Behaviour: Charges at the player.
+            HP: 2
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - Green Worm:
+            Behaviour: Stationary enemy which hurls fireballs at the player.
+            HP: 1
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - Red Worm:
+            Behaviour: Stationary enemy which hurls fireballs at the player.
+            HP: 1
+            Atk: 2
+            Item Drops: Coins (Common)
+
+        - Lost Minotaur:
+            Behaviour: Axe wielding minotaur which paces back and fourth.
+            HP: 4
+            Atk: 2
+            Item Drops: Coins (Common)
+            Lore: A Minotaur belonging to a distant tribe. Under the Hex influence, it has lost all sense of direction.
+
+        - Ghost:
+            Behaviour: Hides from the player until the player is in attacking range.
+            HP: 1
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - Harpy:
+            Behaviour: Flys in place or in patrol. Charges at the player with claws when provoked.
+            HP: 1
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - Burning Skeleton:
+            Behaviour: Slowly walks in a pattern. Explodes after a short delay when killed.
+            HP: 2
+            Atk: 0
+            Item Drops: Coins (Common)
+            Lore: These beings attempted to replicated the Otherside's school of projectile magic.
+                    Magic is sensitive. They were eternaly cursed for attempting such things.
+
+        - Knight:
+            Behaviour: Slowly walks in a pattern. Engages player on site.
+            HP: 5
+            Atk: 2
+            Item Drops: Coins (Common)
+            Lore: Knight's of the King's Realm. With no King to defend, they wonder aimlessly.
+
+        - Ghoul:
+            Behaviour: Slowly walks in a pattern. Engages player on site.
+            HP: 2
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - Summoner:
+            Behaviour: Summons up to two Ghouls at any time.
+            HP: 3
+            Atk: 0
+            Item Drops: Coins (Common)
+
+        - Spitter:
+            Behaviour: Slowly walks in a pattern. Spits deadly poison at player when engaged.
+            HP: 1
+            Atk: 2
+            Item Drops: Coins (Common)
+
+        --- Below you'll find enemy robots who belonged to an ancient tribe --- 
+
+        - Ranger:
+            Behaviour: Runs back and fourth. Fires projectile at player when in range.
+            HP: 2
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - Archer:
+            Behaviour: Runs back and fourth. Fires projectile at player when in range.
+            HP: 3
+            Atk: 1
+            Item Drops: Coins (Common)
+
+        - Flamethrower:
+            Behaviour: Patrols back and fourth. Uses flamethrower when player is in range.
+            HP: 3
+            Atk: 2
+            Item Drops: Coins (Common)
+
+        - Enchanter:
+            Behaviour: Patrols back and fourth. Uses magic when player is in range.
+            HP: 2
+            Atk: 1
+            Item Drops: Coins (Common)
+
+    Mandatory Boss Monsters:
+        - Sanctuary Troll (found in Wildwoods Sanctuary):
+            Behaviour: Attacks with slow, winding moves.
+            HP: 15 (Phase 1), 15 (Phase 2)
+            Atk: 2 (Phase 1 & 2)
+            Item Drops: 
+                Coins (Guaranteed), 
+                Crimson Chip x1 (Guaranteed),
+                LifeGem x3 (Guaranteed)
+
+        - Lizard Axe Man (found in Desolate Ruins):
+            Behaviour: Attacks with slow, winding moves.
+            HP: 10 (Phase 1), 20 (Phase 2)
+            Atk: 2 (Phase 1 & 2)
+            Item Drops: 
+                Coins (Guaranteed), 
+                Crimson Chip x1 (Guaranteed),
+                LifeGem x3 (Guaranteed)
+
+        - Colossal Orb (found in Otherside):
+            Behaviour: Attacks with slow, winding moves.
+            HP: 20 (Phase 1), 20 (Phase 2)
+            Atk: 2 (Phase 1 & 2)
+            Item Drops:
+                Coins (Guaranteed), 
+                Crimson Chip x1 (Guaranteed), 
+                LifeGem x3 (Guaranteed)
+
+        - Hooded Swiper (found in Cliffside Cavern):
+            Behaviour: Attacks with slow, winding moves.
+            HP: 10 (Phase 1), 20 (Phase 2)
+            Atk: 1 (Phase 1 & 2)
+            Item Drops: 
+                Coins (Guaranteed), 
+                Crimson Chip x1 (Guaranteed),
+                LifeGem x3 (Guaranteed)   
+
+        - Lizard Swordsman (found in Foggy Cliffs):
+            Behaviour: Attacks with fast sword swipes.
+            HP: 20 (Phase 1), 20 (Phase 2)
+            Atk: 1 (Phase 1 & 2)
+            Item Drops:
+                Coins (Guaranteed), 
+                Crimson Chip x1 (Guaranteed), 
+                LifeGem x3 (Guaranteed)
+
+        - Neon Flame Swordsman (found in Arctic Top):
+            Behaviour: Attacks with fast sword swipes.
+            HP: 20 (Phase 1), 20 (Phase 2)
+            Atk: 1 (Phase 1 & 2)
+            Item Drops:
+                Coins (Guaranteed), 
+                Crimson Chip x1 (Guaranteed), 
+                LifeGem x3 (Guaranteed)
+        
+    Optional Boss Monsters:
+
+        - Skeletal Swordsman (found in Wildwoods Sanctuary):
+            Behaviour: Attacks with sword. Defends with shield.
+            HP: 20 (Phase 1)
+            Atk: 2 (Phase 1 & 2)
+            Item Drops: 
+                Coins (Common), 
+                Crimson Chip x1 (Guaranteed)
+
+        - Shield Spirit Cavalier (found in Otherside):
+            Behaviour: Attacks with gun, bashes with shield.
+            HP: 20 (Phase 1)
+            Atk: 2 (Phase 1 & 2)
+            Item Drops: 
+                Coins (Guaranteed), 
+                Crimson Chip x1 (Guaranteed),
+                LifeGem x3 (Guaranteed),
+                Glowing Fragment x1 (Guaranteed)
+
+Wildlife Journal:
+    - 
+
+UI:
+    Top Left:
+        - HP and FP will be displayed using diamond shapes
+            - red diamonds for HP
+            - blue diamonds for FP
+        - Coins
+
+    Bottom Left:
+        - D-Pad will have shortcut items
+        - Up/ Down for HP Tonic/ LifeGem
+        - Left/ Right for FP Tonic/ SpiritGem
+
+Weapon Types:
+    Sword
+
+Items:
+
+    Currency:
+        - Coin(s)
+            - The currency of the King's realm. Made from gold. Not much use after the Hex Affliction.
+
+    Healing:
+        HP Tonic (+3 HP)
+        FP Tonic (+3 FP)
+            - These substances were concocted by the Otherside as a means to protect the consumer from Hex Affliction.
+            - Replenishes after activating Esoteric Artifacts
+        
+        LifeGem (+1 HP)
+        SpiritGem (+1 FP)
+            - Consumable. Common among the King's realm.
+        
+
+    Misc:
+        Lantern (for caves and dungeons)
+            - Used to navigate the darkest of spaces.
+        Various keys to open locked doors
+
+    Upgrade Items:
+        HP/ FP Token
+            - Used to increase amount replenished upon consumption of HP/ FP Tonic.
+        Glowing/ Exotic Fragments
+            - During the Hex Affliction outbreak, these fragments broke through the dimensional rift from the Otherside.
+        Crimson/ Rime chips
+            - Currency used in the Otherside. Not much trade value in the real world.
+        Ornament Pouches
+            - Each Pouch increases max Ornament slot by 1
+        Coin Pouches
+            Small Coin Pouch:
+                +25 Max Coins
+            Large Coin Pouch:
+                + 100 Max Coins
+        Cloth
+            - A simple piece of cloth which likely belonged to a denizen of the King's Realm.
+        Dye
+            - Dyes were used in marking and signifying ranks within the King's army. 
+                Surplus dye was manufacteured when a large quantity of young soldiers were expected.
+
+    Notes imparting knowledge to those seeking
+        - Bought at merchants and found in the world
+
+Status Screen:
+    Character Name
+    Max HP
+    Max FP
+    Coins
+    Mandatory Items acquired
+    Equipped Talismans
+    Current Outfit
+    Total HP/ FP Tokens acquired
+    Total Ornament Pouches acquired
+    Total Glowing/Exotic Fragments acquired
+    Total Crimson/Rime chips acquired
+
+Outfits (cosmetic only, enemy drop or bought at merchants):
+    Original Outfit
+    Basic colours (require cloth and dye) (red, green, blue, orange, purple, brown)
+    Signature (found in the world) (Warrior, Mage, Ninja, Assassin)
+
+Upgrades:
+
+    Crimson Chip: + 1/2 Max HP
+    Rime Chip: + 1/2 Max FP
+    HP Token: + 1/2 HP Tonic heal
+    FP Token: + 1/2 FP Tonic heal
+    Glowing Fragment: +1 Attack point. Bring to blacksmith.
+    Exotic Fragment: Upgrades effectiveness of Ornaments. Bring to sorcerer.
+
+    Mandatory (found by progessing the main path):
+        6 HP Tokens (HP Tonic upgrade, found by defeating mandatory bosses)
+        8 Crimson chips (Permanant HP Upgrade, found by exploring dungeons, defeating mandatory bosses)
+        8 Rime chips (Permanant FP Upgrade, found by completing platforming challenges)
+        Wall Jump
+        Dash
+        Double Jump
+
+    Optional (found by exploring dungeons, or the world, defeating optional bosses):
+        2 Crimson chips 
+        2 Rime chips 
+        2 Glowing Fragments
+        6 Exotic Fragments 
+
+Ornaments (Non-FP consuming, only 1 equippable slot at first, find Ornament Pouches to increase slots to max of 4):
+    - Max HP +1 (+2 when upgraded)
+    - Max FP +1 (+2 when upgraded)
+    - Killing an enemy restores 1/2 FP (1 FP when upgraded)
+    - Dash distance extended (extended further when upgraded)
+    - Slowly regenerate HP overtime, once every 45 seconds (30 seconds when upgraded)
+    - Slowly regenerate FP overtime, once every 15 seconds (5 seconds when upgraded)
+
+Talismans (FP consuming, only 1 equippable):
+    - Shoot sword waves [1 FP]
+    - Throw shurikens [1 FP]
+    - Lay a mine [2 FP]
+    - Shoot spikes in all directions [2 FP]
+    - Become invisible for a little while [3 FP]
+
+Mandatory Areas:
+    Wildwoods Sanctuary:
+        Platforming: Simple
+        Enemy Density: Low
+        Enemy Variety: Purple Beetles, Rats, Green Worms
+        Dungeons: 2
+        Caves: 1
+        Secrets: 2
+    
+    Desolate Ruins: 
+        Platforming: Simple
+        Enemy Density: Moderate
+        Enemy Variety:  Red Beetles, Green Worms, Fluff Boi
+        Dungeons: 3
+        Caves: 0
+        Secrets: 4
+
+    Otherside:
+        Platforming: Simple
+        Enemy Density: Low
+        Enemy Variety: Those dark enemies from the itch.io pack
+        Dungeons: 3
+        Caves: 1
+        Secrets: 4
+
+    Cliffside Cavern:
+        Platforming: Moderate
+        Enemy Density: Low
+        Enemy Variety: Harpy, Purple Beetles, Bats
+        Dungeons: 0
+        Caves: 0
+        Secrets: 4
+
+    Foggy Cliffs:
+        Platforming: Moderate
+        Enemy Density: Moderate
+        Enemy Variety: Harpy, Purple Beetles, Bats, Minotaur
+        Dungeons: 2
+        Caves: 1
+        Secrets: 4
+
+    Arctic Top:
+        Platforming: Simple
+        Enemy Density: Dense
+        Enemy Variety: Fluff Bois, Fluff Men, White Beetles,
+        Dungeons: 0
+        Caves: 0
+        Secrets: 4
+
+Optional Areas:
+    Smoldering Belly:
+        Platforming: Challenging
+        Enemy Density: Moderate to Dense
+        Enemy Variety: Harpy, Red Beetles, Bats, Red Worms, Minotaur, Flaming Skeletons
+        Dungeons: 4
+        Caves: 2
+        Secrets: 4
+
+    Deepwoods:
+        Platforming: Simple
+        Enemy Density: Moderate to Dense
+        Enemy Variety: Harpy, Red Beetles, Bats, Red Worms, Minotaur, Flaming Skeletons
+        Dungeons: 4
+        Caves: 2
+        Secrets: 4
+
+    Royal Castle:
+        Platforming: Moderate
+        Enemy Density: Moderate to Dense
+        Enemy Variety: Knight, Ghosts, Bats, Rats
+        Dungeons: 0
+        Caves: 0
+        Secrets: 8
+
+    Crystal Caverns:
+        Platforming: Challenging
+        Enemy Density: Moderate
+        Enemy Variety: Harpy, Beetles, Bats
+        Dungeons: 0
+        Caves: 0
+        Secrets: 4
+
+Dialogue Presets:
+    Merchants:
+        Merchant 1:
+            Initiation:
+                1) Care to buy something?
+                2) Passing through? Take a look at my products!
+                3) Everything must go!
+                4) You don't wanna miss this!
+                5) Hey, you! Stick around to see what I've got!
+
+            Talk:
+                1) You will come across more of my race here in these lands.
+                    We're a peaceful people, looking to make an honest living.
+                    ...
+                    We fled from our homes when the King's Seal was shattered.
+                    ...
+
+            Finish:
+                1) I'll see ya around.
+                2) Good doin' business.
+                3) See ya soon.
+
+        Merchant 2:
+            Initiation:
+                1) Are you gonna buy something or just stand around?
+                2) What can I do for you?
+
+            Finish:
+                1) Thanks for the business.
+                2) We'll stay in touch.
+
+    Blacksmiths:
+
+        Blacksmith 1:
+            Initiation:
+                1) It's been awhile since I've had a customer.
+                    ...
+                    Time to put these old bones to work.
+                    ...
+                    Show me your weapon.
+
+            Talk:
+                1) I smith. That's my job. That's all I've known.
+                    Now, are you gonna show me your sword?
+                2) Things haven't changed a whole lot for me after the Hex Affliction.
+
+            Rumour(s):
+                1) They say there's a cave nearby. Could hold some valuable stuff.
+                    ...
+                    Reaching it is another matter, I'm afraid.
+                    ...
+                    For a bit of coin, I could mark it on your map. What do you say?
+                        Yes:
+                            - The blacksmith put a red mark on your map.
+                        No:
+                            - No? Alright, then. But I might hand it over to another traveller if you're not around, hehe.
+                            ...
+                            I'm afraid I run a first come, first served style of business.
+
+
+            Finish:
+                1) Stay safe out there.
+                2) Done? Be on your way, now.
+
+    Tailors:
+        Tailor 1:
+            Initiation:
+            Talk:
+            Finish: 
+
+    Sorcerer:
