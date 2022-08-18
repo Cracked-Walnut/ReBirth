@@ -1,0 +1,39 @@
+Title Screen (Look at previous projects for code examples):
+    - Backdrop
+    - Music
+    - Sound FX
+    - Buttons
+        - New Game
+            - Loads New_Game scene
+        - Load Game
+            - Shows a canvas of 3 save files
+                - Each file will have:
+                    - Name
+                    - Time Played
+                    - Max HP
+                    - Max FP
+                    - Coins
+                    - Any Mandatory Upgrades
+        - System
+            - Controls
+                - Player can cycle through an Xbox/Switch controller and Keyboard to view controls
+            - Sound (0 to 100, increments of 5)
+                - Master
+                - Sound FX
+                - Music
+        - Quit
+
+Import All Sprites:
+    - UI
+    - Hero
+    - Items
+    - Merchants
+    - Enemies
+    - Animals
+    - Tilesets
+
+Import Scripts
+
+New_Game scene
+    - Show Game Intro
+    - Wildwoods Sanctuary
