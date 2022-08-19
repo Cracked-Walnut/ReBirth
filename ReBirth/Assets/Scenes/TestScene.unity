@@ -4315,37 +4315,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1976082033, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: m_JumpForce
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 1976082033, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: m_MovementSmoothing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1976082034, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1948676875057181799, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 2652e7e5f650d944dbb3b5fab01802f8, type: 2}
     - target: {fileID: 2540457832135706004, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: m_Name
       value: Knight
       objectReference: {fileID: 0}
+    - target: {fileID: 2794475222290305461, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5076788299485293436, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5076788299485293436, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5076788299485293436, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5076788299485293436, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4387,35 +4367,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6682722365109449382, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 2652e7e5f650d944dbb3b5fab01802f8, type: 2}
-    - target: {fileID: 7768883258844817835, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: _rigidBody2D
-      value: 
-      objectReference: {fileID: 1976082034}
-    - target: {fileID: 7768883258844817835, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: _lowMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7768883258844817835, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: _midMultiplier
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7768883258844817835, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: _fallMultiplier
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
 --- !u!4 &1976082031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5076788299485293436, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-  m_PrefabInstance: {fileID: 1976082030}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1976082034 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 1976082034, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
   m_PrefabInstance: {fileID: 1976082030}
   m_PrefabAsset: {fileID: 0}
