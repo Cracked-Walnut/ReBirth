@@ -74,10 +74,12 @@ GameObject:
   - component: {fileID: 2794475222290305461}
   - component: {fileID: 1976082033}
   - component: {fileID: 7768883258844817835}
+  - component: {fileID: 5136171672285880678}
   - component: {fileID: 1976082034}
   - component: {fileID: 1948676875057181799}
   - component: {fileID: 6682722365109449382}
   - component: {fileID: 1976082035}
+  - component: {fileID: 2423338144886414645}
   m_Layer: 3
   m_Name: Knight
   m_TagString: Untagged
@@ -198,8 +200,21 @@ MonoBehaviour:
   _rigidBody2D: {fileID: 1976082034}
   _runSpeed: 40
   _fallMultiplier: 1
-  _midMultiplier: 1
   _lowMultiplier: 1
+--- !u!114 &5136171672285880678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540457832135706004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82935ed4c4feaa248a092677f39d129c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovement: {fileID: 7768883258844817835}
+  _animator: {fileID: 1976082035}
 --- !u!50 &1976082034
 Rigidbody2D:
   serializedVersion: 4
@@ -283,3 +298,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2423338144886414645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540457832135706004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82935ed4c4feaa248a092677f39d129c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovement: {fileID: 7768883258844817835}
+  _animator: {fileID: 1976082035}

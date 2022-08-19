@@ -5,20 +5,20 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private CharacterController2D _characterController2D;
+    [SerializeField] private Rigidbody2D _rigidBody2D;
+    [SerializeField] private float _runSpeed = 40f;
+    [SerializeField] private float _fallMultiplier;
+    // [SerializeField] private float _midMultiplier;
+    [SerializeField] private float _lowMultiplier;
 
-    [SerializeField] Rigidbody2D _rigidBody2D;
-
-    float _horizontalMove = 0f;
-    [SerializeField] float _runSpeed = 40f;
-    bool _jump = false;
-    bool _crouch = false;
-    [SerializeField] float _fallMultiplier;
-    // [SerializeField] float _midMultiplier;
-    [SerializeField] float _lowMultiplier;
+    private float _horizontalMove = 0f;
+    private bool _jump = false;
+    private bool _crouch = false;
     
 
     // Update is called once per frame
     void Update() {
+
         _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
 
         if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded())
@@ -55,5 +55,9 @@ public class PlayerMovement : MonoBehaviour {
         // // reverse terminal velocity
         if (_rigidBody2D.velocity.x < 25f)
             _rigidBody2D.velocity = new Vector2(25f, _rigidBody2D.velocity.y);
+    }
+
+    public float GetHorizontalMove() {
+        return _horizontalMove;
     }
 }

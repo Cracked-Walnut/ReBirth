@@ -1,9 +1,17 @@
 Haven't Started:
-	Jump Buffer
-	Player Animation Tree
+	Jump Buffer code
+	Wall Slide code
+	Dust animation
 	Get Cinemachine Virtual Camera to point to other objects
 
 In Progress:
+	Player Animation Tree
+		- Attach Animator object to PlayerMovement.cs [X]
+		- Idle [X]
+		- Run [X]
+		- All Crouches
+		- Wall Slide
+		- Jump (Up & Down)
 
 On Hold:
 	Variable Jump
