@@ -1,13 +1,17 @@
 Haven't Started:
 	Jump Buffer
+	Player Animation Tree
 	Get Cinemachine Virtual Camera to point to other objects
 
 In Progress:
+
+On Hold:
 	Variable Jump
 		- Values aren't working
+	Double Jump
+		- Couldn't get it working
 
 Done:
-
 	Animations (Slice Sprite sheets):
 		- Idle [X]
 		- Run [X]
