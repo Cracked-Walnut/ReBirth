@@ -24,10 +24,12 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded())
             _jump = true;
 
-        if (Input.GetButtonDown("Crouch"))
-            _crouch = true;
-        else if (Input.GetButtonUp("Crouch"))
-            _crouch = false;
+        if (_characterController2D.GetGrounded()) {
+            if (Input.GetButtonDown("Crouch"))
+                _crouch = true;
+            else if (Input.GetButtonUp("Crouch"))
+                _crouch = false;
+        }
     }
 
     void FixedUpdate() {
@@ -59,5 +61,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public float GetHorizontalMove() {
         return _horizontalMove;
+    }
+
+    public bool GetCrouch() {
+        return _crouch;
     }
 }

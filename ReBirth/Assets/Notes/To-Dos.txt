@@ -2,6 +2,13 @@ Haven't Started:
 	Jump Buffer code
 	Wall Slide code
 	Dust animation
+	Key Frame Collision Boxes
+		- Idle
+		- Run
+		- Crouch
+		- Wall Slide
+		- Jump (Up & Down)
+	
 	Get Cinemachine Virtual Camera to point to other objects
 
 In Progress:
@@ -9,7 +16,7 @@ In Progress:
 		- Attach Animator object to PlayerMovement.cs [X]
 		- Idle [X]
 		- Run [X]
-		- All Crouches
+		- Crouch
 		- Wall Slide
 		- Jump (Up & Down)
 
