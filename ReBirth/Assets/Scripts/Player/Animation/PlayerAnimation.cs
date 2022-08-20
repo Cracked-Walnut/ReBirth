@@ -27,26 +27,32 @@ public class PlayerAnimation : MonoBehaviour {
             // else if (_playerMovement.GetCrouch() && _playerMovement.GetHorizontalMove() != 0)
             //     _animator.SetTrigger("Crouch_Walk");
 
-            if (_playerMovement.GetHorizontalMove() == 0) {
-                if (_playerMovement.GetCrouch())
-                    _animator.SetTrigger("Crouch");
-                else
-                    _animator.SetTrigger("Idle");
-            }
-            else if (_playerMovement.GetHorizontalMove() != 0) {
-                if (_playerMovement.GetCrouch())
-                    _animator.SetTrigger("Crouch_Walk");
-                else
-                    _animator.SetTrigger("Run");
+            if (_characterController2D.GetGrounded()) {
+                if (_playerMovement.GetHorizontalMove() == 0) {
+                    if (_playerMovement.GetCrouch())
+                        _animator.SetTrigger("Crouch");
+                    else {
+                        _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
+                        _animator.SetTrigger("Idle");
+                    }
+                }
+                else if (_playerMovement.GetHorizontalMove() != 0) {
+                    if (_playerMovement.GetCrouch())
+                        _animator.SetTrigger("Crouch_Walk");
+                    else
+                        _animator.SetTrigger("Run");
+                }
             }
         // }
+        else {
 
-        if (_rigidBody2D.velocity.y > 0) { 
-            _animator.SetTrigger("Jump_Up");
-        }
+            if (_rigidBody2D.velocity.y > 0) {
+                _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
+                _animator.SetTrigger("Jump_Up");
+            }
 
-        if (_rigidBody2D.velocity.y < 0) {
-            _animator.SetTrigger("Jump_Down");
+            else if (_rigidBody2D.velocity.y < 0)
+                _animator.SetTrigger("Jump_Down");
         }
     }
 
