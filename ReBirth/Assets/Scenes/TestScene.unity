@@ -4283,7 +4283,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2, y: 1}
+    m_SensorSize: {x: 1.8232712, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4363,10 +4363,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5136171672285880678, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
+      propertyPath: _rigidBody2D
+      value: 
+      objectReference: {fileID: 1976082035}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
 --- !u!4 &1976082031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5076788299485293436, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
+  m_PrefabInstance: {fileID: 1976082030}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1976082035 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1976082034, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
   m_PrefabInstance: {fileID: 1976082030}
   m_PrefabAsset: {fileID: 0}

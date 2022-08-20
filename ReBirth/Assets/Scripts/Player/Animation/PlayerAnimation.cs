@@ -7,6 +7,7 @@ public class PlayerAnimation : MonoBehaviour {
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private CharacterController2D _characterController2D;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Rigidbody2D _rigidBody2D;
 
     void LateUpdate() {
 
@@ -39,6 +40,14 @@ public class PlayerAnimation : MonoBehaviour {
                     _animator.SetTrigger("Run");
             }
         // }
+
+        if (_rigidBody2D.velocity.y > 0) { 
+            _animator.SetTrigger("Jump_Up");
+        }
+
+        if (_rigidBody2D.velocity.y < 0) {
+            _animator.SetTrigger("Jump_Down");
+        }
     }
 
 

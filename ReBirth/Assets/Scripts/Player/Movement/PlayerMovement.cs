@@ -66,4 +66,8 @@ public class PlayerMovement : MonoBehaviour {
     public bool GetCrouch() {
         return _crouch;
     }
+
+    public bool GetJump() {
+        return _jump;
+    }
 }

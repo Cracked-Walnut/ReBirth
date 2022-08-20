@@ -16,7 +16,7 @@ In Progress:
 		- Attach Animator object to PlayerMovement.cs [X]
 		- Idle [X]
 		- Run [X]
-		- Crouch
+		- Crouch [X]
 		- Wall Slide
 		- Jump (Up & Down)
 
