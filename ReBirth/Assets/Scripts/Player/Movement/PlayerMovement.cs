@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour {
     private float _horizontalMove = 0f;
     private bool _jump = false;
     private bool _crouch = false;
+
+    [SerializeField] private float _wallCheckRadius;
+    [SerializeField] private LayerMask _whatIsWall;
+    [SerializeField] private Transform _wallCheck;
+
+    private bool _isTouchingWall;
     
 
     // Update is called once per frame
@@ -38,6 +44,9 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void LateUpdate() {
+
+        _isTouchingWall = Physics2D.OverlapCircle(_wallCheck.transform.position, _wallCheckRadius, _whatIsWall);
+
         // when the player is falling, apply more gravity
         if (_rigidBody2D.velocity.y < 0)
             _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;

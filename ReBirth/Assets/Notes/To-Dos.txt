@@ -18,11 +18,11 @@ In Progress:
 		- Run [X]
 		- Crouch [X]
 		- Wall Slide
-		- Jump (Up & Down)
+		- Jump (Up & Down) [cannot transition into running after jumping]
 
 On Hold:
 	Variable Jump
-		- Values aren't working
+		- Values are working but hold jump isn't
 	Double Jump
 		- Couldn't get it working
 
