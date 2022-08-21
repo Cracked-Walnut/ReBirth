@@ -6310,6 +6310,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1976082033, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
+      propertyPath: m_JumpForce
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 2540457832135706004, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: m_Name
       value: Knight
@@ -6384,7 +6388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7768883258844817835, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: _fallMultiplier
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 7768883258844817835, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: _wallCheckRadius

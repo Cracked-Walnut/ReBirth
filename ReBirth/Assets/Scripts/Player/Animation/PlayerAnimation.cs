@@ -11,22 +11,6 @@ public class PlayerAnimation : MonoBehaviour {
 
     void LateUpdate() {
 
-        // if (_characterController2D.GetGrounded()) {
-            // if (_playerMovement.GetHorizontalMove() != 0) {
-            //     // _animator.ResetTriggers();
-            //     _animator.SetTrigger("Run");
-            // }
-            // if (_playerMovement.GetHorizontalMove() == 0) {
-            //     // _animator.ResetTriggers();
-            //     _animator.SetTrigger("Idle");
-            // }
-
-            // if (_playerMovement.GetCrouch() && _playerMovement.GetHorizontalMove() == 0)
-            //     _animator.SetTrigger("Crouch");
-
-            // else if (_playerMovement.GetCrouch() && _playerMovement.GetHorizontalMove() != 0)
-            //     _animator.SetTrigger("Crouch_Walk");
-
             if (_characterController2D.GetGrounded()) {
                 _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
 
@@ -51,7 +35,6 @@ public class PlayerAnimation : MonoBehaviour {
                     }
                 }
             }
-        // }
         else {
             _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
 

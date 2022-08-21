@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour {
     private float _horizontalMove = 0f;
     private bool _jump = false;
     private bool _canJump = true;
+    private bool _doubleJump = false;
+    private bool _canDoubleJump = false;
     private bool _crouch = false;
 
     [SerializeField] private float _wallCheckRadius;
@@ -26,11 +28,19 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
+        if (!_characterController2D.GetGrounded())
+            _canDoubleJump = true;
+        else
+            _canDoubleJump = false;
+
         _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
 
         if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded() && _canJump)
             _jump = true;
 
+        if (Input.GetButtonDown("Jump") && !_characterController2D.GetGrounded() && _canDoubleJump) {
+            _doubleJump = true;
+        }
         if (_characterController2D.GetGrounded()) {
             if (Input.GetButtonDown("Crouch")) {
                 _canJump = false;
@@ -44,8 +54,9 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _crouch, _jump);
+        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _crouch, _jump, _doubleJump);
         _jump = false;
+        _doubleJump = false;
     }
 
     void LateUpdate() {

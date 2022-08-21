@@ -17,14 +17,13 @@ In Progress:
 		- Idle [X]
 		- Run [X]
 		- Crouch [X]
+		- Jump (Up & Down) [X]
 		- Wall Slide
-		- Jump (Up & Down) [cannot transition into running after jumping]
+	
 
 On Hold:
 	Variable Jump
 		- Values are working but hold jump isn't
-	Double Jump
-		- Couldn't get it working
 
 Done:
 	Animations (Slice Sprite sheets):
@@ -33,3 +32,4 @@ Done:
 		- All Crouches [X]
 		- Wall Slide [X]
 		- Jump (Up & Down) [X]
+	Double Jump [X]
