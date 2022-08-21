@@ -28,6 +28,8 @@ public class PlayerAnimation : MonoBehaviour {
             //     _animator.SetTrigger("Crouch_Walk");
 
             if (_characterController2D.GetGrounded()) {
+                _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
+
                 if (_playerMovement.GetHorizontalMove() == 0) {
                     if (_playerMovement.GetCrouch()) {
                         ResetTriggers();
@@ -35,7 +37,6 @@ public class PlayerAnimation : MonoBehaviour {
                     }
                     else {
                         ResetTriggers();
-                        _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
                         _animator.SetTrigger("Idle");
                     }
                 }
@@ -52,10 +53,10 @@ public class PlayerAnimation : MonoBehaviour {
             }
         // }
         else {
+            _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
 
             if (_rigidBody2D.velocity.y > 0) {
                 ResetTriggers();
-                _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
                 _animator.SetTrigger("Jump_Up");
             }
 

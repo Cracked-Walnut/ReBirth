@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private float _horizontalMove = 0f;
     private bool _jump = false;
+    private bool _canJump = true;
     private bool _crouch = false;
 
     [SerializeField] private float _wallCheckRadius;
@@ -27,14 +28,18 @@ public class PlayerMovement : MonoBehaviour {
 
         _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
 
-        if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded())
+        if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded() && _canJump)
             _jump = true;
 
         if (_characterController2D.GetGrounded()) {
-            if (Input.GetButtonDown("Crouch"))
+            if (Input.GetButtonDown("Crouch")) {
+                _canJump = false;
                 _crouch = true;
-            else if (Input.GetButtonUp("Crouch"))
+            }
+            else if (Input.GetButtonUp("Crouch")) {
+                _canJump = true;
                 _crouch = false;
+            }
         }
     }
 
