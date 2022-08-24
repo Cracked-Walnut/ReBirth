@@ -141,6 +141,10 @@ public class CharacterController2D : MonoBehaviour
 		return m_Grounded;
 	}
 
+	public float GetJumpForce() {
+		return m_JumpForce;
+	}
+
 	public void ApplyForce(float _x, float _y) => m_Rigidbody2D.AddForce(new Vector2(_x, _y));
 	public void ResetForce() => m_Rigidbody2D.velocity = new Vector2(0f, 0f);
 

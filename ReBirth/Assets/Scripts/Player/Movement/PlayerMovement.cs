@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool _jump = false;
     private bool _canJump = true;
     private bool _doubleJump = false;
-    private bool _canDoubleJump = false;
+    // private bool _canDoubleJump = false;
     private bool _crouch = false;
 
     [SerializeField] private float _wallCheckRadius;
@@ -28,19 +28,19 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (!_characterController2D.GetGrounded())
-            _canDoubleJump = true;
-        else
-            _canDoubleJump = false;
+        // if (!_characterController2D.GetGrounded())
+        //     _canDoubleJump = true;
+        // else
+        //     _canDoubleJump = false;
 
         _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
 
         if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded() && _canJump)
             _jump = true;
 
-        if (Input.GetButtonDown("Jump") && !_characterController2D.GetGrounded() && _canDoubleJump) {
-            _doubleJump = true;
-        }
+        // if (Input.GetButtonDown("Jump") && !_characterController2D.GetGrounded() && _canDoubleJump) {
+        //     _doubleJump = true;
+        // }
         if (_characterController2D.GetGrounded()) {
             if (Input.GetButtonDown("Crouch")) {
                 _canJump = false;
@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour {
                 _crouch = false;
             }
         }
+
+        WallJump();
     }
 
     void FixedUpdate() {
@@ -84,6 +86,16 @@ public class PlayerMovement : MonoBehaviour {
             _rigidBody2D.velocity = new Vector2(25f, _rigidBody2D.velocity.y);
     }
 
+    private void WallJump() {
+        if (_isTouchingWall && !_characterController2D.GetGrounded()) {
+            if (Input.GetButtonDown("Jump")) { 
+                _characterController2D.ResetForce();
+                _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce() * .85f);  
+            }
+        }
+
+    }
+
     public float GetHorizontalMove() {
         return _horizontalMove;
     }
@@ -94,5 +106,9 @@ public class PlayerMovement : MonoBehaviour {
 
     public bool GetJump() {
         return _jump;
+    }
+
+    public bool GetIsTouchingWall() {
+        return _isTouchingWall;
     }
 }

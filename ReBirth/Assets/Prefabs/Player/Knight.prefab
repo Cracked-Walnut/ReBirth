@@ -201,6 +201,11 @@ MonoBehaviour:
   _runSpeed: 40
   _fallMultiplier: 1
   _lowMultiplier: 1
+  _wallCheckRadius: 0
+  _whatIsWall:
+    serializedVersion: 2
+    m_Bits: 0
+  _wallCheck: {fileID: 0}
 --- !u!114 &5136171672285880678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,11 +222,7 @@ MonoBehaviour:
   _characterController2D: {fileID: 1976082033}
   _animator: {fileID: 1976082035}
   _rigidBody2D: {fileID: 0}
-  _wallCheck: {fileID: 0}
-  _wallCheckRadius: 0
-  _whatIsWall:
-    serializedVersion: 2
-    m_Bits: 0
+  _spriteRenderer: {fileID: 0}
 --- !u!50 &1976082034
 Rigidbody2D:
   serializedVersion: 4

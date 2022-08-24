@@ -6318,6 +6318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight
       objectReference: {fileID: 0}
+    - target: {fileID: 2794475222290305461, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5076788299485293436, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -6371,6 +6375,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1976082035}
     - target: {fileID: 5136171672285880678, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1976082042}
+    - target: {fileID: 5136171672285880678, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: _wallCheckRadius
       value: 1
       objectReference: {fileID: 0}
@@ -6408,5 +6416,10 @@ Transform:
 --- !u!50 &1976082035 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 1976082034, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
+  m_PrefabInstance: {fileID: 1976082030}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1976082042 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2794475222290305461, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
   m_PrefabInstance: {fileID: 1976082030}
   m_PrefabAsset: {fileID: 0}
