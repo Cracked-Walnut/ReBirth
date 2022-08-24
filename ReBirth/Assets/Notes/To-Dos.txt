@@ -14,26 +14,31 @@ In Progress:
 	Wall Slide code
 	
 Bugs:
-	- Going into crouch activates wall slide animation, otherwise works fine
-	- Infinite double jump
 	- Wall jump is too strong
+		- Only initial jump is strong
+			- Find the source
 
 On Hold:
 	Variable Jump
 		- Values are working but hold jump isn't
 
-Done:
-	Animations (Slice Sprite sheets):
-		- Idle [X]
-		- Run [X]
-		- All Crouches [X]
-		- Wall Slide [X]
-		- Jump (Up & Down) [X]
-	Double Jump [X]
-	Player Animation Tree
+Finished:
+	Tasks:
+		Animations (Slice Sprite sheets):
+			- Idle [X]
+			- Run [X]
+			- All Crouches [X]
+			- Wall Slide [X]
+			- Jump (Up & Down) [X]
+		Double Jump [X]
+		Player Animation Tree
 		- Attach Animator object to PlayerMovement.cs [X]
 		- Idle [X]
 		- Run [X]
 		- Crouch [X]
 		- Jump (Up & Down) [X]
 		- Wall Slide [X]
+
+	Bugs:
+		- Going into crouch activates wall slide animation, otherwise works fine
+		- Infinite double jump

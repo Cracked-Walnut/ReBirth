@@ -28,10 +28,8 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (!_characterController2D.GetGrounded())
+        if (_characterController2D.GetGrounded())
             _canDoubleJump = true;
-        else
-            _canDoubleJump = false;
 
         _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
 
@@ -40,6 +38,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (Input.GetButtonDown("Jump") && !_characterController2D.GetGrounded() && _canDoubleJump) {
             _doubleJump = true;
+            _canDoubleJump = false;
         }
         if (_characterController2D.GetGrounded()) {
             if (Input.GetButtonDown("Crouch")) {
@@ -88,12 +87,11 @@ public class PlayerMovement : MonoBehaviour {
 
     private void WallJump() {
         if (_isTouchingWall && !_characterController2D.GetGrounded()) {
-            if (Input.GetButtonDown("Jump")) { 
+            if (Input.GetButtonDown("Jump")) {
                 _characterController2D.ResetForce();
-                _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce() * .85f);  
+                _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce());  
             }
         }
-
     }
 
     public float GetHorizontalMove() {
