@@ -3,11 +3,10 @@ Assets:
 	https://narehop.itch.io/graybox-2d
 
 Scripts:
-	Brackeys
-		CharacterController2D.cs
+	PlayerMovement.cs:
+		Board To Bits Games
+		GamesPlusJames
+		Press Start
 
-	Board To Bits Games
-		PlayerMovement.cs
-
-	GamesPlusJames
-		PlayerMovement.cs
+	CharacterController2D.cs:
+		Brackeys

@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private CharacterController2D _characterController2D;
     [SerializeField] private Rigidbody2D _rigidBody2D;
-    [SerializeField] private float _runSpeed = 40f;
+    [Range(0, 80f)] [SerializeField] private float _runSpeed;
     [SerializeField] private float _fallMultiplier;
     // [SerializeField] private float _midMultiplier;
     [SerializeField] private float _lowMultiplier;
@@ -21,6 +21,9 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float _wallCheckRadius;
     [SerializeField] private LayerMask _whatIsWall;
     [SerializeField] private Transform _wallCheck;
+    [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
+
+    [SerializeField] private ParticleSystem _particleSystem;
 
     private bool _isTouchingWall;
     
@@ -28,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (_characterController2D.GetGrounded())
+        if (_characterController2D.GetGrounded() || _isTouchingWall)
             _canDoubleJump = true;
 
         _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
@@ -66,7 +69,7 @@ public class PlayerMovement : MonoBehaviour {
 
         // when the player is falling, apply more gravity
         if (_rigidBody2D.velocity.y < 0)
-            _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
+            _rigidBody2D.velocity += (_fallMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
         
         // when the player is rising and they're holding the jump key, apply gravity
         // if (_rigidBody2D.velocity.y > 0 && Input.GetKey(KeyCode.Space))
@@ -74,7 +77,7 @@ public class PlayerMovement : MonoBehaviour {
 
         // when the player is falling and they're not holding the jump key, apply gravity
         if (_rigidBody2D.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
-            _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * (_lowMultiplier - 1) * Time.deltaTime;
+            _rigidBody2D.velocity += (_lowMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
 
         // // terminal velocity
         if (_rigidBody2D.velocity.y < -25f)
@@ -83,6 +86,11 @@ public class PlayerMovement : MonoBehaviour {
         // // reverse terminal velocity
         if (_rigidBody2D.velocity.x < 25f)
             _rigidBody2D.velocity = new Vector2(25f, _rigidBody2D.velocity.y);
+
+        if (_rigidBody2D.velocity.y < 0 && _isTouchingWall) {
+            // _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * .5f * Time.deltaTime;
+            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
+        }
     }
 
     private void WallJump() {
@@ -94,19 +102,13 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    public float GetHorizontalMove() {
-        return _horizontalMove;
-    }
+    public void CreateDust() { _particleSystem.Play(); }
 
-    public bool GetCrouch() {
-        return _crouch;
-    }
+    public float GetHorizontalMove() { return _horizontalMove; }
 
-    public bool GetJump() {
-        return _jump;
-    }
+    public bool GetCrouch() { return _crouch; }
 
-    public bool GetIsTouchingWall() {
-        return _isTouchingWall;
-    }
+    public bool GetJump() { return _jump; }
+
+    public bool GetIsTouchingWall() { return _isTouchingWall; }
 }

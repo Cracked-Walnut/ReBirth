@@ -1,44 +1,57 @@
 Haven't Started:
-	Jump Buffer code
-	Dust animation
-	Key Frame Collision Boxes
+	- Jump Buffer code
+		- Check your previous repositories
+	- Key Frame Collision Boxes
 		- Idle
 		- Run
 		- Crouch
 		- Wall Slide
+		- Wall Climb
 		- Jump (Up & Down)
-	
-	Get Cinemachine Virtual Camera to point to other objects
+	- Cinemachine:
+		- Get Cinemachine Virtual Camera to point to other objects
+		- Get Cinemachine Virtual Camera to stay within a set of boundaries
 
 In Progress:
-	Wall Slide code
-	
-Bugs:
-	- Wall jump is too strong
-		- Only initial jump is strong
-			- Find the source
+	- Wall Climb Logic
+		- https://www.youtube.com/watch?v=JGtlja1RStk
 
 On Hold:
-	Variable Jump
+	- Variable Jump
 		- Values are working but hold jump isn't
+
+Bugs:
+	- If wall sliding, wall slide animation persists when holding run keys when grounded
 
 Finished:
 	Tasks:
-		Animations (Slice Sprite sheets):
+		- Animations (Slice Sprite sheets):
 			- Idle [X]
 			- Run [X]
 			- All Crouches [X]
 			- Wall Slide [X]
 			- Jump (Up & Down) [X]
-		Double Jump [X]
-		Player Animation Tree
-		- Attach Animator object to PlayerMovement.cs [X]
-		- Idle [X]
-		- Run [X]
-		- Crouch [X]
-		- Jump (Up & Down) [X]
-		- Wall Slide [X]
+		- Double Jump [X]
+		- Player Animation Tree
+			- Attach Animator object to PlayerMovement.cs [X]
+			- Idle [X]
+			- Run [X]
+			- Crouch [X]
+			- Jump (Up & Down) [X]
+			- Wall Slide [X]
+		- Reset Double Jump upon mid-air wall contact [X]
+		- Wall Slide code
+		- Dust animation
+		- Wall Climb Animation
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
 		- Infinite double jump
+		- Wall jump is too strong
+			- Only initial jump is strong
+				- Find the source
+				- Hypothesis: Wall Jump and Double Jump jump force are being added before jump [Correct!]
+		- If crouching while falling off ledge, animation will not properly cycle
+
+Things to keep in mind:
+	- DustEffect's sorting layer is Player, Sorting ID is -5
