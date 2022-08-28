@@ -31,6 +31,37 @@ Transform:
   m_Father: {fileID: 5076788299485293436}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1039930357129594016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6349842738981855057}
+  m_Layer: 3
+  m_Name: WallCheckTop
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6349842738981855057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039930357129594016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.68, y: 0.9083333, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5076788299485293436}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1302298385002293729
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +131,7 @@ Transform:
   m_Children:
   - {fileID: 2064408466815195959}
   - {fileID: 421476160177748790}
+  - {fileID: 6349842738981855057}
   - {fileID: 6364930850877790344}
   - {fileID: 7172465997548007660}
   m_Father: {fileID: 0}
@@ -169,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c891d8cc4553e4888df2ce310447f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 800
+  m_JumpForce: 1000
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0
   m_AirControl: 1
@@ -202,12 +234,14 @@ MonoBehaviour:
   _rigidBody2D: {fileID: 1976082034}
   _runSpeed: 55
   _fallMultiplier: 4.5
-  _lowMultiplier: 1.25
-  _wallCheckRadius: 1
+  _midMultiplier: 1
+  _lowMultiplier: 1.75
+  _wallCheckRadius: 0.5
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 128
-  _wallCheck: {fileID: 6364930850877790344}
+  _wallCheckTop: {fileID: 6349842738981855057}
+  _wallCheckBottom: {fileID: 6364930850877790344}
   _wallSlideSpeed: 3
   _particleSystem: {fileID: 7122412377308681790}
 --- !u!114 &5136171672285880678
@@ -242,7 +276,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -320,7 +354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6364930850877790344}
   m_Layer: 3
-  m_Name: WallCheck
+  m_Name: WallCheckBottom
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -339,7 +373,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5076788299485293436}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7590827663420183108
 GameObject:
@@ -372,7 +406,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5076788299485293436}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!198 &7122412377308681790
 ParticleSystem:
@@ -382,7 +416,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7590827663420183108}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 0.1
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -457,7 +491,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1010,7 +1044,7 @@ ParticleSystem:
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1.36, y: 0, z: 1}
+    m_Scale: {x: 0.75, y: 0.12, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0

@@ -134,7 +134,7 @@ public class CharacterController2D : MonoBehaviour
             _playerMovement.CreateDust();
 
 		}
-		if (doubleJump && !_playerMovement.GetIsTouchingWall()) {
+		if (doubleJump && !_playerMovement.GetIsTouchingWallBottom() && !_playerMovement.GetIsTouchingWallTop()) {
 			ResetForce();
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * .85f));
 		}

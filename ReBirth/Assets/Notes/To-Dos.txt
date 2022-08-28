@@ -16,18 +16,25 @@ Haven't Started:
 		- Get Cinemachine Virtual Camera to stay within a set of boundaries
 	- Wall Climb Logic
 		- https://www.youtube.com/watch?v=JGtlja1RStk
+	- Wall Jump Animation of some kind
+	- Increased Wall Slide speed if player is holding the down key while wall sliding
+		- Wall Slide boolean?
 
 -----------------------------------------------------------------------------------------------
-
 Bugs:
-	- If wall sliding, wall slide animation persists when holding run keys when grounded
+	- Player is wall sliding while only bottom wall check is active
+	- When wall jumping and coming into contact with another layer, player switches X axis while mainting Wall Slide animation
+		- Since at least one of the Wall Checks is true, there is no animation transition
+		- The sprite flips because we're checking for BOTH Wall Checks
 
 Started but Paused:
 
 In Progress:
-	- Variable Jump
-		- Values are working but hold jump isn't
-
+	- Refine Wall Slide
+		- Add an extra WallCheck
+		- If Both WallChecks are true, initiate Wall Slide
+			- If Top is false and Bottom is true, don't do anything
+			- If Top is true and Bottom is false, don't do anything
 
 -----------------------------------------------------------------------------------------------
 
@@ -51,6 +58,7 @@ Finished:
 		- Wall Slide code
 		- Dust animation
 		- Wall Climb Animation
+		- Variable Jump
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
@@ -60,6 +68,9 @@ Finished:
 				- Find the source
 				- Hypothesis: Wall Jump and Double Jump jump force are being added before jump [Correct!]
 		- If crouching while falling off ledge, animation will not properly cycle
+		- If wall sliding, wall slide animation persists when holding run keys when grounded [Added Trigger from Wall_Slide -> Run]
+		- Jump height not high enough [Fixed some values in the scripts and Rigidbody2D Component]
+		- Jump Up to Idle transition problem [Added Trigger from Jump_Up -> Idle]
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5

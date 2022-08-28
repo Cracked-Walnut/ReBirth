@@ -39,7 +39,9 @@ public class PlayerAnimation : MonoBehaviour {
         }
         else {
             _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
-            _animator.SetBool("IsTouchingWall", _playerMovement.GetIsTouchingWall());
+
+            _animator.SetBool("IsTouchingWallTop", _playerMovement.GetIsTouchingWallTop());
+            _animator.SetBool("IsTouchingWallBottom", _playerMovement.GetIsTouchingWallBottom());
 
             if (_rigidBody2D.velocity.y > 0) {
                 ResetTriggers();
@@ -51,7 +53,7 @@ public class PlayerAnimation : MonoBehaviour {
                 _animator.SetTrigger("Jump_Down");
             }
 
-            if (_playerMovement.GetIsTouchingWall() && !_characterController2D.GetGrounded()) {
+            if (_playerMovement.GetIsTouchingWallTop() && _playerMovement.GetIsTouchingWallBottom() && !_characterController2D.GetGrounded()) {
                 ResetTriggers();
                 _spriteRenderer.flipX = true;
                 _animator.SetTrigger("Wall_Slide");

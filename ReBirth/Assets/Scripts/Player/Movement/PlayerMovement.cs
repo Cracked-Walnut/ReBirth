@@ -20,18 +20,23 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private float _wallCheckRadius;
     [SerializeField] private LayerMask _whatIsWall;
-    [SerializeField] private Transform _wallCheck;
+
+    [SerializeField] private Transform _wallCheckTop;
+    private bool _isTouchingWallTop;
+    
+    [SerializeField] private Transform _wallCheckBottom;
+    private bool _isTouchingWallBottom;
+    
     [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
 
     [SerializeField] private ParticleSystem _particleSystem;
 
-    private bool _isTouchingWall;
     
 
     // Update is called once per frame
     void Update() {
 
-        if (_characterController2D.GetGrounded() || _isTouchingWall)
+        if (_characterController2D.GetGrounded() || (_isTouchingWallBottom && _isTouchingWallTop))
             _canDoubleJump = true;
 
         _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
@@ -65,7 +70,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void LateUpdate() {
 
-        _isTouchingWall = Physics2D.OverlapCircle(_wallCheck.transform.position, _wallCheckRadius, _whatIsWall);
+        _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckTop.transform.position, _wallCheckRadius, _whatIsWall);
+        _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckBottom.transform.position, _wallCheckRadius, _whatIsWall);
 
         // when the player is falling, apply more gravity
         if (_rigidBody2D.velocity.y < 0)
@@ -87,14 +93,16 @@ public class PlayerMovement : MonoBehaviour {
         if (_rigidBody2D.velocity.x < 25f)
             _rigidBody2D.velocity = new Vector2(25f, _rigidBody2D.velocity.y);
 
-        if (_rigidBody2D.velocity.y < 0 && _isTouchingWall) {
+        if (_rigidBody2D.velocity.y < 0 && _isTouchingWallBottom && _isTouchingWallTop) {
             // _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * .5f * Time.deltaTime;
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
         }
+
+        Debug.Log("Top: " + _isTouchingWallTop + " | Bottom: " + _isTouchingWallBottom);
     }
 
     private void WallJump() {
-        if (_isTouchingWall && !_characterController2D.GetGrounded()) {
+        if (_isTouchingWallBottom && _isTouchingWallTop && !_characterController2D.GetGrounded()) {
             if (Input.GetButtonDown("Jump")) {
                 _characterController2D.ResetForce();
                 _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce());  
@@ -110,5 +118,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public bool GetJump() { return _jump; }
 
-    public bool GetIsTouchingWall() { return _isTouchingWall; }
+    public bool GetIsTouchingWallTop() { return _isTouchingWallTop; }
+
+    public bool GetIsTouchingWallBottom() { return _isTouchingWallBottom; }
 }
