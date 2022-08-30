@@ -12,8 +12,9 @@ public class PlayerAnimation : MonoBehaviour {
 
     void LateUpdate() {
 
+
         if (_characterController2D.GetGrounded()) {
-            _spriteRenderer.flipX = false;
+            
             _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
 
             if (_playerMovement.GetHorizontalMove() == 0) {
@@ -47,7 +48,6 @@ public class PlayerAnimation : MonoBehaviour {
                 ResetTriggers();
                 _animator.SetTrigger("Jump_Up");
             }
-
             else if (_rigidBody2D.velocity.y < 0) {
                 ResetTriggers();
                 _animator.SetTrigger("Jump_Down");
@@ -57,7 +57,9 @@ public class PlayerAnimation : MonoBehaviour {
                 ResetTriggers();
                 _spriteRenderer.flipX = true;
                 _animator.SetTrigger("Wall_Slide");
-            } else
+            }
+            else if ((!_playerMovement.GetIsTouchingWallTop() && !_playerMovement.GetIsTouchingWallBottom() && !_characterController2D.GetGrounded()) || 
+                _characterController2D.GetGrounded())
                 _spriteRenderer.flipX = false;
         }
     }

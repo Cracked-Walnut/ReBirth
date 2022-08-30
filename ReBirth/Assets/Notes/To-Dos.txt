@@ -1,7 +1,7 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 
-Haven't Started:
+Tasks Haven't Started:
 	- Jump Buffer code
 		- Check your previous repositories
 	- Key Frame Collision Boxes
@@ -19,22 +19,28 @@ Haven't Started:
 	- Wall Jump Animation of some kind
 	- Increased Wall Slide speed if player is holding the down key while wall sliding
 		- Wall Slide boolean?
+	- CanMove boolean
+		- Should disable/ enable:
+			- Horizontal Movement [Running + Crouch Movement]
+			- Jumping
+			- Attacking
+			- Crouching
+	- Turn Around animation
+	- Dust Effect upon Wall Jump
+	- Play Jump_Up animation while Wall Jumping
+		- The player is Wall Jumping if their Y velocity is > 0 and either Wall Check is true
 
------------------------------------------------------------------------------------------------
-Bugs:
-	- Player is wall sliding while only bottom wall check is active
-	- When wall jumping and coming into contact with another layer, player switches X axis while mainting Wall Slide animation
-		- Since at least one of the Wall Checks is true, there is no animation transition
-		- The sprite flips because we're checking for BOTH Wall Checks
+Bugs Haven't Started:
+	- After double jumping, Jump_Down animation plays even when Y velocity exceeds 0
+		- I think it's because Jump_Up is only applied to the first jump!
 
 Started but Paused:
+	Tasks:
+	Bugs:
 
 In Progress:
-	- Refine Wall Slide
-		- Add an extra WallCheck
-		- If Both WallChecks are true, initiate Wall Slide
-			- If Top is false and Bottom is true, don't do anything
-			- If Top is true and Bottom is false, don't do anything
+	Tasks:
+	Bugs:
 
 -----------------------------------------------------------------------------------------------
 
@@ -56,9 +62,14 @@ Finished:
 			- Wall Slide [X]
 		- Reset Double Jump upon mid-air wall contact [X]
 		- Wall Slide code
-		- Dust animation
+		- Dust animation on jump
 		- Wall Climb Animation
 		- Variable Jump
+		- Refine Wall Slide
+			- Add an extra WallCheck
+			- If Both WallChecks are true, initiate Wall Slide
+				- If Top is false and Bottom is true, don't do anything
+				- If Top is true and Bottom is false, don't do anything
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
@@ -71,6 +82,13 @@ Finished:
 		- If wall sliding, wall slide animation persists when holding run keys when grounded [Added Trigger from Wall_Slide -> Run]
 		- Jump height not high enough [Fixed some values in the scripts and Rigidbody2D Component]
 		- Jump Up to Idle transition problem [Added Trigger from Jump_Up -> Idle]
+		- If either Wall Check is true, double jump doesn't work [fixed by checking if double jump is true and (WallCheckTop OR WallCheckBottom)]
+		- When either Wall Check is true when wall sliding, the player model flips [fixed by playing around with some conditional statements in PlayerAnimation.cs]
+		- The player is stuck in the Wall Slide animation when either Wall Check is true [fixed by changing some animation conditions between Wall_Slide and Jump_up]
+		- Sometimes, after a wall jump, wall jump force and double jump force are applied simultaneously 
+			- [This bug is much more difficult to test. The code is written. I will assume it's fixed unless I see the bug again]
+			- To Double Jump, Both Wall Checks must be false
+
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5
