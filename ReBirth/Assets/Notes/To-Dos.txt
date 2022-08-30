@@ -16,7 +16,6 @@ Tasks Haven't Started:
 		- Get Cinemachine Virtual Camera to stay within a set of boundaries
 	- Wall Climb Logic
 		- https://www.youtube.com/watch?v=JGtlja1RStk
-	- Wall Jump Animation of some kind
 	- Increased Wall Slide speed if player is holding the down key while wall sliding
 		- Wall Slide boolean?
 	- CanMove boolean
@@ -25,14 +24,12 @@ Tasks Haven't Started:
 			- Jumping
 			- Attacking
 			- Crouching
-	- Turn Around animation
-	- Dust Effect upon Wall Jump
+	- Animation for when player stops running
 	- Play Jump_Up animation while Wall Jumping
 		- The player is Wall Jumping if their Y velocity is > 0 and either Wall Check is true
 
 Bugs Haven't Started:
-	- After double jumping, Jump_Down animation plays even when Y velocity exceeds 0
-		- I think it's because Jump_Up is only applied to the first jump!
+	- When Wall Sliding to the ground, player doesn't flip
 
 Started but Paused:
 	Tasks:
@@ -40,6 +37,9 @@ Started but Paused:
 
 In Progress:
 	Tasks:
+		- Turn Around animation
+			- Run -> Turn Around -> Run
+			- Might need to modify Idle conditional statements [Horizontal Move]
 	Bugs:
 
 -----------------------------------------------------------------------------------------------
@@ -70,6 +70,7 @@ Finished:
 			- If Both WallChecks are true, initiate Wall Slide
 				- If Top is false and Bottom is true, don't do anything
 				- If Top is true and Bottom is false, don't do anything
+		- Dust Effect upon Wall Jump
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
@@ -88,6 +89,9 @@ Finished:
 		- Sometimes, after a wall jump, wall jump force and double jump force are applied simultaneously 
 			- [This bug is much more difficult to test. The code is written. I will assume it's fixed unless I see the bug again]
 			- To Double Jump, Both Wall Checks must be false
+		- After double jumping, Jump_Down animation plays even when Y velocity exceeds 0
+			- I think it's because Jump_Up is only applied to the first jump!
+				- Wrong! I fixed it by adding a transition from Jump_Down to Jump_Up
 
 
 Things to keep in mind:
