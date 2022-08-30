@@ -14,6 +14,7 @@ public class PlayerAnimation : MonoBehaviour {
 
 
         if (_characterController2D.GetGrounded()) {
+            _spriteRenderer.flipX = false;
             
             _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
 
@@ -54,18 +55,26 @@ public class PlayerAnimation : MonoBehaviour {
             }
 
             if (_playerMovement.GetIsTouchingWallTop() && _playerMovement.GetIsTouchingWallBottom() && !_characterController2D.GetGrounded()) {
-                ResetTriggers();
-                _spriteRenderer.flipX = true;
-                _animator.SetTrigger("Wall_Slide");
+                
+                // Wall Jump
+                if (_rigidBody2D.velocity.y > 5f) {
+                    ResetTriggers();
+                    _spriteRenderer.flipX = false;
+                    _animator.SetTrigger("Jump_Up");
+                }
+                else {
+                    ResetTriggers();
+                    _spriteRenderer.flipX = true;
+                    _animator.SetTrigger("Wall_Slide");
+                }
             }
-            else if ((!_playerMovement.GetIsTouchingWallTop() && !_playerMovement.GetIsTouchingWallBottom() && !_characterController2D.GetGrounded()) || 
-                _characterController2D.GetGrounded())
+            else if (!_playerMovement.GetIsTouchingWallTop() && !_playerMovement.GetIsTouchingWallBottom())
                 _spriteRenderer.flipX = false;
         }
     }
 
     void ResetTriggers() {
-         string[] _triggers = {"Idle", "Crouch", "Crouch_Walk", "Run", "Jump_Up", "Jump_Down", "Wall_Slide"};
+         string[] _triggers = {"Idle", "Crouch", "Crouch_Walk", "Run", "Jump_Up", "Jump_Down", "Wall_Slide", "Stop_Running"};
     
         for (int i = 0; i < _triggers.Length - 1; i++) {
             _animator.ResetTrigger(_triggers[i]);

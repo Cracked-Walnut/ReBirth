@@ -17,7 +17,8 @@ public class PlayerMovement : MonoBehaviour {
     private bool _doubleJump = false;
     private bool _canDoubleJump = false;
     private bool _crouch = false;
-    private bool _turnAround = false;
+    [SerializeField] private bool _canMove = true;
+    // private bool _turnAround = false;
 
     [SerializeField] private float _wallCheckRadius;
     [SerializeField] private LayerMask _whatIsWall;
@@ -39,32 +40,27 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
+        
+        if (_canMove) {
 
-        if (_characterController2D.GetGrounded() || (_isTouchingWallBottom && _isTouchingWallTop))
-            _canDoubleJump = true;
+            _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
+            
+            if (_characterController2D.GetGrounded() || (_isTouchingWallBottom && _isTouchingWallTop))
+                _canDoubleJump = true;
 
-        if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded() && _canJump)
-            _jump = true;
+            if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded() && _canJump)
+                _jump = true;
 
-        if (Input.GetButtonDown("Jump") && !_characterController2D.GetGrounded() && _canDoubleJump && !_isTouchingWallTop && !_isTouchingWallBottom) {
-            _doubleJump = true;
-            _canDoubleJump = false;
-        }
-
-        if (_characterController2D.GetGrounded()) {
-
-            if (Input.GetButtonDown("Crouch")) {
-                _canJump = false;
-                _crouch = true;
+            if (Input.GetButtonDown("Jump") && !_characterController2D.GetGrounded() && _canDoubleJump && !_isTouchingWallTop && !_isTouchingWallBottom) {
+                _doubleJump = true;
+                _canDoubleJump = false;
             }
-            else if (Input.GetButtonUp("Crouch")) {
-                _canJump = true;
-                _crouch = false;
-            }
-        }
 
-        WallJump();
+            Crouch();
+            WallJump();
+        }
+        else
+            _horizontalMove = 0;
     }
 
     void FixedUpdate() {
@@ -91,7 +87,7 @@ public class PlayerMovement : MonoBehaviour {
         if (_rigidBody2D.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
             _rigidBody2D.velocity += (_lowMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
 
-        // // terminal velocity
+        // terminal velocity
         if (_rigidBody2D.velocity.y < -25f)
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, -25f);
 
@@ -99,9 +95,23 @@ public class PlayerMovement : MonoBehaviour {
         if (_rigidBody2D.velocity.x < 25f)
             _rigidBody2D.velocity = new Vector2(25f, _rigidBody2D.velocity.y);
 
+        // Wall Slide
         if (_rigidBody2D.velocity.y < 0 && _isTouchingWallBottom && _isTouchingWallTop) {
-            // _rigidBody2D.velocity += Vector2.up * Physics2D.gravity.y * .5f * Time.deltaTime;
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
+        }
+    }
+
+    private void Crouch() {
+        if (_characterController2D.GetGrounded()) {
+
+            if (Input.GetButtonDown("Crouch")) {
+                _canJump = false;
+                _crouch = true;
+            }
+            else if (Input.GetButtonUp("Crouch")) {
+                _canJump = true;
+                _crouch = false;
+            }
         }
     }
 

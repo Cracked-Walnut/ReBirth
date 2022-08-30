@@ -16,20 +16,8 @@ Tasks Haven't Started:
 		- Get Cinemachine Virtual Camera to stay within a set of boundaries
 	- Wall Climb Logic
 		- https://www.youtube.com/watch?v=JGtlja1RStk
-	- Increased Wall Slide speed if player is holding the down key while wall sliding
-		- Wall Slide boolean?
-	- CanMove boolean
-		- Should disable/ enable:
-			- Horizontal Movement [Running + Crouch Movement]
-			- Jumping
-			- Attacking
-			- Crouching
-	- Animation for when player stops running
-	- Play Jump_Up animation while Wall Jumping
-		- The player is Wall Jumping if their Y velocity is > 0 and either Wall Check is true
 
 Bugs Haven't Started:
-	- When Wall Sliding to the ground, player doesn't flip
 
 Started but Paused:
 	Tasks:
@@ -37,10 +25,14 @@ Started but Paused:
 
 In Progress:
 	Tasks:
+	Bugs:
+
+Archived:
+	Tasks:
+		- Animation for when player stops running
 		- Turn Around animation
 			- Run -> Turn Around -> Run
 			- Might need to modify Idle conditional statements [Horizontal Move]
-	Bugs:
 
 -----------------------------------------------------------------------------------------------
 
@@ -71,6 +63,9 @@ Finished:
 				- If Top is false and Bottom is true, don't do anything
 				- If Top is true and Bottom is false, don't do anything
 		- Dust Effect upon Wall Jump
+		- Play Jump_Up animation while Wall Jumping
+			- The player is Wall Jumping if their Y velocity is > 5 and both Wall Check is true
+		- CanMove boolean
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
@@ -92,7 +87,8 @@ Finished:
 		- After double jumping, Jump_Down animation plays even when Y velocity exceeds 0
 			- I think it's because Jump_Up is only applied to the first jump!
 				- Wrong! I fixed it by adding a transition from Jump_Down to Jump_Up
-
+		- When Wall Sliding to the ground, player doesn't flip
+			- Modified some conditionals to fix
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5
