@@ -4,13 +4,7 @@
 Tasks Haven't Started:
 	- Jump Buffer code
 		- Check your previous repositories
-	- Key Frame Collision Boxes
-		- Idle
-		- Run
-		- Crouch
-		- Wall Slide
-		- Wall Climb
-		- Jump (Up & Down)
+
 	- Cinemachine:
 		- Get Cinemachine Virtual Camera to point to other objects
 		- Get Cinemachine Virtual Camera to stay within a set of boundaries
@@ -25,6 +19,13 @@ Started but Paused:
 
 In Progress:
 	Tasks:
+		- Key Frame Collision Boxes
+			- Idle
+			- Run
+			- Crouch
+			- Wall Slide
+			- Wall Climb
+			- Jump (Up & Down)
 	Bugs:
 
 Archived:
