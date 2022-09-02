@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567336149028498868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.375, z: 0}
+  m_LocalPosition: {x: 0, y: 0.398, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -213,7 +213,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 384
   m_GroundCheck: {fileID: 421476160177748790}
-  m_CeilingCheck: {fileID: 2064408466815195959}
   m_CrouchDisableCollider: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
@@ -236,15 +235,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterController2D: {fileID: 1976082033}
   _rigidBody2D: {fileID: 1976082034}
+  _ceilingCheck: {fileID: 5076788299485293436}
   _runSpeed: 55
   _fallMultiplier: 4.5
   _midMultiplier: 1
   _lowMultiplier: 1.75
   _canMove: 1
-  _wallCheckRadius: 0.5
+  _genericTransformRadius: 1
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 128
+  _forceCrouchLayers:
+    serializedVersion: 2
+    m_Bits: 384
   _wallCheckTop: {fileID: 6349842738981855057}
   _wallCheckBottom: {fileID: 6364930850877790344}
   _wallSlideSpeed: 3

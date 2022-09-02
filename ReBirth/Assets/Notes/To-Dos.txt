@@ -4,28 +4,32 @@
 Tasks Haven't Started:
 	- Jump Buffer code
 		- Check your previous repositories
-
 	- Cinemachine:
 		- Get Cinemachine Virtual Camera to point to other objects
 		- Get Cinemachine Virtual Camera to stay within a set of boundaries
 	- Wall Climb Logic
 		- https://www.youtube.com/watch?v=JGtlja1RStk
+	- Roll Animation and Logic
 
 Bugs Haven't Started:
+	- After a wall jump, small chance to land on the ground during Jump_Up animation.
+		- There is no transition out of this animation, so the player is stuck in Jump_Up
 
 Started but Paused:
 	Tasks:
+		- Key Frame Collision Boxes
+			- Idle [X]
+			- Run [X]
+			- Crouch [X]
+			- Wall Slide [X]
+			- Wall Climb [X]
+			- Jump (Up & Down) [X]
+			- Roll
 	Bugs:
 
 In Progress:
 	Tasks:
-		- Key Frame Collision Boxes
-			- Idle
-			- Run
-			- Crouch
-			- Wall Slide
-			- Wall Climb
-			- Jump (Up & Down)
+		- Crouch -> Idle when exiting tight space while not holding Crouch
 	Bugs:
 
 Archived:

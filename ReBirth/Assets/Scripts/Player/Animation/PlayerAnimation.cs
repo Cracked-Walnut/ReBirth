@@ -57,7 +57,7 @@ public class PlayerAnimation : MonoBehaviour {
             if (_playerMovement.GetIsTouchingWallTop() && _playerMovement.GetIsTouchingWallBottom() && !_characterController2D.GetGrounded()) {
                 
                 // Wall Jump
-                if (_rigidBody2D.velocity.y > 5f) {
+                if (_rigidBody2D.velocity.y > 15f) {
                     ResetTriggers();
                     _spriteRenderer.flipX = false;
                     _animator.SetTrigger("Jump_Up");

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private CharacterController2D _characterController2D;
     [SerializeField] private Rigidbody2D _rigidBody2D;
+    [SerializeField] private Transform _ceilingCheck;
     [Range(0, 80f)] [SerializeField] private float _runSpeed;
     [Range(0, 10f)] [SerializeField] private float _fallMultiplier;
     [Range(0, 10f)] [SerializeField] private float _midMultiplier;
@@ -17,11 +18,13 @@ public class PlayerMovement : MonoBehaviour {
     private bool _doubleJump = false;
     private bool _canDoubleJump = false;
     private bool _crouch = false;
+    private bool _isTouchingCeiling;
     [SerializeField] private bool _canMove = true;
     // private bool _turnAround = false;
 
-    [SerializeField] private float _wallCheckRadius;
+    [SerializeField] private float _genericTransformRadius;
     [SerializeField] private LayerMask _whatIsWall;
+    [SerializeField] private LayerMask _forceCrouchLayers;
 
     [SerializeField] private Transform _wallCheckTop;
     private bool _isTouchingWallTop;
@@ -71,9 +74,11 @@ public class PlayerMovement : MonoBehaviour {
 
     void LateUpdate() {
 
-        _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckTop.transform.position, _wallCheckRadius, _whatIsWall);
-        // _isTouchingWallMiddle = Physics2D.OverlapCircle(_wallCheckMiddle.transform.position, _wallCheckRadius, _whatIsWall);
-        _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckBottom.transform.position, _wallCheckRadius, _whatIsWall);
+        _isTouchingCeiling = Physics2D.OverlapCircle(_ceilingCheck.transform.position, _genericTransformRadius, _forceCrouchLayers);
+
+        _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckTop.transform.position, _genericTransformRadius, _whatIsWall);
+        // _isTouchingWallMiddle = Physics2D.OverlapCircle(_wallCheckMiddle.transform.position, _genericTransformRadius, _whatIsWall);
+        _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckBottom.transform.position, _genericTransformRadius, _whatIsWall);
 
         // when the player is falling, apply more gravity
         if (_rigidBody2D.velocity.y < 0)
@@ -102,17 +107,27 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Crouch() {
-        if (_characterController2D.GetGrounded()) {
+        // if (_characterController2D.GetGrounded()) {
 
             if (Input.GetButtonDown("Crouch")) {
                 _canJump = false;
                 _crouch = true;
             }
             else if (Input.GetButtonUp("Crouch")) {
-                _canJump = true;
-                _crouch = false;
+                if (_isTouchingCeiling) {
+                    _canJump = false;
+                    _crouch = true;
+                }
+                else {
+                    _canJump = true;
+                    _crouch = false;
+                }
             }
-        }
+            // else if (_crouch && !_isTouchingCeiling && !Input.GetButtonDown("Crouch")) {
+            //     _canJump = true;
+            //     _crouch = false;
+            // }
+        // }
     }
 
     private void WallJump() {
