@@ -11,6 +11,12 @@ Tasks Haven't Started:
 	- Slide Animation and Logic
 
 Bugs Haven't Started:
+	- Holding crouch in mid-air slows the player to crouch speed
+	- Holding crouch while rolling slows the player to crouch speed
+	- Jumping while rolling makes the player jump
+	- Roll should perist if player lets go of horizontal keys
+	- Rolling while rolling :'D
+	- Rolling off a ledge should perist rolling animation
 
 Started but Paused:
 	Tasks:
@@ -73,6 +79,7 @@ Finished:
 		- Crouch -> Idle when exiting tight space while not holding Crouch
 			- Check PlayerMovement.cs Crouch() for fix
 		- Add Wall Jump Multiplier float variable
+		- Add Dust Effect to rolling
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine

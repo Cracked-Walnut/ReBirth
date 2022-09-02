@@ -143,7 +143,7 @@ public class CharacterController2D : MonoBehaviour
 
 		// if (_roll) {
 		// 	ResetForce();
-		// 	m_Rigidbody2D.AddForce(new Vector2(Input.GetAxisRaw("Horizontal") * _rollForce, 0f));
+		// 	m_Rigidbody2D.AddForce(new Vector2(0f, 0f));
 		// }
 
 	}

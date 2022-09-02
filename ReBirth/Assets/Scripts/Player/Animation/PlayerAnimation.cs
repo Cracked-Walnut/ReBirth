@@ -82,7 +82,7 @@ public class PlayerAnimation : MonoBehaviour {
     }
 
     void ResetTriggers() {
-         string[] _triggers = {"Idle", "Crouch", "Crouch_Walk", "Run", "Jump_Up", "Jump_Down", "Wall_Slide", "Stop_Running"};
+         string[] _triggers = {"Idle", "Crouch", "Crouch_Walk", "Run", "Jump_Up", "Jump_Down", "Wall_Slide", "Stop_Running", "Roll"};
     
         for (int i = 0; i < _triggers.Length - 1; i++) {
             _animator.ResetTrigger(_triggers[i]);

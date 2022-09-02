@@ -70,10 +70,7 @@ public class PlayerMovement : MonoBehaviour {
                 _canDoubleJump = false;
             }
 
-            if (Input.GetButtonDown("Roll") && _characterController2D.GetGrounded() && !_crouch) {
-                _roll = true;
-                Debug.Log("roll");
-            }
+            Roll();
 
             JumpBuffer();
             Crouch();
@@ -159,6 +156,14 @@ public class PlayerMovement : MonoBehaviour {
             _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
             _canDoubleJump = true; // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
             Debug.Log("Jump Buffer Performed!");
+        }
+    }
+
+    void Roll() {
+        if (Input.GetButtonDown("Roll") && _characterController2D.GetGrounded() && !_crouch) {
+            _roll = true;
+            CreateDust();
+            Debug.Log("roll");
         }
     }
 
