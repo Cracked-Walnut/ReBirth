@@ -7,41 +7,50 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private CharacterController2D _characterController2D;
     [SerializeField] private Rigidbody2D _rigidBody2D;
     [SerializeField] private Transform _ceilingCheck;
+    [SerializeField] private Transform _wallCheckTop;
+    [SerializeField] private Transform _wallCheckBottom;
+    [SerializeField] private GameObject _jumpBuffer;
+
+    [SerializeField] private float _genericTransformRadius;
+    [SerializeField] private float _wallCheckRadius;
+    [SerializeField] private float _wallJumpMultiplier;
+    [SerializeField] private float _jumpBufferRadius;
     [Range(0, 80f)] [SerializeField] private float _runSpeed;
     [Range(0, 10f)] [SerializeField] private float _fallMultiplier;
     [Range(0, 10f)] [SerializeField] private float _midMultiplier;
     [Range(0, 10f)] [SerializeField] private float _lowMultiplier;
-
+    [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
     private float _horizontalMove = 0f;
+    private float _hangCounter;
+    private const float HANG_TIME = .2f;
+
+    [SerializeField] private bool _canMove = true;
     private bool _jump = false;
     private bool _canJump = true;
     private bool _doubleJump = false;
     private bool _canDoubleJump = false;
     private bool _crouch = false;
     private bool _isTouchingCeiling;
-    [SerializeField] private bool _canMove = true;
+    private bool _isTouchingWallTop;
+    private bool _isTouchingWallBottom;
     // private bool _turnAround = false;
 
-    [SerializeField] private float _genericTransformRadius;
     [SerializeField] private LayerMask _whatIsWall;
     [SerializeField] private LayerMask _forceCrouchLayers;
-
-    [SerializeField] private Transform _wallCheckTop;
-    private bool _isTouchingWallTop;
-    
-    // [SerializeField] private Transform _wallCheckMiddle;
-    // private bool _isTouchingWallMiddle;
-
-    [SerializeField] private Transform _wallCheckBottom;
-    private bool _isTouchingWallBottom;
-
-    [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
+    [SerializeField] private LayerMask _whatIsGround;
 
     [SerializeField] private ParticleSystem _particleSystem;
 
+    void Start() => _hangCounter = HANG_TIME; // used for jump assist
 
     // Update is called once per frame
     void Update() {
+
+        // Jump Assist which lets you jump after you've slipped off a platform and pressed jump within .x seconds
+        if (_characterController2D.GetGrounded())
+            _hangCounter = HANG_TIME;
+        else
+            _hangCounter -= Time.deltaTime;
 
         
         if (_canMove) {
@@ -54,11 +63,13 @@ public class PlayerMovement : MonoBehaviour {
             if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded() && _canJump)
                 _jump = true;
 
+            // Check if both Wall Checks are false so Wall Jump and Double Jump JumpForce isn't added together before the player is moved
             if (Input.GetButtonDown("Jump") && !_characterController2D.GetGrounded() && _canDoubleJump && !_isTouchingWallTop && !_isTouchingWallBottom) {
                 _doubleJump = true;
                 _canDoubleJump = false;
             }
 
+            JumpBuffer();
             Crouch();
             WallJump();
         }
@@ -76,9 +87,8 @@ public class PlayerMovement : MonoBehaviour {
 
         _isTouchingCeiling = Physics2D.OverlapCircle(_ceilingCheck.transform.position, _genericTransformRadius, _forceCrouchLayers);
 
-        _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckTop.transform.position, _genericTransformRadius, _whatIsWall);
-        // _isTouchingWallMiddle = Physics2D.OverlapCircle(_wallCheckMiddle.transform.position, _genericTransformRadius, _whatIsWall);
-        _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckBottom.transform.position, _genericTransformRadius, _whatIsWall);
+        _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckTop.transform.position, _wallCheckRadius, _whatIsWall);
+        _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckBottom.transform.position, _wallCheckRadius, _whatIsWall);
 
         // when the player is falling, apply more gravity
         if (_rigidBody2D.velocity.y < 0)
@@ -107,13 +117,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Crouch() {
-        // if (_characterController2D.GetGrounded()) {
-
-            if (Input.GetButtonDown("Crouch")) {
+            if (Input.GetButton("Crouch")) {
                 _canJump = false;
                 _crouch = true;
             }
-            else if (Input.GetButtonUp("Crouch")) {
+            else {
                 if (_isTouchingCeiling) {
                     _canJump = false;
                     _crouch = true;
@@ -123,20 +131,27 @@ public class PlayerMovement : MonoBehaviour {
                     _crouch = false;
                 }
             }
-            // else if (_crouch && !_isTouchingCeiling && !Input.GetButtonDown("Crouch")) {
-            //     _canJump = true;
-            //     _crouch = false;
-            // }
-        // }
     }
 
     private void WallJump() {
         if (_isTouchingWallBottom && _isTouchingWallTop && !_characterController2D.GetGrounded()) {
             if (Input.GetButtonDown("Jump")) {
                 _characterController2D.ResetForce();
-                _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce());
+                _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce() * _wallJumpMultiplier);
                 CreateDust();
             }
+        }
+    }
+
+    void JumpBuffer() {
+        Collider2D _bufferActive = Physics2D.OverlapCircle(_jumpBuffer.transform.position, _jumpBufferRadius, _whatIsGround);
+
+        if (_bufferActive && !_characterController2D.GetGrounded() && Input.GetButtonDown("Jump") && !_isTouchingWallTop && !_isTouchingWallBottom && _hangCounter > 0f && !_doubleJump) {
+            CreateDust();
+            _characterController2D.ResetForce(); // you don't want gravity or other forces applied
+            _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
+            _canDoubleJump = true; // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
+            Debug.Log("Jump Buffer Performed!");
         }
     }
 

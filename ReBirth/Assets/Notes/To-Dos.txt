@@ -2,21 +2,17 @@
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 
 Tasks Haven't Started:
-	- Jump Buffer code
-		- Check your previous repositories
 	- Cinemachine:
 		- Get Cinemachine Virtual Camera to point to other objects
 		- Get Cinemachine Virtual Camera to stay within a set of boundaries
-	- Wall Climb Logic
-		- https://www.youtube.com/watch?v=JGtlja1RStk
 	- Roll Animation and Logic
+	- Slide Animation and Logic
 
 Bugs Haven't Started:
-	- After a wall jump, small chance to land on the ground during Jump_Up animation.
-		- There is no transition out of this animation, so the player is stuck in Jump_Up
 
 Started but Paused:
 	Tasks:
+		- Jump Buffer code
 		- Key Frame Collision Boxes
 			- Idle [X]
 			- Run [X]
@@ -29,7 +25,6 @@ Started but Paused:
 
 In Progress:
 	Tasks:
-		- Crouch -> Idle when exiting tight space while not holding Crouch
 	Bugs:
 
 Archived:
@@ -38,6 +33,8 @@ Archived:
 		- Turn Around animation
 			- Run -> Turn Around -> Run
 			- Might need to modify Idle conditional statements [Horizontal Move]
+		- Wall Climb Logic
+			- https://www.youtube.com/watch?v=JGtlja1RStk
 
 -----------------------------------------------------------------------------------------------
 
@@ -71,6 +68,9 @@ Finished:
 		- Play Jump_Up animation while Wall Jumping
 			- The player is Wall Jumping if their Y velocity is > 5 and both Wall Check is true
 		- CanMove boolean
+		- Crouch -> Idle when exiting tight space while not holding Crouch
+			- Check PlayerMovement.cs Crouch() for fix
+		- Add Wall Jump Multiplier float variable
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
@@ -94,6 +94,8 @@ Finished:
 				- Wrong! I fixed it by adding a transition from Jump_Down to Jump_Up
 		- When Wall Sliding to the ground, player doesn't flip
 			- Modified some conditionals to fix
+		- After a wall jump, small chance to land on the ground during Jump_Up animation.
+			- There is no transition out of this animation, so the player is stuck in Jump_Up [tough to test for, but I've added a transition from Jump_Up -> Running]
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5

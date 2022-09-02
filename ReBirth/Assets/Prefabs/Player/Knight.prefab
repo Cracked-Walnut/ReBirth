@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &266585701755952974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7632165488960696907}
+  m_Layer: 3
+  m_Name: JumpBuffer
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7632165488960696907
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266585701755952974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.72, y: -1.193, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5076788299485293436}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &567336149028498868
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +166,7 @@ Transform:
   - {fileID: 6349842738981855057}
   - {fileID: 6364930850877790344}
   - {fileID: 7172465997548007660}
+  - {fileID: 7632165488960696907}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -236,21 +268,28 @@ MonoBehaviour:
   _characterController2D: {fileID: 1976082033}
   _rigidBody2D: {fileID: 1976082034}
   _ceilingCheck: {fileID: 5076788299485293436}
+  _wallCheckTop: {fileID: 6349842738981855057}
+  _wallCheckBottom: {fileID: 6364930850877790344}
+  _jumpBuffer: {fileID: 266585701755952974}
+  _genericTransformRadius: 0.75
+  _wallCheckRadius: 0.1
+  _wallJumpMultiplier: 1.1
+  _jumpBufferRadius: 1
   _runSpeed: 55
   _fallMultiplier: 4.5
   _midMultiplier: 1
   _lowMultiplier: 1.75
+  _wallSlideSpeed: 3
   _canMove: 1
-  _genericTransformRadius: 1
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 128
   _forceCrouchLayers:
     serializedVersion: 2
     m_Bits: 384
-  _wallCheckTop: {fileID: 6349842738981855057}
-  _wallCheckBottom: {fileID: 6364930850877790344}
-  _wallSlideSpeed: 3
+  _whatIsGround:
+    serializedVersion: 2
+    m_Bits: 64
   _particleSystem: {fileID: 7122412377308681790}
 --- !u!114 &5136171672285880678
 MonoBehaviour:
