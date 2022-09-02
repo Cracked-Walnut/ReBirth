@@ -23,6 +23,10 @@ public class PlayerAnimation : MonoBehaviour {
                     ResetTriggers();
                     _animator.SetTrigger("Crouch");
                 }
+                // else if (_playerMovement.GetRoll()) {
+                //     ResetTriggers();
+                //     _animator.SetTrigger("Roll");
+                // }
                 else {
                     ResetTriggers();
                     _animator.SetTrigger("Idle");
@@ -34,6 +38,10 @@ public class PlayerAnimation : MonoBehaviour {
                     _animator.SetTrigger("Crouch_Walk");
                 }
                 else {
+                    if (_playerMovement.GetRoll()) {
+                        ResetTriggers();
+                        _animator.SetTrigger("Roll");
+                    }
                     ResetTriggers();
                     _animator.SetTrigger("Run");
                 }

@@ -244,6 +244,7 @@ MonoBehaviour:
   _whatIsCeiling:
     serializedVersion: 2
     m_Bits: 384
+  _rollForce: 7500
   m_GroundCheck: {fileID: 421476160177748790}
   m_CrouchDisableCollider: {fileID: 0}
   OnLandEvent:

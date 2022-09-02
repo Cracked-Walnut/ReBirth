@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool _doubleJump = false;
     private bool _canDoubleJump = false;
     private bool _crouch = false;
+    private bool _roll = false;
     private bool _isTouchingCeiling;
     private bool _isTouchingWallTop;
     private bool _isTouchingWallBottom;
@@ -69,6 +70,11 @@ public class PlayerMovement : MonoBehaviour {
                 _canDoubleJump = false;
             }
 
+            if (Input.GetButtonDown("Roll") && _characterController2D.GetGrounded() && !_crouch) {
+                _roll = true;
+                Debug.Log("roll");
+            }
+
             JumpBuffer();
             Crouch();
             WallJump();
@@ -78,9 +84,10 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _crouch, _jump, _doubleJump);
+        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _crouch, _jump, _doubleJump, _roll);
         _jump = false;
         _doubleJump = false;
+        _roll = false;
     }
 
     void LateUpdate() {
@@ -160,6 +167,8 @@ public class PlayerMovement : MonoBehaviour {
     public float GetHorizontalMove() { return _horizontalMove; }
 
     public bool GetCrouch() { return _crouch; }
+
+    public bool GetRoll() { return _roll; }
 
     public bool GetJump() { return _jump; }
 

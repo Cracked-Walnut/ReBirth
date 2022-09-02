@@ -6,6 +6,8 @@ Tasks Haven't Started:
 		- Get Cinemachine Virtual Camera to point to other objects
 		- Get Cinemachine Virtual Camera to stay within a set of boundaries
 	- Roll Animation and Logic
+		- If continuining to roll, keep moving in desired direction regardless of horizontal input
+		- increase speed while rolling
 	- Slide Animation and Logic
 
 Bugs Haven't Started:

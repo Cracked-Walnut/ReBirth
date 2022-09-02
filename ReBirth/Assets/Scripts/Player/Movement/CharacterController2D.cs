@@ -9,6 +9,7 @@ public class CharacterController2D : MonoBehaviour
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private LayerMask _whatIsCeiling;
+	[SerializeField] private float _rollForce;
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	// [SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
 	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
@@ -63,7 +64,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	public void Move(float move, bool crouch, bool jump, bool doubleJump)
+	public void Move(float move, bool crouch, bool jump, bool doubleJump, bool _roll)
 	{
 		// If crouching, check to see if the character can stand up
 		// if (!crouch)
@@ -134,10 +135,17 @@ public class CharacterController2D : MonoBehaviour
             _playerMovement.CreateDust();
 
 		}
+		
 		if (doubleJump && (!_playerMovement.GetIsTouchingWallBottom() || !_playerMovement.GetIsTouchingWallTop())) {
 			ResetForce();
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * .85f));
 		}
+
+		// if (_roll) {
+		// 	ResetForce();
+		// 	m_Rigidbody2D.AddForce(new Vector2(Input.GetAxisRaw("Horizontal") * _rollForce, 0f));
+		// }
+
 	}
 
 	public bool GetGrounded() {
