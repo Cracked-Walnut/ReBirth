@@ -10,6 +10,8 @@ Tasks Haven't Started:
 		- increase speed while rolling
 	- Slide Animation and Logic
 	- Change CircleCollider to BoxCollider
+	- Change Jump animations to Roll?
+		- For Wall Jump?
 
 Bugs Haven't Started:
 	- Holding crouch while rolling slows the player to crouch speed

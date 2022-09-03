@@ -272,15 +272,17 @@ MonoBehaviour:
   _wallCheckTop: {fileID: 6349842738981855057}
   _wallCheckBottom: {fileID: 6364930850877790344}
   _jumpBuffer: {fileID: 266585701755952974}
-  _genericTransformRadius: 0.75
-  _wallCheckRadius: 0.1
-  _wallJumpMultiplier: 1.1
-  _jumpBufferRadius: 1
   _runSpeed: 55
+  _movementSmoothing: 0.05
   _fallMultiplier: 4.5
   _midMultiplier: 1
   _lowMultiplier: 1.75
   _wallSlideSpeed: 3
+  _genericTransformRadius: 0.75
+  _wallCheckRadius: 0.1
+  _wallJumpMultiplier: 1.1
+  _jumpBufferRadius: 1
+  _rollSpeed: 5000
   _canMove: 1
   _whatIsWall:
     serializedVersion: 2
