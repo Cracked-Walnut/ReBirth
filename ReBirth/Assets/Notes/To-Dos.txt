@@ -9,9 +9,9 @@ Tasks Haven't Started:
 		- If continuining to roll, keep moving in desired direction regardless of horizontal input
 		- increase speed while rolling
 	- Slide Animation and Logic
+	- Change CircleCollider to BoxCollider
 
 Bugs Haven't Started:
-	- Holding crouch in mid-air slows the player to crouch speed
 	- Holding crouch while rolling slows the player to crouch speed
 	- Jumping while rolling makes the player jump
 	- Roll should perist if player lets go of horizontal keys
@@ -105,6 +105,7 @@ Finished:
 			- Modified some conditionals to fix
 		- After a wall jump, small chance to land on the ground during Jump_Up animation.
 			- There is no transition out of this animation, so the player is stuck in Jump_Up [tough to test for, but I've added a transition from Jump_Up -> Running]
+		- Holding crouch in mid-air slows the player to crouch speed
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5

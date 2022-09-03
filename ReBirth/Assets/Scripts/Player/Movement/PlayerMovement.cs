@@ -11,18 +11,19 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Transform _wallCheckBottom;
     [SerializeField] private GameObject _jumpBuffer;
 
-    [SerializeField] private float _genericTransformRadius;
-    [SerializeField] private float _wallCheckRadius;
-    [SerializeField] private float _wallJumpMultiplier;
-    [SerializeField] private float _jumpBufferRadius;
     [Range(0, 80f)] [SerializeField] private float _runSpeed;
     [Range(0, 10f)] [SerializeField] private float _fallMultiplier;
     [Range(0, 10f)] [SerializeField] private float _midMultiplier;
     [Range(0, 10f)] [SerializeField] private float _lowMultiplier;
     [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
+    [SerializeField] private float _genericTransformRadius;
+    [SerializeField] private float _wallCheckRadius;
+    [SerializeField] private float _wallJumpMultiplier;
+    [SerializeField] private float _jumpBufferRadius;
+    [SerializeField] private float _rollSpeed;
+    private const float HANG_TIME = .2f;
     private float _horizontalMove = 0f;
     private float _hangCounter;
-    private const float HANG_TIME = .2f;
 
     [SerializeField] private bool _canMove = true;
     private bool _jump = false;
@@ -121,6 +122,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void Crouch() {
+        if (_characterController2D.GetGrounded()) {
             if (Input.GetButton("Crouch")) {
                 _canJump = false;
                 _crouch = true;
@@ -135,6 +137,7 @@ public class PlayerMovement : MonoBehaviour {
                     _crouch = false;
                 }
             }
+        }
     }
 
     private void WallJump() {
