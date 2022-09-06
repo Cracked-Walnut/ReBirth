@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool _canDoubleJump = false;
     private bool _crouch = false;
     private bool _roll = false;
+    private bool _isRolling = false;
     private bool _isTouchingCeiling;
     private bool _isTouchingWallTop;
     private bool _isTouchingWallBottom;
@@ -47,6 +48,8 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+
+        Debug.Log(_isRolling);
 
         // Jump Assist which lets you jump after you've slipped off a platform and pressed jump within .x seconds
         if (_characterController2D.GetGrounded())
@@ -71,7 +74,7 @@ public class PlayerMovement : MonoBehaviour {
                 _canDoubleJump = false;
             }
 
-            Roll();
+            // Roll();
 
             JumpBuffer();
             Crouch();
@@ -165,6 +168,7 @@ public class PlayerMovement : MonoBehaviour {
     void Roll() {
         if (Input.GetButtonDown("Roll") && _characterController2D.GetGrounded() && !_crouch) {
             _roll = true;
+            _isRolling = true;
             CreateDust();
             Debug.Log("roll");
         }
