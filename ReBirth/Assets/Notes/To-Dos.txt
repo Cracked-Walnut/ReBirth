@@ -14,11 +14,6 @@ Tasks Haven't Started:
 		- For Wall Jump?
 
 Bugs Haven't Started:
-	- Holding crouch while rolling slows the player to crouch speed
-	- Jumping while rolling makes the player jump
-	- Roll should perist if player lets go of horizontal keys
-	- Rolling while rolling :'D
-	- Rolling off a ledge should perist rolling animation
 
 Started but Paused:
 	Tasks:
@@ -31,6 +26,11 @@ Started but Paused:
 			- Wall Climb [X]
 			- Jump (Up & Down) [X]
 			- Roll
+		- Animations:
+			- Attack 1
+			- Attack 2
+		- Logic:
+			- Attack
 	Bugs:
 
 In Progress:
@@ -45,6 +45,13 @@ Archived:
 			- Might need to modify Idle conditional statements [Horizontal Move]
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
+	
+	Bugs:
+		- Holding crouch while rolling slows the player to crouch speed
+		- Jumping while rolling makes the player jump
+		- Roll should perist if player lets go of horizontal keys
+		- Rolling while rolling :'D
+		- Rolling off a ledge should perist rolling animation
 
 -----------------------------------------------------------------------------------------------
 
