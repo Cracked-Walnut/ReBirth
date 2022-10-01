@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+Purpose:
+    To handle animation related logic for the player model.
+Last Edited:
+    09-30-22.
+*/
 public class PlayerAnimation : MonoBehaviour {
 
     [SerializeField] private PlayerMovement _playerMovement;
@@ -12,12 +18,13 @@ public class PlayerAnimation : MonoBehaviour {
 
     void LateUpdate() {
 
-
+        // flip player when they've touched the ground
         if (_characterController2D.GetGrounded()) {
             _spriteRenderer.flipX = false;
             
             _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
 
+            // set animation
             if (_playerMovement.GetHorizontalMove() == 0) {
                 if (_playerMovement.GetCrouch()) {
                     ResetTriggers();
@@ -47,12 +54,13 @@ public class PlayerAnimation : MonoBehaviour {
                 }
             }
         }
+        // if the player isn't grounded
         else {
             _animator.SetBool("IsGrounded", _characterController2D.GetGrounded());
-
             _animator.SetBool("IsTouchingWallTop", _playerMovement.GetIsTouchingWallTop());
             _animator.SetBool("IsTouchingWallBottom", _playerMovement.GetIsTouchingWallBottom());
 
+            // handle jump animation while airborne
             if (_rigidBody2D.velocity.y > 0) {
                 ResetTriggers();
                 _animator.SetTrigger("Jump_Up");
@@ -62,9 +70,10 @@ public class PlayerAnimation : MonoBehaviour {
                 _animator.SetTrigger("Jump_Down");
             }
 
+            // contact with wall + not grounded
             if (_playerMovement.GetIsTouchingWallTop() && _playerMovement.GetIsTouchingWallBottom() && !_characterController2D.GetGrounded()) {
                 
-                // Wall Jump
+                // wall jump animation update
                 if (_rigidBody2D.velocity.y > 15f) {
                     ResetTriggers();
                     _spriteRenderer.flipX = false;
