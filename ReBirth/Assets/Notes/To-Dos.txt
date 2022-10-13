@@ -9,7 +9,6 @@ Tasks Haven't Started:
 		- If continuining to roll, keep moving in desired direction regardless of horizontal input
 		- increase speed while rolling
 	- Slide Animation and Logic
-	- Change CircleCollider to BoxCollider
 	- Change Jump animations to Roll?
 		- For Wall Jump?
 
@@ -31,10 +30,13 @@ Started but Paused:
 			- Attack 2
 		- Logic:
 			- Attack
+
+	
 	Bugs:
 
 In Progress:
 	Tasks:
+		- Breakable Walls
 	Bugs:
 
 Archived:

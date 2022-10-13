@@ -1,0 +1,110 @@
+This video is gonna get pretty technical, so buckle up,
+but I'll try my best to make it entertaining.
+
+Despite the simple movement style, 
+there's a lot happening under the hood that 
+I'd like to talk about.
+
+For starters, let's take a look at the player
+character.
+
+You'll notice coloured diamonds around him.
+
+Each of these objects plays a pivotal role.
+
+The colours aren't too significant outside of 
+organization, but they do group together the 
+functionality of the objects.
+
+Oranges - Wall Checks. Used to trigger a wall slide
+animation if they're both active.
+
+Reds - Ceiling and ground checks. Helps to trigger
+the correct animation, whether that's idle or
+crouched or whatever.
+
+Green - When the character jumps, some dust is played.
+That dust is played at this green diamond.
+
+Yellow - A jump assist object. Lets you jump 
+within a timeframe if you'ved walked off a platform.
+Doesn't work at the moment.
+
+Now onto the movement.
+
+Pressing right or left while on the ground moves
+the character. Same is done in the air.
+
+Pressing space or up arrow makes the player jump,
+but only if the player is on the ground and they're
+allowed to jump.
+
+The double jump is interesting because it has no
+way of knowing if the player jumped the first time.
+You can actually double jump by walking off a
+platform and pressing jump. That counts as a
+double jump.
+
+But what are the conditions to trigger a double
+jump?
+
+Well, the double jump boolean needs to be true.
+This only happens if the player is in the air,
+can double jump (another boolean lol) and isn't
+touching a wall (so the correct animation plays).
+
+On the next line of code, you disable can double
+jump. Otherwise, you can infinitely double
+jump. You make can double jump true if you
+touch the ground, letting you double jump again.
+
+What this means is, you can only double jump
+once before touching the ground. Then the logic
+resets.
+
+Pressing and holding the down key will crouch the
+player. Tapping the down key will initiate the 
+all-important T-bagging.
+
+It's important to write a check to make sure the player
+is on the ground if they wanna crouch. This ensures
+the correct animation is shown on-screen.
+
+This next part was pretty tricky, but it paid off as
+it makes controlling the player much easier.
+
+Basically, if you're crouched underneath a low hanging
+ceiling and let go of the crouch key, the player will
+stay crouched.
+
+I had some spaghetti code action that prevented me from
+implementing this idea, but I got it working in the
+end. And of course you gotta disable jumping if you're
+crouching underneath a ceiling. Otherwise, let the
+player be able to jump again.
+
+The wall jump code is pretty simple.
+
+If both wall checks return true and the player isn't
+grounded, check if the player jumped.
+
+If they did, reset their velocity (you do this because
+you don't want velocity accumulating. Otherwise the
+physics won't work propely). Then, apply the wall jump
+force. I've also got some dust playing.
+
+I've also got a mountain of variables controlling
+everything. One of these variables disables movement
+entirely. Useful for cutscenes.
+
+I've got terminal velocity working too, which is a
+nice touch.
+
+Some things I'm aiming to implement in the
+future, are rolling and the jump assist I mentioned
+earlier.
+
+I'd like to discuss the animations and how they work
+in a later video.
+
+---
