@@ -6,7 +6,7 @@ using UnityEngine;
 Purpose:
     To handle all movement related logic for the player model.
 Last Edited:
-    10-01-22.
+    10-14-22.
 */
 public class PlayerMovement : MonoBehaviour {
 
@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Transform _wallCheckTop;
     [SerializeField] private Transform _wallCheckBottom;
     
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private GameObject _jumpBuffer;
 
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float _wallCheckRadius;
     [SerializeField] private float _wallJumpMultiplier;
     [SerializeField] private float _jumpBufferRadius;
-    // [SerializeField] private float _rollSpeed;
+    [SerializeField] private float _rollSpeed;
     private const float HANG_TIME = .2f; // time allowed to jump after walking off ledge
     private float _horizontalMove = 0f;
     private float _hangCounter;
@@ -62,15 +63,13 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update() {
 
-        Debug.Log(_isRolling);
-
         // Jump Assist which lets you jump after you've slipped off a platform and pressed jump within .x seconds
         if (_characterController2D.GetGrounded())
             _hangCounter = HANG_TIME;
         else
             _hangCounter -= Time.deltaTime;
 
-        if (_canMove) {
+        if (_canMove && !_isRolling) {
             _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
 
             if (_horizontalMove != 0)
@@ -97,8 +96,12 @@ public class PlayerMovement : MonoBehaviour {
             WallJump();
         }
         // if the player input is disabled, make sure to stop the player model
-        else
+        else if (!_canMove && !_isRolling)
             _horizontalMove = 0;
+        else if (_isRolling && _characterController2D.GetFacingRight())// and facing the right
+            _horizontalMove = _rollSpeed;
+        else if (_isRolling && !_characterController2D.GetFacingRight())// and facing the left
+            _horizontalMove = -_rollSpeed;
     }
 
     void FixedUpdate() {
@@ -144,7 +147,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Crouch() {
         if (_characterController2D.GetGrounded()) {
-            if (Input.GetButton("Crouch")) {
+            if (Input.GetButton("Crouch") && !_isRolling) {
                 _canJump = false;
                 _crouch = true;
             }

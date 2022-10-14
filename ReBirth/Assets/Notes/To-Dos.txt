@@ -14,17 +14,12 @@ Bugs Haven't Started:
 Started but Paused:
 	Tasks:
 		- Jump Buffer code
-		- Key Frame Collision Boxes
-			- Idle [X]
-			- Run [X]
-			- Crouch [X]
-			- Wall Slide [X]
-			- Wall Climb [X]
-			- Jump (Up & Down) [X]
-			- Roll
 
 	Bugs:
 		- isRolling not set to false if rolling anim cut short
+			- set flags in all animations it can cut to
+		- Rolling off a ledge should perist rolling animation
+			- if you roll off a ledge, keep rolling, then transition into appropriate animation
 
 In Progress:
 	Tasks:
@@ -43,11 +38,6 @@ Archived:
 			- Attack 2
 	
 	Bugs:
-		- Holding crouch while rolling slows the player to crouch speed
-		- Jumping while rolling makes the player jump
-		- Roll should perist if player lets go of horizontal keys
-		- Rolling while rolling :'D
-		- Rolling off a ledge should perist rolling animation
 
 -----------------------------------------------------------------------------------------------
 
@@ -92,6 +82,14 @@ Finished:
 			- prevent attacking while rolling
 			- invulnerable while rolling
 			- rolling cooldown
+		- Key Frame Collision Boxes
+			- Idle [X]
+			- Run [X]
+			- Crouch [X]
+			- Wall Slide [X]
+			- Wall Climb [X]
+			- Jump (Up & Down) [X]
+			- Roll [x]
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
@@ -118,6 +116,8 @@ Finished:
 		- After a wall jump, small chance to land on the ground during Jump_Up animation.
 			- There is no transition out of this animation, so the player is stuck in Jump_Up [tough to test for, but I've added a transition from Jump_Up -> Running]
 		- Holding crouch in mid-air slows the player to crouch speed
+		- Holding crouch while rolling slows the player to crouch speed
+		- Roll should perist if player lets go of horizontal keys
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5

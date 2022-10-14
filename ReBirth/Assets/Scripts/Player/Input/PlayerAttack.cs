@@ -6,7 +6,7 @@ using UnityEngine;
 Purpose:
     To handle player attack logic.
 Last Edited:
-    10-10-22.
+    10-13-22.
 */
 public class PlayerAttack : MonoBehaviour {
 

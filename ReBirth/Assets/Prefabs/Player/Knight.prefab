@@ -273,6 +273,7 @@ MonoBehaviour:
   _ceilingCheck: {fileID: 5076788299485293436}
   _wallCheckTop: {fileID: 6349842738981855057}
   _wallCheckBottom: {fileID: 6364930850877790344}
+  _spriteRenderer: {fileID: 2794475222290305461}
   _jumpBuffer: {fileID: 266585701755952974}
   _runSpeed: 55
   _fallMultiplier: 4.5
@@ -283,6 +284,7 @@ MonoBehaviour:
   _wallCheckRadius: 0.1
   _wallJumpMultiplier: 1.1
   _jumpBufferRadius: 1
+  _rollSpeed: 65
   _canMove: 1
   _whatIsWall:
     serializedVersion: 2
