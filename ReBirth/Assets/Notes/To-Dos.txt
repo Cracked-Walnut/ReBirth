@@ -5,12 +5,9 @@ Tasks Haven't Started:
 	- Cinemachine:
 		- Get Cinemachine Virtual Camera to point to other objects
 		- Get Cinemachine Virtual Camera to stay within a set of boundaries
-	- Roll Animation and Logic
-		- If continuining to roll, keep moving in desired direction regardless of horizontal input
-		- increase speed while rolling
+
+
 	- Slide Animation and Logic
-	- Change Jump animations to Roll?
-		- For Wall Jump?
 
 Bugs Haven't Started:
 
@@ -25,18 +22,12 @@ Started but Paused:
 			- Wall Climb [X]
 			- Jump (Up & Down) [X]
 			- Roll
-		- Animations:
-			- Attack 1
-			- Attack 2
-		- Logic:
-			- Attack
 
-	
 	Bugs:
+		- isRolling not set to false if rolling anim cut short
 
 In Progress:
 	Tasks:
-		- Breakable Walls
 	Bugs:
 
 Archived:
@@ -47,6 +38,9 @@ Archived:
 			- Might need to modify Idle conditional statements [Horizontal Move]
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
+		- Animations:
+			- Attack 1
+			- Attack 2
 	
 	Bugs:
 		- Holding crouch while rolling slows the player to crouch speed
@@ -91,6 +85,13 @@ Finished:
 			- Check PlayerMovement.cs Crouch() for fix
 		- Add Wall Jump Multiplier float variable
 		- Add Dust Effect to rolling
+		- Breakable Walls
+		- Logic:
+			- Attack
+		- Roll Animation and Logic
+			- prevent attacking while rolling
+			- invulnerable while rolling
+			- rolling cooldown
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine

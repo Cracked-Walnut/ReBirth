@@ -29,28 +29,30 @@ public class PlayerAnimation : MonoBehaviour {
                 if (_playerMovement.GetCrouch()) {
                     ResetTriggers();
                     _animator.SetTrigger("Crouch");
+                
                 }
-                // else if (_playerMovement.GetRoll()) {
-                //     ResetTriggers();
-                //     _animator.SetTrigger("Roll");
-                // }
-                else if (!_playerMovement.GetCrouch()) {
+                else {
                     ResetTriggers();
                     _animator.SetTrigger("Idle");
+                
                 }
             }
             else if (_playerMovement.GetHorizontalMove() != 0) {
                 if (_playerMovement.GetCrouch()) {
                     ResetTriggers();
                     _animator.SetTrigger("Crouch_Walk");
+                
                 }
                 else {
                     if (_playerMovement.GetRoll()) {
                         ResetTriggers();
                         _animator.SetTrigger("Roll");
                     }
-                    ResetTriggers();
-                    _animator.SetTrigger("Run");
+                    else {
+                        ResetTriggers();
+                        _animator.SetTrigger("Run");
+                    
+                    }
                 }
             }
         }
@@ -64,10 +66,12 @@ public class PlayerAnimation : MonoBehaviour {
             if (_rigidBody2D.velocity.y > 0) {
                 ResetTriggers();
                 _animator.SetTrigger("Jump_Up");
+            
             }
             else if (_rigidBody2D.velocity.y < 0) {
                 ResetTriggers();
                 _animator.SetTrigger("Jump_Down");
+            
             }
 
             // contact with wall + not grounded
@@ -78,11 +82,13 @@ public class PlayerAnimation : MonoBehaviour {
                     ResetTriggers();
                     _spriteRenderer.flipX = false;
                     _animator.SetTrigger("Jump_Up");
+                
                 }
                 else {
                     ResetTriggers();
                     _spriteRenderer.flipX = true;
                     _animator.SetTrigger("Wall_Slide");
+                
                 }
             }
             else if (!_playerMovement.GetIsTouchingWallTop() && !_playerMovement.GetIsTouchingWallBottom())
