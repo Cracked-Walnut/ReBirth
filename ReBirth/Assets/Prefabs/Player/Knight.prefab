@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 7768883258844817835}
   - component: {fileID: 5136171672285880678}
   - component: {fileID: 8837755243083025964}
+  - component: {fileID: 1976082041}
   - component: {fileID: 1976082034}
   - component: {fileID: 1948676875057181799}
   - component: {fileID: 6682722365109449382}
@@ -307,6 +308,7 @@ MonoBehaviour:
   _wallCheckBottom: {fileID: 6364930850877790344}
   _spriteRenderer: {fileID: 2794475222290305461}
   _jumpBuffer: {fileID: 266585701755952974}
+  _wallJumpBuffer: {fileID: 559695268222863943}
   _runSpeed: 55
   _fallMultiplier: 4.5
   _midMultiplier: 1
@@ -315,9 +317,24 @@ MonoBehaviour:
   _genericTransformRadius: 0.75
   _wallCheckRadius: 0.1
   _wallJumpMultiplier: 1.1
-  _jumpBufferRadius: 1
+  _jumpBufferRadius: 0.5
+  _wallJumpBufferRadius: 1
   _rollSpeed: 65
+  _horizontalMove: 0
+  _hangCounter: 0
+  _jumpHangCounter: 0
   _canMove: 1
+  _isMoving: 0
+  _jump: 0
+  _canJump: 1
+  _doubleJump: 0
+  _canDoubleJump: 0
+  _crouch: 0
+  _roll: 0
+  _isRolling: 0
+  _isTouchingCeiling: 0
+  _isTouchingWallTop: 0
+  _isTouchingWallBottom: 0
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 128
@@ -363,6 +380,22 @@ MonoBehaviour:
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 1024
+--- !u!114 &1976082041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540457832135706004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effdbe47e61f53c4d95f23a34c3302cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerMovement: {fileID: 7768883258844817835}
+  _characterController2D: {fileID: 1976082033}
+  _drawJumpBuffer: 1
+  _drawGroundedRadius: 1
 --- !u!50 &1976082034
 Rigidbody2D:
   serializedVersion: 4

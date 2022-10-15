@@ -12,61 +12,65 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private CharacterController2D _characterController2D;
     [SerializeField] private Rigidbody2D _rigidBody2D;
-    [SerializeField] private Transform _ceilingCheck;
+    [SerializeField] private Transform _ceilingCheck,
+        _wallCheckTop,
+        _wallCheckBottom;// two wall checks to determine to wall slide
 
-    // two wall checks to determine to wall slide
-    [SerializeField] private Transform _wallCheckTop;
-    [SerializeField] private Transform _wallCheckBottom;
-    
     [SerializeField] private SpriteRenderer _spriteRenderer;
-
-    [SerializeField] private GameObject _jumpBuffer;
-
+    [SerializeField] private GameObject _jumpBuffer, 
+        _wallJumpBuffer;
     [Range(0, 80f)] [SerializeField] private float _runSpeed;
 
     // variables to manipulate player gravity 
-    [Range(0, 10f)] [SerializeField] private float _fallMultiplier;
-    [Range(0, 10f)] [SerializeField] private float _midMultiplier;
-    [Range(0, 10f)] [SerializeField] private float _lowMultiplier;
+    [Range(0, 10f)] [SerializeField] private float _fallMultiplier, 
+        _midMultiplier, 
+        _lowMultiplier, 
+        _wallSlideSpeed;
     
-    [Range(0, 10f)] [SerializeField] private float _wallSlideSpeed;
-    [SerializeField] private float _genericTransformRadius;
-    [SerializeField] private float _wallCheckRadius;
-    [SerializeField] private float _wallJumpMultiplier;
-    [SerializeField] private float _jumpBufferRadius;
-    [SerializeField] private float _rollSpeed;
-    private const float HANG_TIME = .2f; // time allowed to jump after walking off ledge
-    private const float WALL_HANG_TIME = .2f; // time allowed to single jump after letting go of a ledge
-    private float _horizontalMove = 0f;
-    private float _hangCounter;
+    [SerializeField] private float _genericTransformRadius, 
+        _wallCheckRadius, 
+        _wallJumpMultiplier, 
+        _jumpBufferRadius, 
+        _wallJumpBufferRadius, 
+        _rollSpeed,
+        _horizontalMove = 0f,
+        _hangCounter, 
+        _jumpHangCounter;
+    private const float HANG_TIME = .2f, // time allowed to jump after walking off ledge
+        WALL_HANG_TIME = .2f; // time allowed to single jump after letting go of a ledge
 
-    [SerializeField] private bool _canMove = true;
-    private bool _isMoving = false;
-    private bool _jump = false;
-    private bool _canJump = true;
-    private bool _doubleJump = false;
-    private bool _canDoubleJump = false;
-    private bool _crouch = false;
-    private bool _roll = false;
-    private bool _isRolling = false;
-    private bool _isTouchingCeiling;
-    private bool _isTouchingWallTop;
-    private bool _isTouchingWallBottom;
+    [SerializeField] private bool _canMove = true,
+        _isMoving = false,
+        _jump = false,
+        _canJump = true,
+        _doubleJump = false,
+        _canDoubleJump = false,
+        _crouch = false,
+        _roll = false,
+        _isRolling = false,
+        _isTouchingCeiling,
+        _isTouchingWallTop,
+        _isTouchingWallBottom;
     // private bool _turnAround = false;
 
-    [SerializeField] private LayerMask _whatIsWall; // placed on walls which the player can wall slide
-    [SerializeField] private LayerMask _forceCrouchLayers; // placed on low-hanging, crouchable ceilings
-    [SerializeField] private LayerMask _whatIsGround; // player ground animations only trigger on this layer
+    [SerializeField] private LayerMask _whatIsWall, // placed on walls which the player can wall slide
+        _forceCrouchLayers, // placed on low-hanging, crouchable ceilings
+        _whatIsGround; // player ground animations only trigger on this layer
 
     [SerializeField] private ParticleSystem _particleSystem;
 
-    void Start() => _hangCounter = HANG_TIME; // used for jump assist
+    void Start() { 
+        _hangCounter = HANG_TIME; // used for jump assist
+        _jumpHangCounter = HANG_TIME;
+    }
 
     void Update() {
 
         // Jump Assist which lets you jump after you've slipped off a platform and pressed jump within .x seconds
-        if (_characterController2D.GetGrounded())
+        if (_characterController2D.GetGrounded()) {
             _hangCounter = HANG_TIME;
+            _jumpHangCounter = HANG_TIME;
+        }
         else
             _hangCounter -= Time.deltaTime;
 
@@ -93,7 +97,7 @@ public class PlayerMovement : MonoBehaviour {
 
             Roll();
             JumpBuffer();
-            WallJumpBuffer();
+            // WallJumpBuffer();
             Crouch();
             WallJump();
         }
@@ -195,10 +199,10 @@ public class PlayerMovement : MonoBehaviour {
 
     // jump assist for when you let go of wall sliding before wall jumping and you intend to wall jump
     private void WallJumpBuffer() {
-        Collider2D _bufferActive = Physics2D.OverlapCircle(_jumpBuffer.transform.position, _jumpBufferRadius, _whatIsWall);
+        Collider2D _bufferActive = Physics2D.OverlapCircle(_wallJumpBuffer.transform.position, _wallJumpBufferRadius, _whatIsWall);
 
         if (_bufferActive && !_characterController2D.GetGrounded() && Input.GetButtonDown("Jump") && 
-            !_isTouchingWallTop && !_isTouchingWallBottom && _hangCounter > 0f) {
+            !_isTouchingWallTop && !_isTouchingWallBottom && _jumpHangCounter > 0f) {
             CreateDust();
             _characterController2D.ResetForce(); // you don't want gravity or other forces applied
             _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
@@ -212,9 +216,11 @@ public class PlayerMovement : MonoBehaviour {
             _roll = true;
             _isRolling = true;
             CreateDust();
-            Debug.Log("roll");
+            Debug.Log("Roll");
         }
     }
+
+    public GameObject GetJumpBuffer() { return _jumpBuffer; }
 
     public void CreateDust() { _particleSystem.Play(); }
     public void SetIsRolling(bool _isRolling) { this._isRolling = _isRolling; }
@@ -222,6 +228,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public float GetHorizontalMove() { return _horizontalMove; }
     public float GetHangCounter() { return _hangCounter; }
+    public float GetJumpBufferRadius() { return _jumpBufferRadius; }
 
     public bool GetCrouch() { return _crouch; }
     public bool GetRoll() { return _roll; }

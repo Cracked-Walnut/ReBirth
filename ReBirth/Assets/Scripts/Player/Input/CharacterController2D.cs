@@ -137,7 +137,8 @@ public class CharacterController2D : MonoBehaviour
 
 		}
 		
-		if (doubleJump && (!_playerMovement.GetIsTouchingWallBottom() || !_playerMovement.GetIsTouchingWallTop()) && _playerMovement.GetHangCounter() < 0f) {
+		if (doubleJump && (!_playerMovement.GetIsTouchingWallBottom() || !_playerMovement.GetIsTouchingWallTop()) /*&& 
+			_playerMovement.GetHangCounter() < 0f*/) {
 			ResetForce();
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * .85f));
 			Debug.Log("Double Jump");
@@ -154,12 +155,20 @@ public class CharacterController2D : MonoBehaviour
 		return m_Grounded;
 	}
 
+	public Transform GetGroundCheck() {
+		return m_GroundCheck;
+	}
+
 	public float GetJumpForce() {
 		return m_JumpForce;
 	}
 
 	public bool GetFacingRight() {
 		return m_FacingRight;
+	}
+
+	public float GetGroundedRadius() {
+		return k_GroundedRadius;
 	}
 
 	public void ApplyForce(float _x, float _y) => m_Rigidbody2D.AddForce(new Vector2(_x, _y));
