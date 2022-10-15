@@ -6,23 +6,22 @@ Tasks Haven't Started:
 		- Get Cinemachine Virtual Camera to point to other objects
 		- Get Cinemachine Virtual Camera to stay within a set of boundaries
 
-
-	- Slide Animation and Logic
-
 Bugs Haven't Started:
 
 Started but Paused:
 	Tasks:
-		- Jump Buffer code
 
 	Bugs:
 		- isRolling not set to false if rolling anim cut short
 			- set flags in all animations it can cut to
 		- Rolling off a ledge should perist rolling animation
 			- if you roll off a ledge, keep rolling, then transition into appropriate animation
+		- walking off a ledge and jumping doesn't work
+		- jump buffer launches you into the air
 
 In Progress:
 	Tasks:
+		- Wall Jump Buffer
 	Bugs:
 
 Archived:
@@ -36,6 +35,7 @@ Archived:
 		- Animations:
 			- Attack 1
 			- Attack 2
+		- Slide Animation and Logic
 	
 	Bugs:
 
@@ -90,6 +90,7 @@ Finished:
 			- Wall Climb [X]
 			- Jump (Up & Down) [X]
 			- Roll [x]
+		- Jump Buffer code
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
