@@ -45,7 +45,15 @@ public class PlayerAttack : MonoBehaviour {
         foreach(Collider2D _wallsHit in _hitWall) {
             Destroy(_wallsHit.gameObject);
         }
-     }
+    }
+
+    public Transform GetAttackPoint() {
+        return _attackPoint;
+    }
+
+    public float GetAttackRange() {
+        return _attackRange;
+    }
     
     // Stationary Attack
     // Moving Attack

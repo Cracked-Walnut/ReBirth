@@ -394,8 +394,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMovement: {fileID: 7768883258844817835}
   _characterController2D: {fileID: 1976082033}
+  _playerAttack: {fileID: 8837755243083025964}
   _drawJumpBuffer: 1
   _drawGroundedRadius: 1
+  _drawAttackPoint: 0
 --- !u!50 &1976082034
 Rigidbody2D:
   serializedVersion: 4

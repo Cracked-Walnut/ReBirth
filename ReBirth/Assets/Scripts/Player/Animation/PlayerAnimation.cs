@@ -71,7 +71,7 @@ public class PlayerAnimation : MonoBehaviour {
             else if (_rigidBody2D.velocity.y < 0) {
                 ResetTriggers();
                 _animator.SetTrigger("Jump_Down");
-            
+                _playerMovement.SetIsRolling(false); // without this, the player is softlocked after rolling off a ledge
             }
 
             // contact with wall + not grounded

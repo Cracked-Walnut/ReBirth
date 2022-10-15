@@ -24450,7 +24450,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8942826, y: 1}
+    m_SensorSize: {x: 1.8565264, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -24514,6 +24514,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1976082041, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
+      propertyPath: _drawAttackPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2540457832135706004, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: m_Name
       value: Knight

@@ -10,18 +10,15 @@ Bugs Haven't Started:
 
 Started but Paused:
 	Tasks:
-
+		- Wall Jump Buffer
+		- Wall Climb Logic
+			- https://www.youtube.com/watch?v=JGtlja1RStk
 	Bugs:
-		- isRolling not set to false if rolling anim cut short
-			- set flags in all animations it can cut to
-		- Rolling off a ledge should perist rolling animation
-			- if you roll off a ledge, keep rolling, then transition into appropriate animation
 		- walking off a ledge and jumping doesn't work
-		- jump buffer launches you into the air
+			- Seems to be a bug when hangCounter >= 0f
 
 In Progress:
 	Tasks:
-		- Wall Jump Buffer
 	Bugs:
 
 Archived:
@@ -30,8 +27,6 @@ Archived:
 		- Turn Around animation
 			- Run -> Turn Around -> Run
 			- Might need to modify Idle conditional statements [Horizontal Move]
-		- Wall Climb Logic
-			- https://www.youtube.com/watch?v=JGtlja1RStk
 		- Animations:
 			- Attack 1
 			- Attack 2
@@ -119,6 +114,12 @@ Finished:
 		- Holding crouch in mid-air slows the player to crouch speed
 		- Holding crouch while rolling slows the player to crouch speed
 		- Roll should perist if player lets go of horizontal keys
+		- rolling while crouched under a platform
+		- jump buffer launches you into the air
+		- isRolling not set to false if rolling anim cut short
+			- animations that can cut roll anim short:
+				- rolling off a ledge: jump_down anim
+				- [future bug?] taking damage: damage anim
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5
