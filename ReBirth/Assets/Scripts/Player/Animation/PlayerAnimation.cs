@@ -6,7 +6,7 @@ using UnityEngine;
 Purpose:
     To handle animation related logic for the player model.
 Last Edited:
-    10-10-22.
+    10-16-22.
 */
 public class PlayerAnimation : MonoBehaviour {
 
@@ -97,7 +97,7 @@ public class PlayerAnimation : MonoBehaviour {
     }
 
     void ResetTriggers() {
-         string[] _triggers = {"Idle", "Crouch", "Crouch_Walk", "Run", "Jump_Up", "Jump_Down", "Wall_Slide", "Stop_Running", "Roll", "Attack1"};
+         string[] _triggers = {"Idle", "Crouch", "Crouch_Walk", "Run", "Jump_Up", "Jump_Down", "Wall_Slide", "Stop_Running", "Roll"};
     
         for (int i = 0; i < _triggers.Length - 1; i++) {
             _animator.ResetTrigger(_triggers[i]);

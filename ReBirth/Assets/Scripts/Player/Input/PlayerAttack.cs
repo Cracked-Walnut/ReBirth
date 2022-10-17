@@ -6,22 +6,16 @@ using UnityEngine;
 Purpose:
     To handle player attack logic.
 Last Edited:
-    10-13-22.
+    10-17-22.
 */
 public class PlayerAttack : MonoBehaviour {
 
-    // TODOs
-
-    // Variables
-    /*
-    List/array to hold attack animations
-    CanAttack
-    Attack Cool Down
-    */
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private Transform _attackPoint;
-    [SerializeField] private float _attackRange;
+    [SerializeField] private float _attackRange,
+        _attackCoolDown; // implement this
     [SerializeField] private LayerMask _whatIsWall;
+    [SerializeField] bool _canAttack = true; // implement this
 
     // Functions
     void Update() {

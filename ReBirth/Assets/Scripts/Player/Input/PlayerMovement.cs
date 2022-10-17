@@ -6,7 +6,7 @@ using UnityEngine;
 Purpose:
     To handle all movement related logic for the player model.
 Last Edited:
-    10-14-22.
+    10-16-22.
 */
 public class PlayerMovement : MonoBehaviour {
 
@@ -33,8 +33,8 @@ public class PlayerMovement : MonoBehaviour {
         _jumpBufferRadius, 
         _wallJumpBufferRadius, 
         _rollSpeed,
-        _horizontalMove = 0f,
-        _hangCounter;
+        _horizontalMove = 0f;
+        // _hangCounter;
         // _jumpHangCounter;
     private const float HANG_TIME = .2f, // time allowed to jump after walking off ledge
         WALL_HANG_TIME = .2f; // time allowed to single jump after letting go of a ledge
@@ -61,19 +61,19 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private ParticleSystem _particleSystem;
 
     void Start() { 
-        _hangCounter = HANG_TIME; // used for jump assist
+        // _hangCounter = HANG_TIME; // used for jump assist
         // _jumpHangCounter = HANG_TIME;
     }
 
     void Update() {
 
         // Jump Assist which lets you jump after you've slipped off a platform and pressed jump within .x seconds
-        if (_characterController2D.GetGrounded()) {
-            _hangCounter = HANG_TIME;
+        // if (_characterController2D.GetGrounded()) {
+            // _hangCounter = HANG_TIME;
             // _jumpHangCounter = HANG_TIME;
-        }
-        else
-            _hangCounter -= Time.deltaTime;
+        // }
+        // else
+            // _hangCounter -= Time.deltaTime;
 
         if (_canMove && !_isRolling) {
             _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour {
             }
 
             Roll();
-            JumpBuffer();
+            // JumpBuffer();
             // WallJumpBuffer();
             Crouch();
             WallJump();
@@ -193,7 +193,7 @@ public class PlayerMovement : MonoBehaviour {
         Collider2D _bufferActive = Physics2D.OverlapCircle(_jumpBuffer.transform.position, _jumpBufferRadius, _whatIsGround);
 
         if (_bufferActive && !_characterController2D.GetGrounded() && Input.GetButtonDown("Jump") && 
-            !_isTouchingWallTop && !_isTouchingWallBottom && _hangCounter > 0f) {
+            !_isTouchingWallTop && !_isTouchingWallBottom /*&& _hangCounter > 0f*/) {
             CreateDust();
             _characterController2D.ResetForce(); // you don't want gravity or other forces applied
             _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
@@ -225,7 +225,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    public GameObject GetJumpBuffer() { return _jumpBuffer; }
+    // public GameObject GetJumpBuffer() { return _jumpBuffer; }
 
     public void CreateDust() { _particleSystem.Play(); }
     public void SetIsRolling(bool _isRolling) => this._isRolling = _isRolling;
@@ -233,8 +233,8 @@ public class PlayerMovement : MonoBehaviour {
     public void SetRollingFalse() => _isRolling = false; // for the end of the rolling animation. Can't use conventional setter
 
     public float GetHorizontalMove() { return _horizontalMove; }
-    public float GetHangCounter() { return _hangCounter; }
-    public float GetJumpBufferRadius() { return _jumpBufferRadius; }
+    // public float GetHangCounter() { return _hangCounter; }
+    // public float GetJumpBufferRadius() { return _jumpBufferRadius; }
 
     public bool GetCrouch() { return _crouch; }
     public bool GetRoll() { return _roll; }

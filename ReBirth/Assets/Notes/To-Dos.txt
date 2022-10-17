@@ -1,21 +1,27 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 
-Tasks Haven't Started:
-	- Cinemachine:
-		- Get Cinemachine Virtual Camera to point to other objects
-		- Get Cinemachine Virtual Camera to stay within a set of boundaries
+Haven't Started:
+	Tasks:
+		- Cinemachine:
+			- Get Cinemachine Virtual Camera to stay within a set of boundaries
+			- Wall Climb Logic
+				- https://www.youtube.com/watch?v=JGtlja1RStk
+		- PlayerAttack:
+			- _attackCoolDown
+			- _canAttack
+		- Mid-air dash (upgrade, add to notes)
 
-Bugs Haven't Started:
+	Bugs:
 
 Started but Paused:
 	Tasks:
 		- Wall Jump Buffer
-		- Wall Climb Logic
-			- https://www.youtube.com/watch?v=JGtlja1RStk
 	Bugs:
 		- walking off a ledge and jumping doesn't work
 			- Seems to be a bug when hangCounter >= 0f
+		- Maintain roll momentum when rolling off ledge
+			- You'll need to find a way to persist rolling animation
 
 In Progress:
 	Tasks:
@@ -33,8 +39,6 @@ Archived:
 		- Slide Animation and Logic
 	
 	Bugs:
-
------------------------------------------------------------------------------------------------
 
 Finished:
 	Tasks:
@@ -86,6 +90,9 @@ Finished:
 			- Jump (Up & Down) [X]
 			- Roll [x]
 		- Jump Buffer code
+		- Cinemachine:
+			- Get Cinemachine Virtual Camera to point to other objects
+				- Priority
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
@@ -123,3 +130,13 @@ Finished:
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5
+
+	- Among Virtual Cameras, the one with the highest priority takes precedence
+		- There is no checkbox system to prioritize cameras. Only priority values
+		- Make VirtualCamera1 the highest values (like... 100 by default)
+			- Set all other cameras -1 values from the previous virtual camera,
+				then manipulate priority values as you see fit
+		- The camera with the highest priority will take precedence
+		- Use a Camera Script to control the camera pointed at the player
+			- Otherwise, if camera references are being invoked in many scripts,
+				it would be a problem to debug

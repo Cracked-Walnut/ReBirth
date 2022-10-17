@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 1948676875057181799}
   - component: {fileID: 6682722365109449382}
   - component: {fileID: 1976082035}
+  - component: {fileID: 1976082042}
   m_Layer: 3
   m_Name: Knight
   m_TagString: Untagged
@@ -321,8 +322,6 @@ MonoBehaviour:
   _wallJumpBufferRadius: 1
   _rollSpeed: 65
   _horizontalMove: 0
-  _hangCounter: 0
-  _jumpHangCounter: 0
   _canMove: 1
   _isMoving: 0
   _jump: 0
@@ -332,6 +331,7 @@ MonoBehaviour:
   _crouch: 0
   _roll: 0
   _isRolling: 0
+  _canRoll: 1
   _isTouchingCeiling: 0
   _isTouchingWallTop: 0
   _isTouchingWallBottom: 0
@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834d443fb79ae3d44bb030570dc7ccb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerCamera: {fileID: 1976082042}
   _playerMovement: {fileID: 7768883258844817835}
   _attackPoint: {fileID: 7566385199641350530}
   _attackRange: 0.25
@@ -395,9 +396,8 @@ MonoBehaviour:
   _playerMovement: {fileID: 7768883258844817835}
   _characterController2D: {fileID: 1976082033}
   _playerAttack: {fileID: 8837755243083025964}
-  _drawJumpBuffer: 1
   _drawGroundedRadius: 1
-  _drawAttackPoint: 0
+  _drawAttackPoint: 1
 --- !u!50 &1976082034
 Rigidbody2D:
   serializedVersion: 4
@@ -481,6 +481,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1976082042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540457832135706004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e40897d9db6c244f9f74a37a6f98f38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cmvc: {fileID: 0}
 --- !u!1 &4210312565601399122
 GameObject:
   m_ObjectHideFlags: 0

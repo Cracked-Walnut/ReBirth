@@ -288,7 +288,7 @@ UI:
         - Left/ Right for FP Tonic/ SpiritGem
 
 Weapon Types:
-    Sword
+    Knife
 
 Items:
 
@@ -365,9 +365,9 @@ Upgrades:
     Mandatory (found by progessing the main path):
         6 HP Tokens (HP Tonic upgrade, found by defeating mandatory bosses)
         8 Crimson chips (Permanant HP Upgrade, found by exploring dungeons, defeating mandatory bosses)
-        8 Rime chips (Permanant FP Upgrade, found by completing platforming challenges)
+        8 Rime chips (Permanant FP Upgrade, found by completing platforming challenges, complete within a set time for optional goodies)
         Wall Jump
-        Dash
+        Mid-air Dash
         Double Jump
 
     Optional (found by exploring dungeons, or the world, defeating optional bosses):
@@ -376,17 +376,17 @@ Upgrades:
         2 Glowing Fragments
         6 Exotic Fragments 
 
-Ornaments (Non-FP consuming, only 1 equippable slot at first, find Ornament Pouches to increase slots to max of 4):
+Ornaments (Non-FP consuming, only 1 equippable slot at first, find Ornament Pouches to increase slots to max of 3):
     - Max HP +1 (+2 when upgraded)
     - Max FP +1 (+2 when upgraded)
-    - Killing an enemy restores 1/2 FP (1 FP when upgraded)
-    - Dash distance extended (extended further when upgraded)
+    - Killing an enemy restores 1/2 FP (+coins when  upgraded)
+    - Roll distance extended (extended further when upgraded)
     - Slowly regenerate HP overtime, once every 45 seconds (30 seconds when upgraded)
     - Slowly regenerate FP overtime, once every 15 seconds (5 seconds when upgraded)
 
 Talismans (FP consuming, only 1 equippable):
-    - Shoot sword waves [1 FP]
-    - Throw shurikens [1 FP]
+    - Shoot homing knives, but they deal 80% normal damage [1/2 FP]
+    - Throw piercing shurikens [1 FP]
     - Lay a mine [2 FP]
     - Shoot spikes in all directions [2 FP]
     - Become invisible for a little while [3 FP]
