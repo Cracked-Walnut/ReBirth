@@ -332,6 +332,9 @@ MonoBehaviour:
   _roll: 0
   _isRolling: 0
   _canRoll: 1
+  _midAirDash: 0
+  _isMidAirDashing: 0
+  _canDash: 1
   _isTouchingCeiling: 0
   _isTouchingWallTop: 0
   _isTouchingWallBottom: 0
@@ -374,13 +377,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834d443fb79ae3d44bb030570dc7ccb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerCamera: {fileID: 1976082042}
   _playerMovement: {fileID: 7768883258844817835}
   _attackPoint: {fileID: 7566385199641350530}
   _attackRange: 0.25
+  _attackCoolDown: 0
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 1024
+  _canAttack: 1
 --- !u!114 &1976082041
 MonoBehaviour:
   m_ObjectHideFlags: 0

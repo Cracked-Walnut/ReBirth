@@ -6,7 +6,7 @@ using UnityEngine;
 Purpose:
     To handle all movement related logic for the player model.
 Last Edited:
-    10-16-22.
+    10-17-22.
 */
 public class PlayerMovement : MonoBehaviour {
 
@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour {
         _jumpBufferRadius, 
         _wallJumpBufferRadius, 
         _rollSpeed,
+        _dashSpeed,
         _horizontalMove = 0f;
         // _hangCounter;
         // _jumpHangCounter;
@@ -41,17 +42,12 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private bool _canMove = true,
         _isMoving = false,
-        _jump = false,
-        _canJump = true,
-        _doubleJump = false,
-        _canDoubleJump = false,
+        _jump = false, _canJump = true, _doubleJump = false, _canDoubleJump = false,
         _crouch = false,
-        _roll = false,
-        _isRolling = false,
-        _canRoll = true,
-        _isTouchingCeiling,
-        _isTouchingWallTop,
-        _isTouchingWallBottom;
+        _roll = false, _isRolling = false, _canRoll = true,
+        _midAirDash = false, _isMidAirDashing = false, _canDash = true,
+        _isTouchingCeiling, _isTouchingWallTop, _isTouchingWallBottom;
+
     // private bool _turnAround = false;
 
     [SerializeField] private LayerMask _whatIsWall, // placed on walls which the player can wall slide
@@ -97,6 +93,7 @@ public class PlayerMovement : MonoBehaviour {
             }
 
             Roll();
+            MidAirDash();
             // JumpBuffer();
             // WallJumpBuffer();
             Crouch();
@@ -109,10 +106,20 @@ public class PlayerMovement : MonoBehaviour {
             _horizontalMove = _rollSpeed;
         else if (_isRolling && !_characterController2D.GetFacingRight())// and facing the left
             _horizontalMove = -_rollSpeed;
+        else if (_isMidAirDashing && _characterController2D.GetFacingRight()) {
+            _rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY; // disable y movement
+            _horizontalMove = _dashSpeed; // push player to the right
+            _rigidBody2D.constraints = RigidbodyConstraints2D.None; // enable gravity
+        }
+        else if (_isMidAirDashing && !_characterController2D.GetFacingRight()) {
+            _rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY; // disable y movement
+            _horizontalMove = -_dashSpeed; // push player to the left
+            _rigidBody2D.constraints = RigidbodyConstraints2D.None; // enable gravity
+        }
     }
 
     void FixedUpdate() {
-        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _crouch, _jump, _doubleJump, _roll);
+        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _crouch, _jump, _doubleJump, _roll, _midAirDash);
         
         // quickly reset these variables so the action isn't executed forever
         _jump = false;
@@ -222,6 +229,15 @@ public class PlayerMovement : MonoBehaviour {
             _isRolling = true;
             CreateDust();
             Debug.Log("Roll");
+        }
+    }
+
+    private void MidAirDash() {
+        if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && _isMoving && !_isMidAirDashing && _canDash) {
+            _midAirDash = true;
+            _isMidAirDashing = true;
+            CreateDust();
+            Debug.Log("Mid-Air Dash");
         }
     }
 

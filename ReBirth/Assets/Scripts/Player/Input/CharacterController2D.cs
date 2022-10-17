@@ -65,7 +65,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	public void Move(float move, bool crouch, bool jump, bool doubleJump, bool _roll)
+	public void Move(float move, bool crouch, bool jump, bool doubleJump, bool _roll, bool _midAirDash)
 	{
 		// If crouching, check to see if the character can stand up
 		// if (!crouch)
@@ -143,11 +143,6 @@ public class CharacterController2D : MonoBehaviour
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * .85f));
 			Debug.Log("Double Jump");
 		}
-
-		// if (_roll) {
-		// 	ResetForce();
-		// 	m_Rigidbody2D.AddForce(new Vector2(0f, 0f));
-		// }
 
 	}
 

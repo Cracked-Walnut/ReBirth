@@ -10,7 +10,7 @@ Haven't Started:
 		- PlayerAttack:
 			- _attackCoolDown
 			- _canAttack
-		- Mid-air dash (upgrade, add to notes)
+
 
 	Bugs:
 
@@ -25,6 +25,7 @@ Started but Paused:
 
 In Progress:
 	Tasks:
+		- Mid-air dash (upgrade, add to notes)
 	Bugs:
 
 Archived:
