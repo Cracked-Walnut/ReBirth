@@ -10,3 +10,6 @@ Scripts:
 
 	CharacterController2D.cs:
 		Brackeys
+
+	PlayerCamera.cs:
+		samyam
