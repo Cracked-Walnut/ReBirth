@@ -13,6 +13,9 @@ Haven't Started:
 
 	Bugs:
 		- Dashing into a corner will launch the player upwards
+		In Build:
+			- Rolling into a crouchable area doesn't transition gracefully to crouch
+			- Potential Solution: Implement slide animation
 
 Started but Paused:
 	Tasks:
