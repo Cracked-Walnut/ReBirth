@@ -6,7 +6,7 @@ using UnityEngine;
 Purpose:
     To handle all movement related logic for the player model.
 Last Edited:
-    10-17-22.
+    10-18-22.
 */
 public class PlayerMovement : MonoBehaviour {
 
@@ -33,7 +33,8 @@ public class PlayerMovement : MonoBehaviour {
         _jumpBufferRadius, 
         _wallJumpBufferRadius, 
         _rollSpeed,
-        _dashSpeed,
+        _dashSpeedX,
+        _dashSpeedY,
         _horizontalMove = 0f;
         // _hangCounter;
         // _jumpHangCounter;
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour {
         _jump = false, _canJump = true, _doubleJump = false, _canDoubleJump = false,
         _crouch = false,
         _roll = false, _isRolling = false, _canRoll = true,
-        _midAirDash = false, _isMidAirDashing = false, _canDash = true,
+        _midAirDash = false, _isMidAirDashing = false, _canMidAirDash = true,
         _isTouchingCeiling, _isTouchingWallTop, _isTouchingWallBottom;
 
     // private bool _turnAround = false;
@@ -80,8 +81,11 @@ public class PlayerMovement : MonoBehaviour {
                 _isMoving = false;
             
             // reset double jump
-            if (_characterController2D.GetGrounded() || (_isTouchingWallBottom && _isTouchingWallTop))
+            if (_characterController2D.GetGrounded() || (_isTouchingWallBottom && _isTouchingWallTop)) {
+                _isMidAirDashing = false;
+                _canMidAirDash = true;
                 _canDoubleJump = true;
+            }
 
             if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded() && _canJump && !_isRolling)
                 _jump = true;
@@ -106,15 +110,16 @@ public class PlayerMovement : MonoBehaviour {
             _horizontalMove = _rollSpeed;
         else if (_isRolling && !_characterController2D.GetFacingRight())// and facing the left
             _horizontalMove = -_rollSpeed;
-        else if (_isMidAirDashing && _characterController2D.GetFacingRight()) {
-            _rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY; // disable y movement
-            _horizontalMove = _dashSpeed; // push player to the right
-            _rigidBody2D.constraints = RigidbodyConstraints2D.None; // enable gravity
+
+        if (_canMove && _isMidAirDashing && _characterController2D.GetFacingRight()) {
+            _characterController2D.ResetForce(); // reset velocity
+            _characterController2D.ApplyForce(_dashSpeedX, _dashSpeedY);
+            _isMidAirDashing = false;
         }
-        else if (_isMidAirDashing && !_characterController2D.GetFacingRight()) {
-            _rigidBody2D.constraints = RigidbodyConstraints2D.FreezePositionY; // disable y movement
-            _horizontalMove = -_dashSpeed; // push player to the left
-            _rigidBody2D.constraints = RigidbodyConstraints2D.None; // enable gravity
+        else if (_canMove && _isMidAirDashing && !_characterController2D.GetFacingRight()) {
+            _characterController2D.ResetForce(); // reset velocity
+            _characterController2D.ApplyForce(-_dashSpeedX, _dashSpeedY);
+            _isMidAirDashing = false;
         }
     }
 
@@ -233,9 +238,10 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void MidAirDash() {
-        if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && _isMoving && !_isMidAirDashing && _canDash) {
+        if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && _isMoving && !_isMidAirDashing && _canMidAirDash) {
             _midAirDash = true;
             _isMidAirDashing = true;
+            _canMidAirDash = false; // becomes true when grounded
             CreateDust();
             Debug.Log("Mid-Air Dash");
         }
@@ -247,6 +253,7 @@ public class PlayerMovement : MonoBehaviour {
     public void SetIsRolling(bool _isRolling) => this._isRolling = _isRolling;
 
     public void SetRollingFalse() => _isRolling = false; // for the end of the rolling animation. Can't use conventional setter
+    public void SetMidAirDashFalse() => _midAirDash = false; // for the end of the mid-air dash animation
 
     public float GetHorizontalMove() { return _horizontalMove; }
     // public float GetHangCounter() { return _hangCounter; }
@@ -255,6 +262,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool GetCrouch() { return _crouch; }
     public bool GetRoll() { return _roll; }
     public bool GetIsRolling() { return _isRolling; }
+    public bool GetIsMidAirDashing() { return _isMidAirDashing; }
     public bool GetJump() { return _jump; }
     public bool GetIsTouchingWallTop() { return _isTouchingWallTop; }
     public bool GetIsTouchingWallBottom() { return _isTouchingWallBottom; }

@@ -5,14 +5,14 @@ Haven't Started:
 	Tasks:
 		- Cinemachine:
 			- Get Cinemachine Virtual Camera to stay within a set of boundaries
-			- Wall Climb Logic
-				- https://www.youtube.com/watch?v=JGtlja1RStk
+		- Wall Climb Logic
+			- https://www.youtube.com/watch?v=JGtlja1RStk
 		- PlayerAttack:
 			- _attackCoolDown
 			- _canAttack
 
-
 	Bugs:
+		- Dashing into a corner will launch the player upwards
 
 Started but Paused:
 	Tasks:
@@ -25,7 +25,6 @@ Started but Paused:
 
 In Progress:
 	Tasks:
-		- Mid-air dash (upgrade, add to notes)
 	Bugs:
 
 Archived:
@@ -94,6 +93,7 @@ Finished:
 		- Cinemachine:
 			- Get Cinemachine Virtual Camera to point to other objects
 				- Priority
+		- Mid-air dash (upgrade, add to notes)
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine

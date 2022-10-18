@@ -321,6 +321,8 @@ MonoBehaviour:
   _jumpBufferRadius: 0.5
   _wallJumpBufferRadius: 1
   _rollSpeed: 65
+  _dashSpeedX: 11000
+  _dashSpeedY: 350
   _horizontalMove: 0
   _canMove: 1
   _isMoving: 0
@@ -334,7 +336,7 @@ MonoBehaviour:
   _canRoll: 1
   _midAirDash: 0
   _isMidAirDashing: 0
-  _canDash: 1
+  _canMidAirDash: 1
   _isTouchingCeiling: 0
   _isTouchingWallTop: 0
   _isTouchingWallBottom: 0
