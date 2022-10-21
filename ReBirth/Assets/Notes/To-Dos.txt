@@ -16,7 +16,6 @@ Haven't Started:
 
 Started but Paused:
 	Tasks:
-		- Implement _isWallSliding boolean?
 		- Wall Jump Buffer
 	Bugs:
 		- walking off a ledge and jumping doesn't work
@@ -96,6 +95,7 @@ Finished:
 		- Maintain roll momentum when rolling off ledge
 			- You'll need to find a way to persist rolling animation
 			- Fixed by including an extra condition for Jump_Down animation
+		- Implement _isWallSliding boolean?
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine

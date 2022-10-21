@@ -137,10 +137,11 @@ public class CharacterController2D : MonoBehaviour
 
 		}
 		
-		if (doubleJump && !_playerMovement.GetIsTouchingWallBottom() && 
-			!_playerMovement.GetIsTouchingWallTop() /*&& _playerMovement.GetHangCounter() <= 0f*/) {
+		if (doubleJump && !_playerMovement.GetIsWallSliding() && 
+			_playerMovement.GetHangCounter() <= 0f && !_playerMovement.GetCanJumpBuffer()) {
 			ResetForce();
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * .85f));
+			Debug.Log("Double Jump");
 		}
 
 	}

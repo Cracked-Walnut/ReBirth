@@ -25,7 +25,8 @@ public class DrawGizmos : MonoBehaviour {
 
     // [SerializeField] private bool _drawJumpBuffer,
     [SerializeField] private bool _drawGroundedRadius,
-        _drawAttackPoint;
+        _drawAttackRadius,
+        _drawHangCounterRadius;
 
     void OnDrawGizmos() {
         // Draw a yellow circle at the transform's position
@@ -37,8 +38,11 @@ public class DrawGizmos : MonoBehaviour {
         if (_drawGroundedRadius)
             Gizmos.DrawWireSphere(_characterController2D.GetGroundCheck().transform.position, _characterController2D.GetGroundedRadius());
 
-        if (_drawAttackPoint)
+        if (_drawAttackRadius)
             Gizmos.DrawWireSphere(_playerAttack.GetAttackPoint().position, _playerAttack.GetAttackRange());
+
+        if (_drawHangCounterRadius)
+            Gizmos.DrawWireSphere(_playerMovement.GetJumpBuffer().transform.position, _playerMovement.GetJumpBufferRadius());
 
     }
 }

@@ -37,8 +37,8 @@ public class PlayerMovement : MonoBehaviour {
         _dashSpeedY,
         _horizontalMove = 0f,
         _terminalVelocity, // max -y velocity
-        _reverseTerminalVelocity; // max +y velocity
-        // _hangCounter;
+        _reverseTerminalVelocity, // max +y velocity
+        _hangCounter;
         // _jumpHangCounter;
 
     private const float HANG_TIME = .2f, // time allowed to jump after walking off ledge
@@ -51,7 +51,8 @@ public class PlayerMovement : MonoBehaviour {
         _roll = false, _isRolling = false, _canRoll = true,
         _midAirDash = false, _isMidAirDashing = false, _canMidAirDash = true,
         _wallDash = false, _isWallDashing = false, _canWallDash = true,
-        _isTouchingCeiling, _isTouchingWallTop, _isTouchingWallBottom, _isWallSliding;
+        _isTouchingCeiling, _isTouchingWallTop, _isTouchingWallBottom, _isWallSliding,
+        _canJumpBuffer = true;
 
     // private bool _turnAround = false;
 
@@ -62,19 +63,19 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private ParticleSystem _particleSystem;
 
     void Start() { 
-        // _hangCounter = HANG_TIME; // used for jump assist
+        _hangCounter = HANG_TIME; // used for jump assist
         // _jumpHangCounter = HANG_TIME;
     }
 
     void Update() {
 
         // Jump Assist which lets you jump after you've slipped off a platform and pressed jump within .x seconds
-        // if (_characterController2D.GetGrounded()) {
-            // _hangCounter = HANG_TIME;
+        if (_characterController2D.GetGrounded()) {
+            _hangCounter = HANG_TIME;
             // _jumpHangCounter = HANG_TIME;
-        // }
-        // else
-            // _hangCounter -= Time.deltaTime;
+        }
+        else
+            _hangCounter -= Time.deltaTime;
 
         if (_canMove && !_isRolling) {
             _horizontalMove = Input.GetAxisRaw("Horizontal") * _runSpeed;
@@ -103,7 +104,7 @@ public class PlayerMovement : MonoBehaviour {
             Roll();
             MidAirDash();
             WallDash();
-            // JumpBuffer();
+            JumpBuffer();
             // WallJumpBuffer();
             Crouch();
             WallJump();
@@ -227,13 +228,20 @@ public class PlayerMovement : MonoBehaviour {
     public void JumpBuffer() {
         Collider2D _bufferActive = Physics2D.OverlapCircle(_jumpBuffer.transform.position, _jumpBufferRadius, _whatIsGround);
 
-        if (_bufferActive && !_characterController2D.GetGrounded() && Input.GetButtonDown("Jump") && 
-            !_isTouchingWallTop && !_isTouchingWallBottom /*&& _hangCounter > 0f*/) {
-            CreateDust();
-            _characterController2D.ResetForce(); // you don't want gravity or other forces applied
-            _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
-            _canDoubleJump = true; // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
+        if (_bufferActive && !_characterController2D.GetGrounded() && Input.GetButtonDown("Jump") && !_isWallSliding && _hangCounter > 0f) {
+                _canJumpBuffer = true;
+
+                if (Input.GetButtonDown("Jump")) {
+                    CreateDust();
+                    _characterController2D.ResetForce(); // you don't want gravity or other forces applied
+                    _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
+                    Debug.Log("Jump Buffer");
+                    // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
+                    _canDoubleJump = true;
+                }
         }
+        else
+            _canJumpBuffer = false;
     }
 
     // jump assist for when you let go of wall sliding before wall jumping and you intend to wall jump
@@ -251,7 +259,9 @@ public class PlayerMovement : MonoBehaviour {
     // }
 
     private void Roll() {
-        if (Input.GetButtonDown("Roll") && _characterController2D.GetGrounded() && _isMoving && !_isRolling && _canRoll) {
+        if (Input.GetButtonDown("Roll") && _characterController2D.GetGrounded() && 
+            _isMoving && !_isRolling && _canRoll) {
+
             _roll = true;
             _isRolling = true;
             CreateDust();
@@ -259,7 +269,9 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void MidAirDash() {
-        if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && !_isMidAirDashing && _canMidAirDash && !_isWallSliding) {
+        if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && !_isMidAirDashing && 
+            _canMidAirDash && !_isWallSliding) {
+
             _midAirDash = true;
             _isMidAirDashing = true;
             _canMidAirDash = false; // becomes true when grounded
@@ -268,7 +280,9 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void WallDash() {
-        if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && !_isMidAirDashing && _canMidAirDash && _isWallSliding) {
+        if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && !_isMidAirDashing && 
+            _canMidAirDash && _isWallSliding) {
+
             _wallDash = true;
             _isWallDashing = true;
             _canWallDash = false; // becomes true when you touch a wall slide, or the ground
@@ -276,7 +290,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    // public GameObject GetJumpBuffer() { return _jumpBuffer; }
+    public GameObject GetJumpBuffer() { return _jumpBuffer; }
 
     public void CreateDust() { _particleSystem.Play(); }
     public void SetIsRolling(bool _isRolling) => this._isRolling = _isRolling;
@@ -285,14 +299,17 @@ public class PlayerMovement : MonoBehaviour {
     public void SetMidAirDashFalse() => _midAirDash = false; // for the end of the mid-air dash animation
 
     public float GetHorizontalMove() { return _horizontalMove; }
-    // public float GetHangCounter() { return _hangCounter; }
-    // public float GetJumpBufferRadius() { return _jumpBufferRadius; }
+    public float GetHangCounter() { return _hangCounter; }
+    public float GetJumpBufferRadius() { return _jumpBufferRadius; }
 
     public bool GetCrouch() { return _crouch; }
     public bool GetRoll() { return _roll; }
     public bool GetIsRolling() { return _isRolling; }
     public bool GetIsMidAirDashing() { return _isMidAirDashing; }
     public bool GetJump() { return _jump; }
+    public bool GetCanJumpBuffer() { return _canJumpBuffer; }
+
+    public bool GetIsWallSliding() { return _isWallSliding; }
     public bool GetIsTouchingWallTop() { return _isTouchingWallTop; }
     public bool GetIsTouchingWallBottom() { return _isTouchingWallBottom; }
 
