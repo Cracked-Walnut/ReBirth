@@ -9,10 +9,13 @@ Haven't Started:
 			- https://www.youtube.com/watch?v=JGtlja1RStk
 		- Text Dialogue
 		- PlayerAttack:
-			- _attackCoolDown
-			- _canAttack
+			- Instantiate knife when left click is pressed
+				- Projectile moves in direction player is facing until:
+					- it hits an enemy or it touches a wall or projectile timer drops below 0 seconds
+				- Check attack cool down and can attack
 
 	Bugs:
+		- Double Jump and Jump Buffer are being executed at the same time
 
 Started but Paused:
 	Tasks:

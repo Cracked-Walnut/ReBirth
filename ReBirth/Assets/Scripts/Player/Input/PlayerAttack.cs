@@ -41,13 +41,8 @@ public class PlayerAttack : MonoBehaviour {
         }
     }
 
-    public Transform GetAttackPoint() {
-        return _attackPoint;
-    }
-
-    public float GetAttackRange() {
-        return _attackRange;
-    }
+    public Transform GetAttackPoint() { return _attackPoint; }
+    public float GetAttackRange() { return _attackRange; }
     
     // Stationary Attack
     // Moving Attack
