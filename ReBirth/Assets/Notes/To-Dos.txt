@@ -7,24 +7,20 @@ Haven't Started:
 			- Get Cinemachine Virtual Camera to stay within a set of boundaries
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
+		- Text Dialogue
 		- PlayerAttack:
 			- _attackCoolDown
 			- _canAttack
 
 	Bugs:
-		- Dashing into a corner will launch the player upwards
-		In Build:
-			- Rolling into a crouchable area doesn't transition gracefully to crouch
-			- Potential Solution: Implement slide animation
 
 Started but Paused:
 	Tasks:
+		- Implement _isWallSliding boolean?
 		- Wall Jump Buffer
 	Bugs:
 		- walking off a ledge and jumping doesn't work
 			- Seems to be a bug when hangCounter >= 0f
-		- Maintain roll momentum when rolling off ledge
-			- You'll need to find a way to persist rolling animation
 
 In Progress:
 	Tasks:
@@ -97,6 +93,9 @@ Finished:
 			- Get Cinemachine Virtual Camera to point to other objects
 				- Priority
 		- Mid-air dash (upgrade, add to notes)
+		- Maintain roll momentum when rolling off ledge
+			- You'll need to find a way to persist rolling animation
+			- Fixed by including an extra condition for Jump_Down animation
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
@@ -131,6 +130,13 @@ Finished:
 			- animations that can cut roll anim short:
 				- rolling off a ledge: jump_down anim
 				- [future bug?] taking damage: damage anim
+		- Dashing into a corner will launch the player upwards [reverse terminal velocity wasn't working]
+		- Rolling into a crouchable area doesn't transition gracefully to Crouch
+			- Fixed by removing animation connection from Roll to Run
+		- Can roll through walls with good timing
+			- Fixed by editing roll collision box
+		- After wall jumping, infinite jumping until velocity.y < 0
+			- Fixed by putting condition outside of velocity.y check
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5
@@ -144,3 +150,4 @@ Things to keep in mind:
 		- Use a Camera Script to control the camera pointed at the player
 			- Otherwise, if camera references are being invoked in many scripts,
 				it would be a problem to debug
+

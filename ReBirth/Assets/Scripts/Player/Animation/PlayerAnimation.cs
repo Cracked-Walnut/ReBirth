@@ -68,14 +68,15 @@ public class PlayerAnimation : MonoBehaviour {
                 _animator.SetTrigger("Jump_Up");
             
             }
-            else if (_rigidBody2D.velocity.y < 0) {
+            else if (_rigidBody2D.velocity.y < 0 && !_playerMovement.GetIsRolling()) {
                 ResetTriggers();
                 _animator.SetTrigger("Jump_Down");
                 _playerMovement.SetIsRolling(false); // without this, the player is softlocked after rolling off a ledge
             }
 
             // contact with wall + not grounded
-            if (_playerMovement.GetIsTouchingWallTop() && _playerMovement.GetIsTouchingWallBottom() && !_characterController2D.GetGrounded()) {
+            if (_playerMovement.GetIsTouchingWallTop() && _playerMovement.GetIsTouchingWallBottom() && 
+                !_characterController2D.GetGrounded() && !_playerMovement.GetIsRolling()) {
                 
                 // wall jump animation update
                 if (_rigidBody2D.velocity.y > 15f) {

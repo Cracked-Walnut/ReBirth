@@ -35,9 +35,12 @@ public class PlayerMovement : MonoBehaviour {
         _rollSpeed,
         _dashSpeedX,
         _dashSpeedY,
-        _horizontalMove = 0f;
+        _horizontalMove = 0f,
+        _terminalVelocity, // max -y velocity
+        _reverseTerminalVelocity; // max +y velocity
         // _hangCounter;
         // _jumpHangCounter;
+
     private const float HANG_TIME = .2f, // time allowed to jump after walking off ledge
         WALL_HANG_TIME = .2f; // time allowed to single jump after letting go of a ledge
 
@@ -47,7 +50,8 @@ public class PlayerMovement : MonoBehaviour {
         _crouch = false,
         _roll = false, _isRolling = false, _canRoll = true,
         _midAirDash = false, _isMidAirDashing = false, _canMidAirDash = true,
-        _isTouchingCeiling, _isTouchingWallTop, _isTouchingWallBottom;
+        _wallDash = false, _isWallDashing = false, _canWallDash = true,
+        _isTouchingCeiling, _isTouchingWallTop, _isTouchingWallBottom, _isWallSliding;
 
     // private bool _turnAround = false;
 
@@ -81,7 +85,7 @@ public class PlayerMovement : MonoBehaviour {
                 _isMoving = false;
             
             // reset double jump
-            if (_characterController2D.GetGrounded() || (_isTouchingWallBottom && _isTouchingWallTop)) {
+            if (_characterController2D.GetGrounded() || _isWallSliding) {
                 _isMidAirDashing = false;
                 _canMidAirDash = true;
                 _canDoubleJump = true;
@@ -91,13 +95,14 @@ public class PlayerMovement : MonoBehaviour {
                 _jump = true;
 
             // check if both wall checks are false so wall jump and double jump jumpForce isn't added together before the player is moved
-            if (Input.GetButtonDown("Jump") && !_characterController2D.GetGrounded() && _canDoubleJump && !_isTouchingWallTop && !_isTouchingWallBottom) {
+            if (Input.GetButtonDown("Jump") && !_characterController2D.GetGrounded() && _canDoubleJump && !_isWallSliding) {
                 _doubleJump = true;
                 _canDoubleJump = false;
             }
 
             Roll();
             MidAirDash();
+            WallDash();
             // JumpBuffer();
             // WallJumpBuffer();
             Crouch();
@@ -111,6 +116,7 @@ public class PlayerMovement : MonoBehaviour {
         else if (_isRolling && !_characterController2D.GetFacingRight())// and facing the left
             _horizontalMove = -_rollSpeed;
 
+        // mid air dash
         if (_canMove && _isMidAirDashing && _characterController2D.GetFacingRight()) {
             _characterController2D.ResetForce(); // reset velocity
             _characterController2D.ApplyForce(_dashSpeedX, _dashSpeedY);
@@ -120,6 +126,18 @@ public class PlayerMovement : MonoBehaviour {
             _characterController2D.ResetForce(); // reset velocity
             _characterController2D.ApplyForce(-_dashSpeedX, _dashSpeedY);
             _isMidAirDashing = false;
+        }
+
+        // wall dash
+        if (_canMove && _isWallDashing && !_characterController2D.GetFacingRight()) {
+            _characterController2D.ResetForce(); // reset velocity
+            _characterController2D.ApplyForce(_dashSpeedX, _dashSpeedY);
+            _isWallDashing = false;
+        }
+        else if (_canMove && _isWallDashing && _characterController2D.GetFacingRight()) {
+            _characterController2D.ResetForce(); // reset velocity
+            _characterController2D.ApplyForce(-_dashSpeedX, _dashSpeedY);
+            _isWallDashing = false;
         }
     }
 
@@ -152,21 +170,26 @@ public class PlayerMovement : MonoBehaviour {
 
         // terminal velocity
         if (_rigidBody2D.velocity.y < -25f)
-            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, -25f);
+            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, _terminalVelocity);
 
         // reverse terminal velocity
-        if (_rigidBody2D.velocity.x < 25f)
-            _rigidBody2D.velocity = new Vector2(25f, _rigidBody2D.velocity.y);
+        if (_rigidBody2D.velocity.y > 25f)
+            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, _reverseTerminalVelocity);
 
-        // wall slide
-        if (_rigidBody2D.velocity.y < 0 && _isTouchingWallBottom && _isTouchingWallTop) {
-            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
+        if (_rigidBody2D.velocity.y < 0) {
+            // wall slide
+            if (_isTouchingWallBottom && _isTouchingWallTop) {
+                _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
+                _isWallSliding = true;
+            }
         }
+
+        if (!_isTouchingWallBottom && !_isTouchingWallTop)
+            _isWallSliding = false;
     }
 
     private void Crouch() {
         if (_characterController2D.GetGrounded()) {
-
             if (Input.GetButton("Crouch") && !_isRolling) {
                 _canJump = false;
                 _crouch = true;
@@ -191,7 +214,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void WallJump() {
-        if (_isTouchingWallBottom && _isTouchingWallTop && !_characterController2D.GetGrounded()) {
+        if (_isWallSliding && !_characterController2D.GetGrounded()) {
             if (Input.GetButtonDown("Jump")) {
                 _characterController2D.ResetForce();
                 _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce() * _wallJumpMultiplier);
@@ -210,7 +233,6 @@ public class PlayerMovement : MonoBehaviour {
             _characterController2D.ResetForce(); // you don't want gravity or other forces applied
             _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
             _canDoubleJump = true; // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
-            Debug.Log("Jump Buffer");
         }
     }
 
@@ -233,17 +255,24 @@ public class PlayerMovement : MonoBehaviour {
             _roll = true;
             _isRolling = true;
             CreateDust();
-            Debug.Log("Roll");
         }
     }
 
     private void MidAirDash() {
-        if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && _isMoving && !_isMidAirDashing && _canMidAirDash) {
+        if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && !_isMidAirDashing && _canMidAirDash && !_isWallSliding) {
             _midAirDash = true;
             _isMidAirDashing = true;
             _canMidAirDash = false; // becomes true when grounded
             CreateDust();
-            Debug.Log("Mid-Air Dash");
+        }
+    }
+
+    private void WallDash() {
+        if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && !_isMidAirDashing && _canMidAirDash && _isWallSliding) {
+            _wallDash = true;
+            _isWallDashing = true;
+            _canWallDash = false; // becomes true when you touch a wall slide, or the ground
+            CreateDust();
         }
     }
 
