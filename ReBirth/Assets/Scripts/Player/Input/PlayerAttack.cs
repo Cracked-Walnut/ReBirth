@@ -15,14 +15,18 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private float _attackRange,
         _attackCoolDown; // implement this
     [SerializeField] private LayerMask _whatIsWall;
-    [SerializeField] bool _canAttack = true; // implement this
+    // [SerializeField] bool _canAttack = true; // implement this
+    
+    
+    [SerializeField] DialogueTrigger _dialogueTrigger;
 
     // Functions
     void Update() {
         if (Input.GetMouseButtonDown(0)) {
             Debug.Log("Pressed primary button.");
             if (!_playerMovement.GetIsRolling()) // prevent attack while rolling
-                CheckBreakWall(); 
+                // CheckBreakWall(); 
+                CheckDialogue();
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -38,6 +42,13 @@ public class PlayerAttack : MonoBehaviour {
 
         foreach(Collider2D _wallsHit in _hitWall) {
             Destroy(_wallsHit.gameObject);
+        }
+    }
+
+    void CheckDialogue() {
+        Collider2D[] _hitWall = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _whatIsWall);
+        foreach(Collider2D _wallsHit in _hitWall) {
+            _dialogueTrigger.TriggerDialogue();
         }
     }
 

@@ -394,7 +394,7 @@ MonoBehaviour:
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 1024
-  _canAttack: 1
+  _dialogueTrigger: {fileID: 0}
 --- !u!114 &1976082041
 MonoBehaviour:
   m_ObjectHideFlags: 0

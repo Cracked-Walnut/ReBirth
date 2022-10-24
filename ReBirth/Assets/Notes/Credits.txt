@@ -11,5 +11,14 @@ Scripts:
 	CharacterController2D.cs:
 		Brackeys
 
+	DialogueManager:
+		Brackeys
+
+	Dialogue:
+		Brackeys
+		
+	DialogueTrigger:
+		Brackeys
+
 	PlayerCamera.cs:
 		samyam

@@ -3,11 +3,8 @@
 
 Haven't Started:
 	Tasks:
-		- Cinemachine:
-			- Get Cinemachine Virtual Camera to stay within a set of boundaries
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
-		- Text Dialogue
 		- PlayerAttack:
 			- Instantiate knife when left click is pressed
 				- Projectile moves in direction player is facing until:
@@ -16,6 +13,8 @@ Haven't Started:
 
 	Bugs:
 		- Double Jump and Jump Buffer are being executed at the same time
+		- Double Jump sometimes triggers when trying to wall jump
+			- Try turning off the Cinemachine Confiner stuff
 
 Started but Paused:
 	Tasks:
@@ -93,12 +92,16 @@ Finished:
 		- Jump Buffer code
 		- Cinemachine:
 			- Get Cinemachine Virtual Camera to point to other objects
-				- Priority
+				- priority
+			- Set up camera confiner
+				- Polygon Collider 2D around stage
 		- Mid-air dash (upgrade, add to notes)
 		- Maintain roll momentum when rolling off ledge
 			- You'll need to find a way to persist rolling animation
 			- Fixed by including an extra condition for Jump_Down animation
 		- Implement _isWallSliding boolean?
+		- Text Dialogue Logic
+		
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
