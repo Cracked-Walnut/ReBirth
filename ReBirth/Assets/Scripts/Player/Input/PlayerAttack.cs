@@ -25,8 +25,8 @@ public class PlayerAttack : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             Debug.Log("Pressed primary button.");
             if (!_playerMovement.GetIsRolling()) // prevent attack while rolling
-                // CheckBreakWall(); 
-                CheckDialogue();
+                CheckBreakWall(); 
+                // CheckDialogue();
         }
 
         if (Input.GetMouseButtonDown(1))

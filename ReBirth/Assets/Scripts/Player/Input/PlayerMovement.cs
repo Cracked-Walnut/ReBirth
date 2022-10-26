@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour {
         if (_rigidBody2D.velocity.y > 25f)
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, _reverseTerminalVelocity);
 
-        if (_rigidBody2D.velocity.y < 0) {
+        if (!_characterController2D.GetGrounded()) {
             // wall slide
             if (_isTouchingWallBottom && _isTouchingWallTop) {
                 _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
@@ -228,7 +228,7 @@ public class PlayerMovement : MonoBehaviour {
     public void JumpBuffer() {
         Collider2D _bufferActive = Physics2D.OverlapCircle(_jumpBuffer.transform.position, _jumpBufferRadius, _whatIsGround);
 
-        if (_bufferActive && !_characterController2D.GetGrounded() && Input.GetButtonDown("Jump") && !_isWallSliding && _hangCounter > 0f) {
+        if (_bufferActive && !_characterController2D.GetGrounded() && !_isWallSliding && _hangCounter > 0f) {
                 _canJumpBuffer = true;
 
                 if (Input.GetButtonDown("Jump")) {

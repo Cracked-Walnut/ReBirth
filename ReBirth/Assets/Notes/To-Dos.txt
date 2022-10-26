@@ -12,16 +12,12 @@ Haven't Started:
 				- Check attack cool down and can attack
 
 	Bugs:
-		- Double Jump and Jump Buffer are being executed at the same time
-		- Double Jump sometimes triggers when trying to wall jump
-			- Try turning off the Cinemachine Confiner stuff
 
 Started but Paused:
 	Tasks:
 		- Wall Jump Buffer
 	Bugs:
-		- walking off a ledge and jumping doesn't work
-			- Seems to be a bug when hangCounter >= 0f
+
 
 In Progress:
 	Tasks:
@@ -143,6 +139,12 @@ Finished:
 			- Fixed by editing roll collision box
 		- After wall jumping, infinite jumping until velocity.y < 0
 			- Fixed by putting condition outside of velocity.y check
+		- Double Jump sometimes triggers when trying to wall jump
+			- Fixed by tweaking wall slide condition in PlayerMovement.cs
+
+		- Both of these fixed by commenting out the extra jump input condition on line 231 in PlayerMovement.cs
+			- Double Jump and Jump Buffer are being executed at the same time
+			- walking off a ledge and jumping doesn't work
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5
