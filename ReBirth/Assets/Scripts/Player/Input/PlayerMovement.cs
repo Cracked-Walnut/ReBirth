@@ -38,11 +38,13 @@ public class PlayerMovement : MonoBehaviour {
         _horizontalMove = 0f,
         _terminalVelocity, // max -y velocity
         _reverseTerminalVelocity, // max +y velocity
-        _hangCounter;
-        // _jumpHangCounter;
+        _hangCounter,
+        _jumpHangCounter;
 
     private const float HANG_TIME = .2f, // time allowed to jump after walking off ledge
         WALL_HANG_TIME = .2f; // time allowed to single jump after letting go of a ledge
+
+    private Collider2D _jumpBufferActive, _wallJumpBufferActive;
 
     [SerializeField] private bool _canMove = true,
         _isMoving = false,
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour {
         _midAirDash = false, _isMidAirDashing = false, _canMidAirDash = true,
         _wallDash = false, _isWallDashing = false, _canWallDash = true,
         _isTouchingCeiling, _isTouchingWallTop, _isTouchingWallBottom, _isWallSliding,
-        _canJumpBuffer = true;
+        _canJumpBuffer = true, _canWallJumpBuffer = true;
 
     // private bool _turnAround = false;
 
@@ -64,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Start() { 
         _hangCounter = HANG_TIME; // used for jump assist
-        // _jumpHangCounter = HANG_TIME;
+        _jumpHangCounter = HANG_TIME;
     }
 
     void Update() {
@@ -105,7 +107,9 @@ public class PlayerMovement : MonoBehaviour {
             MidAirDash();
             WallDash();
             JumpBuffer();
-            // WallJumpBuffer();
+            WallJumpBuffer();
+            // JumpBuffer(_jumpBufferActive, _jumpBuffer, _jumpBufferRadius, _whatIsGround, _canJumpBuffer, "Jump Buffer");
+            // JumpBuffer(_wallJumpBufferActive, _wallJumpBuffer, _wallJumpBufferRadius, _whatIsWall, _canWallJumpBuffer, "Wall Jump Buffer");
             Crouch();
             WallJump();
         }
@@ -224,39 +228,65 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    // public void JumpBuffer(Collider2D _bufferActive, GameObject _jumpBuffer, float _radius, LayerMask _layerInteraction, bool _canBuffer, string _debugLog) {
+    //     _bufferActive = Physics2D.OverlapCircle(_jumpBuffer.transform.position, _radius, _layerInteraction);
+
+    //     if (_bufferActive && !_characterController2D.GetGrounded() && !_isWallSliding && _hangCounter > 0f) {
+    //         _canBuffer = true;
+
+    //         if (Input.GetButtonDown("Jump")) {
+
+    //             CreateDust();
+    //             _characterController2D.ResetForce(); // you don't want gravity or other forces applied
+    //             _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
+    //             _canDoubleJump = true; // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
+    //             Debug.Log(_debugLog);
+    //         }
+    //     }
+    //     else
+    //         _canBuffer = false;
+
+    // }
+
     // jump assist for when you walk off a ledge
     public void JumpBuffer() {
         Collider2D _bufferActive = Physics2D.OverlapCircle(_jumpBuffer.transform.position, _jumpBufferRadius, _whatIsGround);
 
         if (_bufferActive && !_characterController2D.GetGrounded() && !_isWallSliding && _hangCounter > 0f) {
-                _canJumpBuffer = true;
+            _canJumpBuffer = true;
 
-                if (Input.GetButtonDown("Jump")) {
-                    CreateDust();
-                    _characterController2D.ResetForce(); // you don't want gravity or other forces applied
-                    _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
-                    Debug.Log("Jump Buffer");
-                    // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
-                    _canDoubleJump = true;
-                }
+            if (Input.GetButtonDown("Jump")) {
+                
+                CreateDust();
+                _characterController2D.ResetForce(); // you don't want gravity or other forces applied
+                _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
+                _canDoubleJump = true; // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
+                Debug.Log("Jump Buffer");
+            }
         }
         else
             _canJumpBuffer = false;
     }
 
     // jump assist for when you let go of wall sliding before wall jumping and you intend to wall jump
-    // private void WallJumpBuffer() {
-    //     Collider2D _bufferActive = Physics2D.OverlapCircle(_wallJumpBuffer.transform.position, _wallJumpBufferRadius, _whatIsWall);
+    private void WallJumpBuffer() {
+        Collider2D _bufferActive = Physics2D.OverlapCircle(_wallJumpBuffer.transform.position, _wallJumpBufferRadius, _whatIsWall);
 
-    //     if (_bufferActive && !_characterController2D.GetGrounded() && Input.GetButtonDown("Jump") && 
-    //         !_isTouchingWallTop && !_isTouchingWallBottom && _jumpHangCounter > 0f) {
-    //         CreateDust();
-    //         _characterController2D.ResetForce(); // you don't want gravity or other forces applied
-    //         _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
-    //         _canDoubleJump = true; // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
-    //         Debug.Log("Wall Jump Buffer");
-    //         }
-    // }
+        if (_bufferActive && !_characterController2D.GetGrounded() && !_isWallSliding && _jumpHangCounter > 0f) {
+            _canWallJumpBuffer = true;
+
+            if (Input.GetButtonDown("Jump")) {
+                
+                CreateDust();
+                _characterController2D.ResetForce(); // you don't want gravity or other forces applied
+                _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
+                _canDoubleJump = true; // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
+                Debug.Log("Wall Jump Buffer");
+            }
+        }
+        else
+            _canWallJumpBuffer = false;
+    }
 
     private void Roll() {
         if (Input.GetButtonDown("Roll") && _characterController2D.GetGrounded() && 
@@ -291,6 +321,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public GameObject GetJumpBuffer() { return _jumpBuffer; }
+    public GameObject GetWallJumpBuffer() { return _wallJumpBuffer; }
 
     public void CreateDust() { _particleSystem.Play(); }
     public void SetIsRolling(bool _isRolling) => this._isRolling = _isRolling;
@@ -301,6 +332,8 @@ public class PlayerMovement : MonoBehaviour {
     public float GetHorizontalMove() { return _horizontalMove; }
     public float GetHangCounter() { return _hangCounter; }
     public float GetJumpBufferRadius() { return _jumpBufferRadius; }
+    public float GetWallJumpBufferRadius() { return _wallJumpBufferRadius; }
+    public float GetWallCheckRadius() { return _wallCheckRadius; }
 
     public bool GetCrouch() { return _crouch; }
     public bool GetRoll() { return _roll; }
@@ -308,9 +341,13 @@ public class PlayerMovement : MonoBehaviour {
     public bool GetIsMidAirDashing() { return _isMidAirDashing; }
     public bool GetJump() { return _jump; }
     public bool GetCanJumpBuffer() { return _canJumpBuffer; }
+    public bool GetCanWallJumpBuffer() { return _canWallJumpBuffer; }
 
     public bool GetIsWallSliding() { return _isWallSliding; }
     public bool GetIsTouchingWallTop() { return _isTouchingWallTop; }
     public bool GetIsTouchingWallBottom() { return _isTouchingWallBottom; }
+
+    public Transform GetWallCheckTop() { return _wallCheckTop; }
+    public Transform GetWallCheckBottom() { return _wallCheckBottom; }
 
 }

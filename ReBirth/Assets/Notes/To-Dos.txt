@@ -3,6 +3,11 @@
 
 Haven't Started:
 	Tasks:
+		- Refactoring:
+			- Combine the Buffer functions
+				- Double Jump isn't working
+				- Wall Jump Buffer isn't working
+			- Move() function in CharacterController2D
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
 		- PlayerAttack:
@@ -15,9 +20,7 @@ Haven't Started:
 
 Started but Paused:
 	Tasks:
-		- Wall Jump Buffer
 	Bugs:
-
 
 In Progress:
 	Tasks:
@@ -97,8 +100,10 @@ Finished:
 			- Fixed by including an extra condition for Jump_Down animation
 		- Implement _isWallSliding boolean?
 		- Text Dialogue Logic
+		- Wall Jump Buffer
+			- Should be similar to Jump Buffer code
+			- Try to use wall touching booleans as conditions
 		
-
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
 		- Infinite double jump
@@ -141,10 +146,11 @@ Finished:
 			- Fixed by putting condition outside of velocity.y check
 		- Double Jump sometimes triggers when trying to wall jump
 			- Fixed by tweaking wall slide condition in PlayerMovement.cs
-
 		- Both of these fixed by commenting out the extra jump input condition on line 231 in PlayerMovement.cs
 			- Double Jump and Jump Buffer are being executed at the same time
 			- walking off a ledge and jumping doesn't work
+		- WallJumpBuffer and Double Jump functions running at the same time
+			- Fixed by removing an extra jump input from the WallJumpBuffer condition
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5

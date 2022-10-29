@@ -137,13 +137,12 @@ public class CharacterController2D : MonoBehaviour
 
 		}
 		
-		if (doubleJump && !_playerMovement.GetIsWallSliding() && 
-			/*_playerMovement.GetHangCounter() <= 0f && */!_playerMovement.GetCanJumpBuffer()) {
+		if (doubleJump && !_playerMovement.GetIsWallSliding() &&
+			!_playerMovement.GetCanJumpBuffer() && !_playerMovement.GetCanWallJumpBuffer()) {
 			ResetForce();
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * .85f));
 			Debug.Log("Double Jump");
 		}
-
 	}
 
 	public bool GetGrounded() {
