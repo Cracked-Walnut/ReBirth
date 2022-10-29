@@ -320,6 +320,21 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    private void WallClimb() {
+        /*
+        Use 2 Raycast2Ds or OverlapCircle2Ds to detect a wall to climb
+            2nd Raycast will look for ground to climb
+        If the 1st is false and 2nd is true:
+            Initiate wall climb:
+                Hold player in place
+                Play wall climb animation
+                Set player's position to the top
+
+        Exceptions:
+            you can only climb walls you can stand on, so ground layer only
+        */
+    }
+
     public GameObject GetJumpBuffer() { return _jumpBuffer; }
     public GameObject GetWallJumpBuffer() { return _wallJumpBuffer; }
 

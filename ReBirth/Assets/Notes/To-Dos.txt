@@ -10,6 +10,9 @@ Haven't Started:
 			- Move() function in CharacterController2D
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
+			- Use two Raycasts to detect a ledge to climb
+				- 2nd raycast will look for ground to climb
+			- If 1st is false and 2nd is true
 		- PlayerAttack:
 			- Instantiate knife when left click is pressed
 				- Projectile moves in direction player is facing until:

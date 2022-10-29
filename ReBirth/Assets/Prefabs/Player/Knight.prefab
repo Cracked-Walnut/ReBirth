@@ -417,6 +417,7 @@ MonoBehaviour:
   _drawHangCounterRadius: 1
   _drawWallTop: 0
   _drawWallBottom: 0
+  _drawWallJumpBufferRadius: 0
 --- !u!50 &1976082034
 Rigidbody2D:
   serializedVersion: 4
