@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559695268222863943}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.68, y: 0, z: 0}
+  m_LocalPosition: {x: -0.657, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -318,9 +318,9 @@ MonoBehaviour:
   _genericTransformRadius: 0.75
   _wallCheckRadius: 0.1
   _wallJumpMultiplier: 1.1
-  _jumpBufferRadius: 0.32
+  _jumpBufferRadius: 0.5
   _wallJumpBufferRadius: 1
-  _rollSpeed: 65
+  _rollSpeed: 70
   _dashSpeedX: 11000
   _dashSpeedY: 350
   _horizontalMove: 0
@@ -329,27 +329,27 @@ MonoBehaviour:
   _hangCounter: 0
   _jumpHangCounter: 0
   _canMove: 1
-  _isMoving: 0
-  _jump: 0
   _canJump: 1
-  _doubleJump: 0
   _canDoubleJump: 0
-  _crouch: 0
-  _roll: 0
-  _isRolling: 0
+  _canMidAirDash: 1
   _canRoll: 1
+  _canWallDash: 1
+  _canJumpBuffer: 1
+  _crouch: 0
+  _canWallJumpBuffer: 1
+  _jump: 0
+  _doubleJump: 0
   _midAirDash: 0
   _isMidAirDashing: 0
-  _canMidAirDash: 1
   _wallDash: 0
+  _isMoving: 0
+  _isRolling: 0
   _isWallDashing: 0
-  _canWallDash: 1
   _isTouchingCeiling: 0
   _isTouchingWallTop: 0
   _isTouchingWallBottom: 0
   _isWallSliding: 0
-  _canJumpBuffer: 1
-  _canWallJumpBuffer: 1
+  _roll: 0
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 128
@@ -417,7 +417,7 @@ MonoBehaviour:
   _drawHangCounterRadius: 1
   _drawWallTop: 0
   _drawWallBottom: 0
-  _drawWallJumpBufferRadius: 0
+  _drawWallJumpBufferRadius: 1
 --- !u!50 &1976082034
 Rigidbody2D:
   serializedVersion: 4

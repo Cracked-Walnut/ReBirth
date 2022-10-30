@@ -3,11 +3,13 @@
 
 Haven't Started:
 	Tasks:
-		- Refactoring:
+		- Refactoring Phase 1:
 			- Combine the Buffer functions
 				- Double Jump isn't working
 				- Wall Jump Buffer isn't working
 			- Move() function in CharacterController2D
+			- Initialize variables in Start()
+			- Break up Update() more into functions
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
 			- Use two Raycasts to detect a ledge to climb

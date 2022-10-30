@@ -34127,10 +34127,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1976082041, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: _drawWallJumpBufferRadius
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1976082042, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: cmvc
       value: 
@@ -34182,14 +34178,6 @@ PrefabInstance:
     - target: {fileID: 5076788299485293436, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7768883258844817835, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: _jumpBufferRadius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8105351835551435252, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.657
       objectReference: {fileID: 0}
     - target: {fileID: 8837755243083025964, guid: b356dfd22b5a80447b11e1652c49d4ff, type: 3}
       propertyPath: _dialogueTrigger
