@@ -321,7 +321,7 @@ MonoBehaviour:
   _jumpBufferRadius: 0.5
   _wallJumpBufferRadius: 1
   _rollSpeed: 70
-  _dashSpeedX: 11000
+  _dashSpeedX: 125
   _dashSpeedY: 350
   _horizontalMove: 0
   _terminalVelocity: -25

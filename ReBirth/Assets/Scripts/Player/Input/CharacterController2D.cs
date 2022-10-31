@@ -65,7 +65,7 @@ public class CharacterController2D : MonoBehaviour
 		}
 	}
 
-	public void Move(float move, bool crouch, bool jump, bool doubleJump, bool _roll, bool _midAirDash)
+	public void Move(float move, bool crouch, bool jump, bool doubleJump, bool _roll)
 	{
 		// If crouching, check to see if the character can stand up
 		// if (!crouch)

@@ -6,15 +6,15 @@ using UnityEngine;
 Purpose:
     To handle all movement related logic for the player model.
 Last Edited:
-    10-18-22.
+    10-31-22.
 */
 public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private CharacterController2D _characterController2D;
     [SerializeField] private Rigidbody2D _rigidBody2D;
     [SerializeField] private Transform _ceilingCheck,
-        _wallCheckTop,
-        _wallCheckBottom;// two wall checks to determine to wall slide
+        _wallCheckTop, // two wall checks to determine to wall slide
+        _wallCheckBottom;
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private GameObject _jumpBuffer, 
@@ -43,33 +43,33 @@ public class PlayerMovement : MonoBehaviour {
         _jumpHangCounter;
 
     private const float HANG_TIME = .2f, // time allowed to jump after walking off ledge
-        WALL_HANG_TIME = .2f; // time allowed to single jump after letting go of a ledge
+        WALL_HANG_TIME = .2f; // time allowed to single jump after letting go of a wall
 
     private Collider2D _jumpBufferActive, 
         _wallJumpBufferActive;
 
-    [SerializeField] private bool _canMove = true,
-        _canJump = true, 
-        _canDoubleJump = false,
-        _canMidAirDash = true,
-        _canRoll = true,
-        _canWallDash = true,
-        _canJumpBuffer = true, 
-        _crouch = false,
-        _canWallJumpBuffer = true,
-        _jump = false, 
-        _doubleJump = false, 
-        _midAirDash = false, 
-        _isMidAirDashing = false, 
-        _wallDash = false, 
-        _isMoving = false,
-        _isRolling = false, 
-        _isWallDashing = false, 
+    [SerializeField] private bool _canMove,
+        _canJump, 
+        _canDoubleJump,
+        _canMidAirDash,
+        _canRoll,
+        _canWallDash,
+        _canJumpBuffer, 
+        _crouch,
+        _canWallJumpBuffer,
+        _jump, 
+        _doubleJump, 
+        _midAirDash, 
+        _isMidAirDashing , 
+        _wallDash, 
+        _isMoving,
+        _isRolling, 
+        _isWallDashing, 
         _isTouchingCeiling, 
         _isTouchingWallTop, 
         _isTouchingWallBottom, 
         _isWallSliding,
-        _roll = false;
+        _roll;
 
     // private bool _turnAround = false;
 
@@ -80,8 +80,28 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private ParticleSystem _particleSystem;
 
     void Start() { 
-        _hangCounter = HANG_TIME; // used for jump assist
+        // both used for jump assist
+        _hangCounter = HANG_TIME;
         _jumpHangCounter = HANG_TIME;
+
+        _canMove = true;
+        _canJump = true;
+        _canDoubleJump = false;
+        _canMidAirDash = true;
+        _canRoll = true;
+        _canWallDash = true;
+        _canJumpBuffer = true;
+        _crouch = false;
+        _canWallJumpBuffer = true;
+        _jump = false;
+        _doubleJump = false;
+        _midAirDash = false;
+        _isMidAirDashing = false;
+        _wallDash = false;
+        _isMoving = false;
+        _isRolling = false;
+        _isWallDashing = false;
+        _roll = false;
     }
 
     void Update() {
@@ -107,7 +127,7 @@ public class PlayerMovement : MonoBehaviour {
             CheckJump();
             CheckDoubleJump();
             Roll();
-            MidAirDash();
+            StartCoroutine(MidAirDash());
             WallDash();
             JumpBuffer();
             WallJumpBuffer();
@@ -126,7 +146,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _crouch, _jump, _doubleJump, _roll, _midAirDash);
+        _characterController2D.Move(_horizontalMove * Time.fixedDeltaTime, _crouch, _jump, _doubleJump, _roll);
         
         // quickly reset these variables so the action isn't executed forever
         _jump = false;
@@ -283,7 +303,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    private void MidAirDash() {
+    private IEnumerator MidAirDash() {
         if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && !_isMidAirDashing && 
             _canMidAirDash && !_isWallSliding) {
 
@@ -296,12 +316,16 @@ public class PlayerMovement : MonoBehaviour {
         if (_isMidAirDashing && _canMove) {
             if (_characterController2D.GetFacingRight()) {
                 _characterController2D.ResetForce(); // reset velocity
-                _characterController2D.ApplyForce(_dashSpeedX, _dashSpeedY); // right dash
+                _horizontalMove = _dashSpeedX; // dash
+                // _rigidBody2D.gravityScale = 0f;
+                yield return new WaitForSeconds(.25f);
+                // _rigidBody2D.gravityScale = 4f;
                 _isMidAirDashing = false;
             }
             else {
                 _characterController2D.ResetForce(); // reset velocity
-                _characterController2D.ApplyForce(-_dashSpeedX, _dashSpeedY); // left dash
+                _horizontalMove = -_dashSpeedX; // dash
+                yield return new WaitForSeconds(.25f);
                 _isMidAirDashing = false;
             }
         }

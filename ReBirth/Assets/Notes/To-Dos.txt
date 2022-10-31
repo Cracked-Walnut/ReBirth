@@ -1,48 +1,28 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
+Tasks:
+	- Refactoring Phase 1:
+		- Combine the Buffer functions
+			- Double Jump isn't working
+			- Wall Jump Buffer isn't working
+	- Wall Climb Logic
+		- https://www.youtube.com/watch?v=JGtlja1RStk
+		- Use two Raycasts to detect a ledge to climb
+			- 2nd raycast will look for ground to climb
+		- If 1st is false and 2nd is true
+	- PlayerAttack:
+		- Instantiate knife when left click is pressed
+			- Projectile moves in direction player is facing until:
+				- it hits an enemy or it touches a wall or projectile timer drops below 0 seconds
+			- Check attack cool down and can attack
+	- Environmental dangers/ forces
+	- Map out an official test map for players
+	- Combat
+		- Attack
+		- Enemies
+		- Items
 
-Haven't Started:
-	Tasks:
-		- Refactoring Phase 1:
-			- Combine the Buffer functions
-				- Double Jump isn't working
-				- Wall Jump Buffer isn't working
-			- Move() function in CharacterController2D
-			- Initialize variables in Start()
-			- Break up Update() more into functions
-		- Wall Climb Logic
-			- https://www.youtube.com/watch?v=JGtlja1RStk
-			- Use two Raycasts to detect a ledge to climb
-				- 2nd raycast will look for ground to climb
-			- If 1st is false and 2nd is true
-		- PlayerAttack:
-			- Instantiate knife when left click is pressed
-				- Projectile moves in direction player is facing until:
-					- it hits an enemy or it touches a wall or projectile timer drops below 0 seconds
-				- Check attack cool down and can attack
-
-	Bugs:
-
-Started but Paused:
-	Tasks:
-	Bugs:
-
-In Progress:
-	Tasks:
-	Bugs:
-
-Archived:
-	Tasks:
-		- Animation for when player stops running
-		- Turn Around animation
-			- Run -> Turn Around -> Run
-			- Might need to modify Idle conditional statements [Horizontal Move]
-		- Animations:
-			- Attack 1
-			- Attack 2
-		- Slide Animation and Logic
-	
-	Bugs:
+Bugs:
 
 Finished:
 	Tasks:
@@ -156,6 +136,19 @@ Finished:
 			- walking off a ledge and jumping doesn't work
 		- WallJumpBuffer and Double Jump functions running at the same time
 			- Fixed by removing an extra jump input from the WallJumpBuffer condition
+
+Archived:
+	Tasks:
+		- Animation for when player stops running
+		- Turn Around animation
+			- Run -> Turn Around -> Run
+			- Might need to modify Idle conditional statements [Horizontal Move]
+		- Animations:
+			- Attack 1
+			- Attack 2
+		- Slide Animation and Logic
+	
+	Bugs:
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5
