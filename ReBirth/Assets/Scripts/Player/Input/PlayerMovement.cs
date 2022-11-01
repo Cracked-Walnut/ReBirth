@@ -160,25 +160,9 @@ public class PlayerMovement : MonoBehaviour {
         _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckTop.transform.position, _wallCheckRadius, _whatIsWall);
         _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckBottom.transform.position, _wallCheckRadius, _whatIsWall);
 
-        // when the player is falling, apply more gravity
-        if (_rigidBody2D.velocity.y < 0)
-            _rigidBody2D.velocity += (_fallMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
-        
-        // when the player is rising and they're holding the jump key, apply gravity
-        if (_rigidBody2D.velocity.y > 0 && Input.GetKey(KeyCode.Space))
-            _rigidBody2D.velocity += (_midMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
-
-        // when the player is falling and they're not holding the jump key, apply gravity
-        if (_rigidBody2D.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
-            _rigidBody2D.velocity += (_lowMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
-
-        // terminal velocity
-        if (_rigidBody2D.velocity.y < -25f)
-            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, _terminalVelocity);
-
-        // reverse terminal velocity
-        if (_rigidBody2D.velocity.y > 25f)
-            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, _reverseTerminalVelocity);
+        JumpControl();
+        TerminalVelocity();
+        ReverseTerminalVelocity();
 
         if (!_characterController2D.GetGrounded()) {
             // wall slide
@@ -383,6 +367,30 @@ public class PlayerMovement : MonoBehaviour {
             _doubleJump = true;
             _canDoubleJump = false;
         }
+    }
+
+    private void TerminalVelocity() {
+        if (_rigidBody2D.velocity.y < -25f)
+            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, _terminalVelocity);
+    }
+
+    private void ReverseTerminalVelocity() {
+        if (_rigidBody2D.velocity.y > 25f)
+            _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, _reverseTerminalVelocity);
+    }
+
+    private void JumpControl() {
+        // when the player is falling, apply more gravity
+        if (_rigidBody2D.velocity.y < 0)
+            _rigidBody2D.velocity += (_fallMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
+        
+        // when the player is rising and they're holding the jump key, apply gravity
+        if (_rigidBody2D.velocity.y > 0 && Input.GetKey(KeyCode.Space))
+            _rigidBody2D.velocity += (_midMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
+
+        // when the player is falling and they're not holding the jump key, apply gravity
+        if (_rigidBody2D.velocity.y > 0 && !Input.GetKey(KeyCode.Space))
+            _rigidBody2D.velocity += (_lowMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
     }
 
     public GameObject GetJumpBuffer() { return _jumpBuffer; }
