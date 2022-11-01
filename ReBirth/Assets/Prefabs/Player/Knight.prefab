@@ -355,7 +355,7 @@ MonoBehaviour:
     m_Bits: 128
   _forceCrouchLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 448
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 64

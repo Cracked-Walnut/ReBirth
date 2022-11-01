@@ -370,7 +370,7 @@ public class PlayerMovement : MonoBehaviour {
         */
     }
 
-    private void DecrementVariable(float _v) { _v -= Time.deltaTime; }
+    private void DecrementVariable(float _v) => _v -= Time.deltaTime;
 
     private void CheckJump() {
         if (Input.GetButtonDown("Jump") && _characterController2D.GetGrounded() && _canJump && !_isRolling)
@@ -413,5 +413,4 @@ public class PlayerMovement : MonoBehaviour {
     public void SetIsRolling(bool _isRolling) => this._isRolling = _isRolling;
     public void SetRollingFalse() => _isRolling = false; // for the end of the rolling animation. Can't use conventional setter
     public void SetMidAirDashFalse() => _midAirDash = false; // for the end of the mid-air dash animation
-
 }

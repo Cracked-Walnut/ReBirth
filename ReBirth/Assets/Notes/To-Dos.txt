@@ -1,6 +1,12 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
+
+	- Demo Pack ASAP:
+		- Tileset
+		- Animals and enemies
+		- Attack
+
 	- Refactoring Phase 1:
 		- Combine the Buffer functions
 			- Double Jump isn't working
