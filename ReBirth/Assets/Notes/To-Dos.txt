@@ -1,15 +1,10 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
-
 	- Demo Pack ASAP:
 		- Tileset
 		- Animals and enemies
 		- Attack
-
-	- Put Wall Slide into a function with a boolean return type
-		- Remove _isWallSliding variable and use the return type from this function instead
-
 	- Refactoring Phase 1:
 		- Combine the Buffer functions
 			- Double Jump isn't working

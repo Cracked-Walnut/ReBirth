@@ -75,8 +75,7 @@ public class PlayerAnimation : MonoBehaviour {
             }
 
             // contact with wall + not grounded
-            if (_playerMovement.GetIsTouchingWallTop() && _playerMovement.GetIsTouchingWallBottom() && 
-                !_characterController2D.GetGrounded() && !_playerMovement.GetIsRolling()) {
+            if (_playerMovement.GetIsWallSliding() && !_characterController2D.GetGrounded() && !_playerMovement.GetIsRolling()) {
                 
                 // wall jump animation update
                 if (_rigidBody2D.velocity.y > 15f) {

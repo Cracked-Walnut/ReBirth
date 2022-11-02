@@ -105,8 +105,9 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
-        // Jump Assist which lets you jump after you've slipped off a platform and pressed jump within .x seconds
         if (_characterController2D.GetGrounded()) {
+            
+            // reset the jump counters when player touches ground so they can work again
             _hangCounter = HANG_TIME;
             _jumpHangCounter = HANG_TIME;
         }
@@ -160,7 +161,7 @@ public class PlayerMovement : MonoBehaviour {
         _isTouchingWallTop = Physics2D.OverlapCircle(_wallCheckTop.transform.position, _wallCheckRadius, _whatIsWall);
         _isTouchingWallBottom = Physics2D.OverlapCircle(_wallCheckBottom.transform.position, _wallCheckRadius, _whatIsWall);
 
-        JumpControl();
+        JumpHeightControl();
         TerminalVelocity();
         ReverseTerminalVelocity();
 
@@ -234,7 +235,6 @@ public class PlayerMovement : MonoBehaviour {
     //     }
     //     else
     //         _canBuffer = false;
-
     // }
 
     // jump assist for when you walk off a ledge
@@ -379,7 +379,7 @@ public class PlayerMovement : MonoBehaviour {
             _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, _reverseTerminalVelocity);
     }
 
-    private void JumpControl() {
+    private void JumpHeightControl() {
         // when the player is falling, apply more gravity
         if (_rigidBody2D.velocity.y < 0)
             _rigidBody2D.velocity += (_fallMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
