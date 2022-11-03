@@ -16,7 +16,7 @@ TagManager:
   - Ceiling
   - Enemy
   - Breakable
-  - 
+  - Grass
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3934152137
+    locked: 0
+  - name: Grass
+    uniqueID: 943494103
     locked: 0

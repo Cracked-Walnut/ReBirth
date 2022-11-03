@@ -302,14 +302,14 @@ public class PlayerMovement : MonoBehaviour {
                 _characterController2D.ResetForce(); // reset velocity
                 _horizontalMove = _dashSpeedX; // dash
                 // _rigidBody2D.gravityScale = 0f;
-                yield return new WaitForSeconds(.25f);
+                yield return new WaitForSeconds(.125f);
                 // _rigidBody2D.gravityScale = 4f;
                 _isMidAirDashing = false;
             }
             else {
                 _characterController2D.ResetForce(); // reset velocity
                 _horizontalMove = -_dashSpeedX; // dash
-                yield return new WaitForSeconds(.25f);
+                yield return new WaitForSeconds(.125f);
                 _isMidAirDashing = false;
             }
         }
