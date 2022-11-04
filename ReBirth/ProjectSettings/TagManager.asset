@@ -41,11 +41,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Grass
+    uniqueID: 943494103
+    locked: 0
+  - name: Ceiling
+    uniqueID: 734591763
+    locked: 0
+  - name: BG_Wall
+    uniqueID: 3121760033
+    locked: 0
+  - name: Ground
+    uniqueID: 174156143
+    locked: 0
   - name: Player
     uniqueID: 3934152137
     locked: 0
-  - name: Grass
-    uniqueID: 943494103
+  - name: Wall
+    uniqueID: 136665291
     locked: 0
   - name: Trees
     uniqueID: 2675915363
