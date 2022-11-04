@@ -17,7 +17,7 @@ TagManager:
   - Enemy
   - Breakable
   - Grass
-  - 
+  - Trees
   - 
   - 
   - 
@@ -46,4 +46,7 @@ TagManager:
     locked: 0
   - name: Grass
     uniqueID: 943494103
+    locked: 0
+  - name: Trees
+    uniqueID: 2675915363
     locked: 0
