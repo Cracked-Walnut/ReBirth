@@ -165,6 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5076788299485293436}
   - component: {fileID: 2794475222290305461}
+  - component: {fileID: 1976082035}
   - component: {fileID: 1976082033}
   - component: {fileID: 7768883258844817835}
   - component: {fileID: 5136171672285880678}
@@ -173,7 +174,6 @@ GameObject:
   - component: {fileID: 1976082034}
   - component: {fileID: 1948676875057181799}
   - component: {fileID: 6682722365109449382}
-  - component: {fileID: 1976082035}
   - component: {fileID: 1976082042}
   m_Layer: 3
   m_Name: Knight
@@ -245,7 +245,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -360815159
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1541058007, guid: bc5c43ff16a835242b6c61998ec61847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -258,6 +258,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1976082035
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540457832135706004}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d574a53d8768e884aa1c87c1f0451d16, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1976082033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +347,6 @@ MonoBehaviour:
   _terminalVelocity: -25
   _reverseTerminalVelocity: 10
   _hangCounter: 0
-  _dashTime: 0.1
   _jumpHangCounter: 0
   _canMove: 1
   _canJump: 1
@@ -482,26 +501,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.53}
   serializedVersion: 2
   m_Radius: 0.6570325
---- !u!95 &1976082035
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2540457832135706004}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d574a53d8768e884aa1c87c1f0451d16, type: 2}
-  m_CullingMode: 2
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1976082042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5357,7 +5356,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -360815159
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: -5
   m_RenderMode: 0
   m_MeshDistribution: 0
