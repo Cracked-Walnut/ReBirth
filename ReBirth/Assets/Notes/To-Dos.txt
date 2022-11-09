@@ -89,6 +89,7 @@ Finished:
 		- Wall Jump Buffer
 			- Should be similar to Jump Buffer code
 			- Try to use wall touching booleans as conditions
+		- Add Kill Boxes
 		
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
