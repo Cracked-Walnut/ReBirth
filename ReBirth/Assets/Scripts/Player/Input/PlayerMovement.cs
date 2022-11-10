@@ -393,6 +393,13 @@ public class PlayerMovement : MonoBehaviour {
             _rigidBody2D.velocity += (_lowMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
     }
 
+    private void LedgeJump() {
+        /*
+        make 2 Raycasts. One at the head and one at the mid-lower seciton
+        If the head cast is null and mid-lower isn't and the player jumps, the jump force should be smaller than a normal jump
+        */
+    }
+
     public GameObject GetJumpBuffer() { return _jumpBuffer; }
     public GameObject GetWallJumpBuffer() { return _wallJumpBuffer; }
 

@@ -17,6 +17,8 @@ Tasks:
 				- Check attack cool down and can attack
 		- Environmental dangers/ forces
 		- Map out an official test map for players
+		- Ledge Jump
+			- Shoot 2 Raycasts
 
 	- Refactoring Phase 1:
 		- Combine the Buffer functions
