@@ -6,15 +6,21 @@ using UnityEngine;
 Purpose:
     To handle all movement related logic for the player model.
 Last Edited:
-    10-31-22.
+    11-11-22.
 */
 public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private CharacterController2D _characterController2D;
     [SerializeField] private Rigidbody2D _rigidBody2D;
     [SerializeField] private Transform _ceilingCheck,
-        _wallCheckTop, // two wall checks to determine to wall slide
-        _wallCheckBottom;
+        // two wall checks to determine to wall slide
+        _wallCheckTop,
+        _wallCheckBottom,
+
+        // two transform positions, where raycasts will be placed to determine LedgeJump() function
+        _midLowerCheck,
+        _feetCheck;
+    [SerializeField] private RaycastHit2D _rMidLower, _rFeet;
 
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private GameObject _jumpBuffer, 
@@ -40,7 +46,8 @@ public class PlayerMovement : MonoBehaviour {
         _terminalVelocity, // max -y velocity
         _reverseTerminalVelocity, // max +y velocity
         _hangCounter,
-        _jumpHangCounter;
+        _jumpHangCounter,
+        _ledgeDetectionDistance;
 
     private const float HANG_TIME = .2f, // time allowed to jump after walking off ledge
         WALL_HANG_TIME = .2f; // time allowed to single jump after letting go of a wall
@@ -75,7 +82,8 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private LayerMask _whatIsWall, // placed on walls which the player can wall slide
         _forceCrouchLayers, // placed on low-hanging, crouchable ceilings
-        _whatIsGround; // player ground animations only trigger on this layer
+        _whatIsGround, // player ground animations only trigger on this layer
+        _whatIsLedge;
 
     [SerializeField] private ParticleSystem _particleSystem;
 
@@ -105,6 +113,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
+        Debug.Log(LedgeJump());
         if (_characterController2D.GetGrounded()) {
             
             // reset the jump counters when player touches ground so they can work again
@@ -393,11 +402,17 @@ public class PlayerMovement : MonoBehaviour {
             _rigidBody2D.velocity += (_lowMultiplier - 1) * Time.deltaTime * Vector2.up * Physics2D.gravity.y;
     }
 
-    private void LedgeJump() {
+    private bool LedgeJump() {
         /*
-        make 2 Raycasts. One at the head and one at the mid-lower seciton
+        make 2 Raycasts. One at the feet and one at the mid-lower seciton
         If the head cast is null and mid-lower isn't and the player jumps, the jump force should be smaller than a normal jump
         */
+        _rMidLower = Physics2D.Raycast(_midLowerCheck.position, Vector2.right, _ledgeDetectionDistance, _whatIsLedge);
+        _rFeet = Physics2D.Raycast(_feetCheck.position, Vector2.right, _ledgeDetectionDistance, _whatIsLedge);
+
+        if (_rMidLower == null && _rFeet != null)
+            return true;
+        return false;
     }
 
     public GameObject GetJumpBuffer() { return _jumpBuffer; }
@@ -405,6 +420,8 @@ public class PlayerMovement : MonoBehaviour {
 
     public Transform GetWallCheckTop() { return _wallCheckTop; }
     public Transform GetWallCheckBottom() { return _wallCheckBottom; }
+    // public Transform GetMidLowerCheck() { return _midLowerCheck; }
+    // public Transform GetFeetCheck() { return _feetCheck; }
 
     public void CreateDust() { _particleSystem.Play(); }
 
@@ -413,6 +430,7 @@ public class PlayerMovement : MonoBehaviour {
     public float GetJumpBufferRadius() { return _jumpBufferRadius; }
     public float GetWallJumpBufferRadius() { return _wallJumpBufferRadius; }
     public float GetWallCheckRadius() { return _wallCheckRadius; }
+    // public float GetLedgeDetectionDistance() { return _ledgeDetectionDistance; }
 
     public bool GetCrouch() { return _crouch; }
     public bool GetRoll() { return _roll; }

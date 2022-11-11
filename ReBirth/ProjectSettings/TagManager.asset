@@ -41,9 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Grass
-    uniqueID: 943494103
-    locked: 0
   - name: Ceiling
     uniqueID: 734591763
     locked: 0
@@ -61,4 +58,7 @@ TagManager:
     locked: 0
   - name: Trees
     uniqueID: 2675915363
+    locked: 0
+  - name: Grass
+    uniqueID: 943494103
     locked: 0

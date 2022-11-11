@@ -7,7 +7,7 @@ Purpose:
     To draw gizmos around objects for visualization/ debugging purposes.
 
 Last Edited:
-    10-17-22.
+    11-11-22.
 
 How to Use:
     1. Declare a boolean for the gizmos you wish to draw.
@@ -55,6 +55,5 @@ public class DrawGizmos : MonoBehaviour {
 
         if (_drawWallJumpBufferRadius)
             Gizmos.DrawWireSphere(_playerMovement.GetWallJumpBuffer().transform.position, _playerMovement.GetWallJumpBufferRadius());
-
     }
 }
