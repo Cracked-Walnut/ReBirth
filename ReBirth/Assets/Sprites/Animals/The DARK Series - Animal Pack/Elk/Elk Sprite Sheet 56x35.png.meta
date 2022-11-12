@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,6 +69,42 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -78,7 +114,994 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 105
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2946666865f25b94893ee40fdc0613de
+      internalID: 43848265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 105
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df28696140eb6aa479a82cfa9e2733c7
+      internalID: 1811609919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 105
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b73a65a29345df544881191a5e6e34f6
+      internalID: 914501671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 105
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0f212afdef3cd34696ce0fd86c7f9d2
+      internalID: 459251860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 105
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5970b0b8f59b15d4b82b4dbc21ce6525
+      internalID: -776474933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_5
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 105
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d25e5d6cedd7ac745b68217e5c8f9138
+      internalID: 595532355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c023460e83bca43bd431bf43a4c5ff
+      internalID: 108161784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbbd1ae6fa8de844ab802838175bfdd5
+      internalID: 1573819439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_8
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917e1d6e09cdd9e4c9ca56639a6b4bb4
+      internalID: -294366784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_9
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc61c0f1bbaaed45ba54646a1a7ce18
+      internalID: -115623578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_10
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1be62547b3d685a4596bdbd1e49a22b6
+      internalID: -1033182831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_11
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad29eef44f87ca49af607912b25fb14
+      internalID: -1850346941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_12
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2237fe7c926138479d340dc23eeb4ab
+      internalID: 458767715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_13
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f7aa7b9cc7c0bd4cb31e4a80a20408d
+      internalID: -1996774384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_14
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83dd9c23ca37b7845bd825ed17113224
+      internalID: -2024450324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_15
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75e0b8d19d456864d832d2a0c0f37b39
+      internalID: -349407273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_16
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66c8ba80f32c9d44869a6f78ff308c2
+      internalID: -1887414161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_17
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fef47a4e1678f4545bcda681d255bac9
+      internalID: 52861710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_18
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac06297ca8bd1664ca2b46e784ba59d0
+      internalID: -453333508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_19
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30655a23a7d4051428478da20c6b5dd8
+      internalID: -1244499265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_20
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e12bd54e3eb26749b4951506b6c3494
+      internalID: 721289699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_21
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 457fe076de36bbc43b9b425abfae84cf
+      internalID: -1806432107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_22
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebfae54d5efa73b458972287818d5560
+      internalID: 1670581218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_23
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d04ebbd234eb1ac4d909862209f25ee4
+      internalID: -1363240221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_24
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 70
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b6716b78a5cfaf479c1639893e7c8ee
+      internalID: -1050656656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 35
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a05aa014f15136d4c81d203511e46e07
+      internalID: 1387836128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_26
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 35
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450b11cfd50ed4143b6b9ca3b75510dc
+      internalID: 597356933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_27
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 35
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7335d824fed51e74b9787cf9c011cd75
+      internalID: -869361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_28
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 35
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce4f699979417645848527b647e9e3e
+      internalID: 2043474317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_29
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 35
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 207a7c4480aacd8469512deec3bea56e
+      internalID: -1716098704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_30
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 35
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40109b6970f88be4390ceef975bbfbab
+      internalID: 510472419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_31
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 35
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d836ad8da04b9d49a476d3880a03719
+      internalID: 1054608041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_32
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 35
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f77aacd8a8bdf8145b604c085c22b9c7
+      internalID: -2107117803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6131991b060b0ac4badbc78cba45800a
+      internalID: 1989806658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_34
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d8fab1cbd6177a419fc5e40418f9043
+      internalID: -1728472886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_35
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72bf3402cb4ade14cbee6248eabcfc3b
+      internalID: -661628203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_36
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3944e21a7e144294e8d2cd16f7304868
+      internalID: 84439993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_37
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1324ce38578e7bd49903b17e175d9511
+      internalID: 937585484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_38
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deda1aa3272418b46a13ffefc70c1ab8
+      internalID: 2028534585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_39
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9133d829c24d07749af42df0e71c6be9
+      internalID: 893485746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_40
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5accc8900f4788c4298660a6d419301a
+      internalID: -2039692466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_41
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 410e8eaf07293bc439ddf202e746867e
+      internalID: 73974261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_42
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fa3c405eeefe7b49b277d6eb4af3f86
+      internalID: 42890320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_43
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21278c68df959434cafe1e0bf4ca96a6
+      internalID: -1405491564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_44
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478e314909cd44c4ebf16d847c11fc15
+      internalID: -889710251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_45
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c9752b5fc58ce4bbb1ee3b0bf39bde
+      internalID: -2011837230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elk Sprite Sheet 56x35_46
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 0
+        width: 56
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1046b2610006c7c45b6e11ec3b52c924
+      internalID: -1775152673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,7 +1112,54 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Elk Sprite Sheet 56x35_33: 1989806658
+      Elk Sprite Sheet 56x35_35: -661628203
+      Elk Sprite Sheet 56x35_7: 1573819439
+      Elk Sprite Sheet 56x35_26: 597356933
+      Elk Sprite Sheet 56x35_24: -1050656656
+      Elk Sprite Sheet 56x35_28: 2043474317
+      Elk Sprite Sheet 56x35_39: 893485746
+      Elk Sprite Sheet 56x35_15: -349407273
+      Elk Sprite Sheet 56x35_44: -889710251
+      Elk Sprite Sheet 56x35_5: 595532355
+      Elk Sprite Sheet 56x35_4: -776474933
+      Elk Sprite Sheet 56x35_3: 459251860
+      Elk Sprite Sheet 56x35_1: 1811609919
+      Elk Sprite Sheet 56x35_16: -1887414161
+      Elk Sprite Sheet 56x35_23: -1363240221
+      Elk Sprite Sheet 56x35_17: 52861710
+      Elk Sprite Sheet 56x35_2: 914501671
+      Elk Sprite Sheet 56x35_21: -1806432107
+      Elk Sprite Sheet 56x35_42: 42890320
+      Elk Sprite Sheet 56x35_11: -1850346941
+      Elk Sprite Sheet 56x35_10: -1033182831
+      Elk Sprite Sheet 56x35_38: 2028534585
+      Elk Sprite Sheet 56x35_34: -1728472886
+      Elk Sprite Sheet 56x35_14: -2024450324
+      Elk Sprite Sheet 56x35_31: 1054608041
+      Elk Sprite Sheet 56x35_41: 73974261
+      Elk Sprite Sheet 56x35_32: -2107117803
+      Elk Sprite Sheet 56x35_29: -1716098704
+      Elk Sprite Sheet 56x35_9: -115623578
+      Elk Sprite Sheet 56x35_36: 84439993
+      Elk Sprite Sheet 56x35_12: 458767715
+      Elk Sprite Sheet 56x35_45: -2011837230
+      Elk Sprite Sheet 56x35_6: 108161784
+      Elk Sprite Sheet 56x35_0: 43848265
+      Elk Sprite Sheet 56x35_30: 510472419
+      Elk Sprite Sheet 56x35_13: -1996774384
+      Elk Sprite Sheet 56x35_18: -453333508
+      Elk Sprite Sheet 56x35_27: -869361
+      Elk Sprite Sheet 56x35_46: -1775152673
+      Elk Sprite Sheet 56x35_20: 721289699
+      Elk Sprite Sheet 56x35_37: 937585484
+      Elk Sprite Sheet 56x35_22: 1670581218
+      Elk Sprite Sheet 56x35_25: 1387836128
+      Elk Sprite Sheet 56x35_43: -1405491564
+      Elk Sprite Sheet 56x35_8: -294366784
+      Elk Sprite Sheet 56x35_40: -2039692466
+      Elk Sprite Sheet 56x35_19: -1244499265
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

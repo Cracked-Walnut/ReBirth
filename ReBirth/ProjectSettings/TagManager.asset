@@ -18,7 +18,7 @@ TagManager:
   - Breakable
   - Grass
   - Trees
-  - 
+  - Animal
   - 
   - 
   - 
@@ -61,4 +61,7 @@ TagManager:
     locked: 0
   - name: Grass
     uniqueID: 943494103
+    locked: 0
+  - name: Animal
+    uniqueID: 2893006671
     locked: 0
