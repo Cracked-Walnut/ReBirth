@@ -19,7 +19,7 @@ TagManager:
   - Grass
   - Trees
   - Animal
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -56,12 +56,15 @@ TagManager:
   - name: Wall
     uniqueID: 136665291
     locked: 0
-  - name: Trees
-    uniqueID: 2675915363
-    locked: 0
   - name: Grass
     uniqueID: 943494103
     locked: 0
+  - name: Trees
+    uniqueID: 2675915363
+    locked: 0
   - name: Animal
     uniqueID: 2893006671
+    locked: 0
+  - name: Enemy
+    uniqueID: 747753109
     locked: 0
