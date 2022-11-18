@@ -7,7 +7,6 @@ Tasks:
 			- Use two Raycasts to detect a ledge to climb
 				- 2nd raycast will look for ground to climb
 			- If 1st is false and 2nd is true
-		- 3 stages
 		- Tileset
 		- Animals and enemies
 		- PlayerAttack:
