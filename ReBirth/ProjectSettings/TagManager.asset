@@ -50,6 +50,12 @@ TagManager:
   - name: Ground
     uniqueID: 174156143
     locked: 0
+  - name: Statue
+    uniqueID: 1467590937
+    locked: 0
+  - name: Throne
+    uniqueID: 729976977
+    locked: 0
   - name: Player
     uniqueID: 3934152137
     locked: 0
