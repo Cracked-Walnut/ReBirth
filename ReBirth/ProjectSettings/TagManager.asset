@@ -20,7 +20,7 @@ TagManager:
   - Trees
   - Animal
   - Enemy
-  - 
+  - BG_Wall
   - 
   - 
   - 
@@ -38,14 +38,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3393189133
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Ceiling
-    uniqueID: 734591763
-    locked: 0
   - name: BG_Wall
     uniqueID: 3121760033
+    locked: 0
+  - name: Fog
+    uniqueID: 980160343
+    locked: 0
+  - name: Ceiling
+    uniqueID: 734591763
     locked: 0
   - name: Ground
     uniqueID: 174156143
