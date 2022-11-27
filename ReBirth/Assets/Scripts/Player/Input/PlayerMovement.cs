@@ -113,7 +113,6 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
-        Debug.Log(LedgeJump());
         if (_characterController2D.GetGrounded()) {
             
             // reset the jump counters when player touches ground so they can work again

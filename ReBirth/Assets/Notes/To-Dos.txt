@@ -19,6 +19,10 @@ Tasks:
 		- Ledge Jump
 			- Shoot 2 Raycasts
 
+		- Enemy AI:
+			- Animation script
+			- Movement script
+
 	- Refactoring Phase 1:
 		- Combine the Buffer functions
 			- Double Jump isn't working
