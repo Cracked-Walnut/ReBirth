@@ -22,4 +22,16 @@ public class PlayerCamera : MonoBehaviour {
     // Camera manipulation (follow instructions at the top)
     public void SetPriority(int _priority) => cmvc.Priority = _priority;
 
+    void OnTriggerEnter2D(Collider2D _collider2D) {
+        if (_collider2D.gameObject.layer == 3) { // Player layer
+            SetPriority(101); // switch to alt camera
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D _collider2D) {
+        if (_collider2D.gameObject.layer == 3) { // Player layer
+            SetPriority(99); // switch to original camera
+        }
+    }
+
 }
