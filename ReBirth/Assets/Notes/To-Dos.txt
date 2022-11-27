@@ -20,8 +20,19 @@ Tasks:
 			- Shoot 2 Raycasts
 
 		- Enemy AI:
-			- Animation script
-			- Movement script
+			- Ghoul
+				- Moves back and fourth. Rotates 180 when approaching ledge or wall
+				- Takes 1 hit
+
+			- Spitter
+				- Shoots projectiles at player
+				- Doesn't move
+				- Takes 2 hits
+
+			- Summoner
+				- Summons one dead enemy every 5 sec
+				- Doesn't move
+				- Takes 3 hits
 
 	- Refactoring Phase 1:
 		- Combine the Buffer functions
@@ -29,6 +40,8 @@ Tasks:
 			- Wall Jump Buffer isn't working
 
 Bugs:
+	- Put glowy orb thingies on layer separate from Ceiling
+	- Put all sprites in Sprit Atlas
 
 Finished:
 	Tasks:
