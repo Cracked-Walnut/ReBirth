@@ -7,17 +7,18 @@ Tasks:
 			- Use two Raycasts to detect a ledge to climb
 				- 2nd raycast will look for ground to climb
 			- If 1st is false and 2nd is true
-		- Tileset
-		- Animals and enemies
 		- PlayerAttack:
 			- Instantiate knife when left click is pressed
 				- Projectile moves in direction player is facing until:
 					- it hits an enemy or it touches a wall or projectile timer drops below 0 seconds
 				- Check attack cool down and can attack
-		- Environmental dangers/ forces
-		- Map out an official test map for players
 		- Ledge Jump
 			- Shoot 2 Raycasts
+			
+	- Enemy hitboxes:
+		- Ghoul
+		- Summoner
+		- Spitter
 
 		- Enemy AI:
 			- Ghoul
@@ -41,7 +42,7 @@ Tasks:
 
 Bugs:
 	- Put glowy orb thingies on layer separate from Ceiling
-	- Put all sprites in Sprit Atlas
+	- Put all sprites in Sprite Atlas
 
 Finished:
 	Tasks:
