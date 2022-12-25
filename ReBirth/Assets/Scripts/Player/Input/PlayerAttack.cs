@@ -6,13 +6,13 @@ using UnityEngine;
 Purpose:
     To handle player attack logic.
 Last Edited:
-    10-17-22.
+    12-25-22.
 */
 public class PlayerAttack : MonoBehaviour {
 
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private Transform _attackPoint, _attackPoint2;
+    [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackRange,
         _attackCoolDown; // implement this
     [SerializeField] private LayerMask _whatIsWall;
@@ -29,6 +29,20 @@ public class PlayerAttack : MonoBehaviour {
             if (!_playerMovement.GetIsRolling()) { // prevent attack while rolling
                 // CheckBreakWall(); 
                 // CheckDialogue();
+                if(_spriteRenderer.flipX) { // facing to the left
+                    // _attackPoint.rotation = Quaternion.Euler(0, 180, 0);
+                    // Vector3 newRotation = new Vector3(0, 180, 0);
+                    // _attackPoint.transform.eulerAngles = newRotation;
+                    // _attackPoint.rotation = Quaternion.Euler(new Vector3(0,180,0));
+                }
+                else { // facing to the right
+                    // _attackPoint.rotation = Quaternion.Euler(0, 0, 0);
+                    // Vector3 newRotation = new Vector3(0, 0, 0);
+                    // _attackPoint.transform.eulerAngles = newRotation;
+                    // _attackPoint.rotation = Quaternion.Euler(new Vector3(0,0,0));
+                }
+                
+                // spawn the projectile
                 Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
             }
         }
