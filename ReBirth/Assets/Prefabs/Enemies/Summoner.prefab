@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1077629583692270933}
   m_Layer: 14
   m_Name: Summoner
-  m_TagString: Untagged
+  m_TagString: Enemy0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

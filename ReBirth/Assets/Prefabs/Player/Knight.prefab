@@ -246,7 +246,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -360815159
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -1541058007, guid: bc5c43ff16a835242b6c61998ec61847, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -340,7 +340,7 @@ MonoBehaviour:
   _wallSlideSpeed: 3
   _genericTransformRadius: 0.75
   _wallCheckRadius: 0.1
-  _wallJumpMultiplier: 1.1
+  _wallJumpMultiplier: 1.25
   _jumpBufferRadius: 0.5
   _wallJumpBufferRadius: 1
   _rollSpeed: 70
@@ -417,13 +417,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMovement: {fileID: 7768883258844817835}
+  _bulletPrefab: {fileID: 4276604514490925587, guid: adccd04a5fa94a94094c4a68a6dd6008, type: 3}
   _attackPoint: {fileID: 7566385199641350530}
+  _attackPoint2: {fileID: 0}
   _attackRange: 0.25
   _attackCoolDown: 0
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 1024
-  _dialogueTrigger: {fileID: 0}
+  _spriteRenderer: {fileID: 2794475222290305461}
 --- !u!114 &1976082041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,7 +609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4537393236448580602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8333333, y: 0.20833333, z: 0}
+  m_LocalPosition: {x: 1.184, y: 0.20833333, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5458,7 +5460,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -360815159
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: -5
   m_RenderMode: 0
   m_MeshDistribution: 0
