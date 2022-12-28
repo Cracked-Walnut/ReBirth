@@ -12,7 +12,8 @@ public class PlayerAttack : MonoBehaviour {
 
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private Transform _attackPoint;
+    [SerializeField] private Transform _attackPoint, _attackPoint2;
+    [SerializeField] private CharacterController2D _characterController2D;
     [SerializeField] private float _attackRange,
         _attackCoolDown; // implement this
     [SerializeField] private LayerMask _whatIsWall;
@@ -24,27 +25,29 @@ public class PlayerAttack : MonoBehaviour {
 
     // Functions
     void Update() {
+        if (!_playerMovement.GetIsRolling()) { // prevent attack while rolling
         if (Input.GetMouseButtonDown(0)) {
             Debug.Log("Pressed primary button.");
-            if (!_playerMovement.GetIsRolling()) { // prevent attack while rolling
                 // CheckBreakWall(); 
                 // CheckDialogue();
-                if(_spriteRenderer.flipX) { // facing to the left
+                if(_characterController2D.GetFacingRight()) { // facing to the left
+                    Debug.Log("Right");
                     // _attackPoint.rotation = Quaternion.Euler(0, 180, 0);
                     // Vector3 newRotation = new Vector3(0, 180, 0);
                     // _attackPoint.transform.eulerAngles = newRotation;
                     // _attackPoint.rotation = Quaternion.Euler(new Vector3(0,180,0));
+                    Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
                 }
                 else { // facing to the right
+                    Debug.Log("Left");
                     // _attackPoint.rotation = Quaternion.Euler(0, 0, 0);
                     // Vector3 newRotation = new Vector3(0, 0, 0);
                     // _attackPoint.transform.eulerAngles = newRotation;
                     // _attackPoint.rotation = Quaternion.Euler(new Vector3(0,0,0));
+                    Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint2.transform.rotation);
                 }
-                
                 // spawn the projectile
-                Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
-            }
+                // Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -52,6 +55,7 @@ public class PlayerAttack : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(2))
             Debug.Log("Pressed middle click.");
+        }
      }
 
      void CheckBreakWall() {
