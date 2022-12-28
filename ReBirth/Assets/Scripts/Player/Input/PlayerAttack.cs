@@ -6,13 +6,13 @@ using UnityEngine;
 Purpose:
     To handle player attack logic.
 Last Edited:
-    12-25-22.
+    12-28-22.
 */
 public class PlayerAttack : MonoBehaviour {
 
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private Transform _attackPoint, _attackPoint2;
+    [SerializeField] private Transform _attackPoint, _attackPoint2, _wallSlideAttackPoint, _wallSlideAttackPoint2;
     [SerializeField] private CharacterController2D _characterController2D;
     [SerializeField] private float _attackRange,
         _attackCoolDown; // implement this
@@ -27,24 +27,20 @@ public class PlayerAttack : MonoBehaviour {
     void Update() {
         if (!_playerMovement.GetIsRolling()) { // prevent attack while rolling
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("Pressed primary button.");
+            // Debug.Log("Pressed primary button.");
                 // CheckBreakWall(); 
                 // CheckDialogue();
-                if(_characterController2D.GetFacingRight()) { // facing to the left
-                    Debug.Log("Right");
-                    // _attackPoint.rotation = Quaternion.Euler(0, 180, 0);
-                    // Vector3 newRotation = new Vector3(0, 180, 0);
-                    // _attackPoint.transform.eulerAngles = newRotation;
-                    // _attackPoint.rotation = Quaternion.Euler(new Vector3(0,180,0));
-                    Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
+                if(_characterController2D.GetFacingRight()) { // facing to the right
+                    if (_playerMovement.GetIsWallSliding())
+                        Instantiate(_bulletPrefab, _wallSlideAttackPoint.transform.position, _attackPoint2.transform.rotation);
+                    else
+                        Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
                 }
-                else { // facing to the right
-                    Debug.Log("Left");
-                    // _attackPoint.rotation = Quaternion.Euler(0, 0, 0);
-                    // Vector3 newRotation = new Vector3(0, 0, 0);
-                    // _attackPoint.transform.eulerAngles = newRotation;
-                    // _attackPoint.rotation = Quaternion.Euler(new Vector3(0,0,0));
-                    Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint2.transform.rotation);
+                else { // facing to the left
+                    if (_playerMovement.GetIsWallSliding())
+                        Instantiate(_bulletPrefab, _wallSlideAttackPoint.transform.position, _attackPoint.transform.rotation);
+                    else
+                        Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint2.transform.rotation);
                 }
                 // spawn the projectile
                 // Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
@@ -58,7 +54,7 @@ public class PlayerAttack : MonoBehaviour {
         }
      }
 
-     void CheckBreakWall() {
+    void CheckBreakWall() {
         Collider2D[] _hitWall = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _whatIsWall);
 
         foreach(Collider2D _wallsHit in _hitWall) {

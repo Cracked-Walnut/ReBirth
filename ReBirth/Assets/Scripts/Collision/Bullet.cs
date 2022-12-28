@@ -9,7 +9,7 @@ using UnityEngine;
 Purpose:
     The characteristics of a bullet.
 Last Edited:
-    12-25-22.
+    12-28-22.
 */
 public class Bullet : MonoBehaviour {
 
@@ -28,20 +28,19 @@ public class Bullet : MonoBehaviour {
         CheckSelfDestructTime(_selfDestructTime);
     }
 
-    void OnTriggerEnter2D(Collider2D _collider) {
-        
-        if (_collider.gameObject.tag == _enemyTag) {
-            // _collider.gameObject.GetComponent<EnemyHealth>().TakeDamage(_bulletDamage);
-            // if (_collider.gameObject.GetComponent<EnemyHealth>().GetHP() <= 0) {
-                // AudioManager.Instance.Play("kunai-hit");
-                // PlayerInventoryManager.Instance.AddXP(_collider.gameObject.GetComponent<EnemyXP>().GetXP());
+    void OnCollisionEnter2D(Collision2D _collision2D) {
+        if (_collision2D.gameObject.layer == 9) {
+            // _collision2D.gameObject.GetComponent<EnemyHealth>().TakeDamage(_bulletDamage);
+            // if (_collision2D.gameObject.GetComponent<EnemyHealth>().GetHP() <= 0) {
+            //     AudioManager.Instance.Play("kunai-hit");
+            //     PlayerInventoryManager.Instance.AddXP(_collision2D.gameObject.GetComponent<EnemyXP>().GetXP());
             // }
+            Destroy(_collision2D.gameObject);
         }
-        else if (_collider.gameObject.tag == _playerTag) {
-            // HealthManager.Instance.TakeDamage(_bulletDamage);
-        }
+        // else if (_collision2D.gameObject.tag == _playerTag) {
+        //     HealthManager.Instance.TakeDamage(_bulletDamage);
+        // }
     Destroy(this.gameObject);
-
     }
 
     void CheckSelfDestructTime(float _seconds) {
