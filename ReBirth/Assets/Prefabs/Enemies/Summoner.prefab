@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1077629583692270933}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: Summoner
   m_TagString: Enemy0
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6737558085814691130}
   - component: {fileID: 591498434323929578}
   - component: {fileID: 8380802219122125628}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

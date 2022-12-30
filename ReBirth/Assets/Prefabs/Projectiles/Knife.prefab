@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6169626613060213043}
   - component: {fileID: 8041008301939730335}
   - component: {fileID: 5616794365156163004}
+  - component: {fileID: 6557564581290819741}
   m_Layer: 0
   m_Name: Knife
   m_TagString: Untagged
@@ -129,3 +130,24 @@ MonoBehaviour:
   _selfDestructTime: 4
   _enemyTag: Enemy0
   _playerTag: Player
+--- !u!50 &6557564581290819741
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276604514490925587}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 6
