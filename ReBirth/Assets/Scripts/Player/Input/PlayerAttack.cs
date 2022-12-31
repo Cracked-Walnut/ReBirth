@@ -20,7 +20,6 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     // [SerializeField] bool _canAttack = true; // implement this
     
-    
     // [SerializeField] DialogueTrigger _dialogueTrigger;
 
     // Functions

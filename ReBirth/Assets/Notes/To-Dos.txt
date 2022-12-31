@@ -11,15 +11,10 @@ Tasks:
 			- Instantiate knife when left click is pressed
 				- Projectile moves in direction player is facing until:
 					- it hits an enemy or it touches a wall or projectile timer drops below 0 seconds
-				- If player is wall sliding, choose different attack point
+				- If player is wall sliding, choose different attack point [X]
 				- Check attack cool down and can attack
 		- Ledge Jump
 			- Shoot 2 Raycasts
-			
-	- Enemy hitboxes:
-		- Ghoul
-		- Summoner
-		- Spitter
 
 		- Enemy AI:
 			- Ghoul
@@ -44,6 +39,7 @@ Tasks:
 Bugs:
 	- Put glowy orb thingies on layer separate from Ceiling
 	- Put all sprites in Sprite Atlas
+	- Knives go through wall 
 
 Finished:
 	Tasks:
