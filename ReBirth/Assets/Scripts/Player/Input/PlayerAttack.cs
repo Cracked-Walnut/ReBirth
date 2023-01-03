@@ -6,7 +6,7 @@ using UnityEngine;
 Purpose:
     To handle player attack logic.
 Last Edited:
-    12-28-22.
+    01-02-23.
 */
 public class PlayerAttack : MonoBehaviour {
 
@@ -15,21 +15,27 @@ public class PlayerAttack : MonoBehaviour {
     [SerializeField] private Transform _attackPoint, _attackPoint2, _wallSlideAttackPoint, _wallSlideAttackPoint2;
     [SerializeField] private CharacterController2D _characterController2D;
     [SerializeField] private float _attackRange,
-        _attackCoolDown; // implement this
+        _attackCoolDown;
     [SerializeField] private LayerMask _whatIsWall;
     [SerializeField] private SpriteRenderer _spriteRenderer;
-    // [SerializeField] bool _canAttack = true; // implement this
+    [SerializeField] bool _canAttack = true;
     
     // [SerializeField] DialogueTrigger _dialogueTrigger;
 
     // Functions
     void Update() {
+        _attackCoolDown -= Time.deltaTime;
+        if (_attackCoolDown <= 0)
+            _canAttack = true;
+
         if (!_playerMovement.GetIsRolling()) { // prevent attack while rolling
         if (Input.GetMouseButtonDown(0)) {
             // Debug.Log("Pressed primary button.");
                 // CheckBreakWall(); 
                 // CheckDialogue();
-                if(_characterController2D.GetFacingRight()) { // facing to the right
+            if (_canAttack) {
+                _attackCoolDown = 0.15f;
+                if (_characterController2D.GetFacingRight()) { // facing to the right
                     if (_playerMovement.GetIsWallSliding())
                         Instantiate(_bulletPrefab, _wallSlideAttackPoint.transform.position, _attackPoint2.transform.rotation);
                     else
@@ -41,8 +47,8 @@ public class PlayerAttack : MonoBehaviour {
                     else
                         Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint2.transform.rotation);
                 }
-                // spawn the projectile
-                // Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
+                _canAttack = false;
+            }
         }
 
         if (Input.GetMouseButtonDown(1))
@@ -51,7 +57,7 @@ public class PlayerAttack : MonoBehaviour {
         if (Input.GetMouseButtonDown(2))
             Debug.Log("Pressed middle click.");
         }
-     }
+    }
 
     void CheckBreakWall() {
         Collider2D[] _hitWall = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _whatIsWall);
@@ -70,7 +76,4 @@ public class PlayerAttack : MonoBehaviour {
 
     public Transform GetAttackPoint() { return _attackPoint; }
     public float GetAttackRange() { return _attackRange; }
-    
-    // Stationary Attack
-    // Moving Attack
 }
