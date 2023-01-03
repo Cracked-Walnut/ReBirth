@@ -7,6 +7,7 @@ Tasks:
 			- Use two Raycasts to detect a ledge to climb
 				- 2nd raycast will look for ground to climb
 			- If 1st is false and 2nd is true
+			- Player stays put, animation plays, move player to new position
 		- Ledge Jump
 			- Shoot 2 Raycasts
 

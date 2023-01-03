@@ -140,6 +140,7 @@ public class PlayerMovement : MonoBehaviour {
             WallDash();
             JumpBuffer();
             WallJumpBuffer();
+            // Debug.Log(LedgeJump());
             // JumpBuffer(_jumpBufferActive, _jumpBuffer, _jumpBufferRadius, _whatIsGround, _canJumpBuffer, "Jump Buffer");
             // JumpBuffer(_wallJumpBufferActive, _wallJumpBuffer, _wallJumpBufferRadius, _whatIsWall, _canWallJumpBuffer, "Wall Jump Buffer");
             Crouch();
