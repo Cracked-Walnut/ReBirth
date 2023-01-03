@@ -1,6 +1,7 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
+	- Hit effect on bullet impact on enemy
 	- Demo Pack ASAP:
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
