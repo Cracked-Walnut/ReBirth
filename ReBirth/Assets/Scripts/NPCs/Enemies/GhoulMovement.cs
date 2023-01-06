@@ -1,5 +1,11 @@
 using UnityEngine;
 
+/*
+Purpose:
+    To handle Ghoul movement.
+Last Edited:
+    01-05-23.
+*/
 public class GhoulMovement : MonoBehaviour {
 
     // [SerializeField] private GhoulAnimation _ghoulAnimation;
@@ -26,5 +32,7 @@ public class GhoulMovement : MonoBehaviour {
             transform.Rotate(0f, 180f, 0f);
 
     }
+
+    public void SetMovementSpeed(float _moveSpeed) { this._moveSpeed = _moveSpeed; }
 
 }

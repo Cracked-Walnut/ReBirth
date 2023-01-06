@@ -7,11 +7,9 @@ Last Edited:
 */
 public class GhoulAnimation : MonoBehaviour {
 
-    // [SerializeField] private Animator _animator;
-    // [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
 
-    // void LateUpdate() {
-
-    // }
+    public Animator GetAnimator() { return _animator; }
 
 }

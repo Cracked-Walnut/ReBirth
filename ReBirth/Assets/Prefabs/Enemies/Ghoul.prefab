@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6165070820008859770}
   - component: {fileID: 6946444337838335982}
   - component: {fileID: 8893243388063633586}
+  - component: {fileID: 7943402701266969999}
+  - component: {fileID: 2648458612217136749}
   - component: {fileID: 2757526465526060110}
   m_Layer: 9
   m_Name: Ghoul
@@ -133,6 +135,34 @@ MonoBehaviour:
   _whatIsCeiling:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &7943402701266969999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958432563023539184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d490bfce4b9586443869aa3813c428bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ghoulAnimation: {fileID: 2648458612217136749}
+  _ghoulMovement: {fileID: 8893243388063633586}
+--- !u!114 &2648458612217136749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958432563023539184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c573203566e7c74a8287bd5e1664c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 6946444337838335982}
+  _spriteRenderer: {fileID: 6165070820008859770}
 --- !u!61 &2757526465526060110
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
-    The characteristics of a bullet
-*/
-/*
 Purpose:
     The characteristics of a bullet.
 Last Edited:
@@ -15,8 +12,9 @@ public class Bullet : MonoBehaviour {
 
     // Variables
     [SerializeField] private float _bulletSpeed,
-        _bulletDamage,
         _selfDestructTime;
+        
+    [SerializeField] private int _bulletDamage;
 
     [SerializeField] private string _enemyTag,
         _playerTag;
@@ -35,7 +33,8 @@ public class Bullet : MonoBehaviour {
             //     AudioManager.Instance.Play("kunai-hit");
             //     PlayerInventoryManager.Instance.AddXP(_collision2D.gameObject.GetComponent<EnemyXP>().GetXP());
             // }
-            Destroy(_collision2D.gameObject);
+
+            _collision2D.gameObject.GetComponent<EnemyLife>().TakeDamage(_bulletDamage);
         }
         // else if (_collision2D.gameObject.tag == _playerTag) {
         //     HealthManager.Instance.TakeDamage(_bulletDamage);
