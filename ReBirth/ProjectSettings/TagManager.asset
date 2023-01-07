@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy0
+  - Effect
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - 
   - BG_Wall
   - Orbs
-  - 
+  - Effect
   - 
   - 
   - 
@@ -83,4 +84,7 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 1711279081
+    locked: 0
+  - name: Effect
+    uniqueID: 1404055415
     locked: 0

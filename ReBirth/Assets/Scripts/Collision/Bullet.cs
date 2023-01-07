@@ -15,8 +15,7 @@ public class Bullet : MonoBehaviour {
         
     [SerializeField] private int _bulletDamage;
 
-    [SerializeField] private string _enemyTag,
-        _playerTag;
+    [SerializeField] private int _enemyLayer;
 
     [SerializeField] private GameObject _enemyHitEffect,
         _wallHitEffect;
@@ -29,16 +28,18 @@ public class Bullet : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D _collision2D) {
-        if (_collision2D.gameObject.layer == 9) {
+        if (_collision2D.gameObject.layer == _enemyLayer) {
             // _collision2D.gameObject.GetComponent<EnemyHealth>().TakeDamage(_bulletDamage);
             // if (_collision2D.gameObject.GetComponent<EnemyHealth>().GetHP() <= 0) {
             //     AudioManager.Instance.Play("kunai-hit");
             //     PlayerInventoryManager.Instance.AddXP(_collision2D.gameObject.GetComponent<EnemyXP>().GetXP());
             // }
             _collision2D.gameObject.GetComponent<EnemyLife>().TakeDamage(_bulletDamage);
-            Instantiate(_enemyHitEffect);
+            Instantiate(_enemyHitEffect, this.transform.position, this.transform.rotation);
+            // Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
         } else {
-            Instantiate(_wallHitEffect);
+            Instantiate(_wallHitEffect, this.transform.position, this.transform.rotation);
+            // Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
         }
         // else if (_collision2D.gameObject.tag == _playerTag) {
         //     HealthManager.Instance.TakeDamage(_bulletDamage);

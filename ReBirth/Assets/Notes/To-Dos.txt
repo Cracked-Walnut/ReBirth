@@ -1,13 +1,6 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
-	- Hit Effect:
-		- on enemy
-		- on non-enemy
-		- How it's done:
-			- When the bullet makes contact, instantiate a hit effect separate from the bullet
-	
-
 	- Demo Pack ASAP:
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
@@ -117,7 +110,11 @@ Finished:
 			- Ghoul
 			- Spitter
 			- Summoner
-		
+		- Hit Effect:
+			- on non-enemy
+				- wall
+			- on enemy
+
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
 		- Infinite double jump
