@@ -373,6 +373,7 @@ MonoBehaviour:
   _midMultiplier: 0.5
   _lowMultiplier: 1.75
   _wallSlideSpeed: 3
+  _wallSlideSpeedMultiplier: 3
   _genericTransformRadius: 0.75
   _wallCheckRadius: 0.1
   _wallJumpMultiplier: 1.25

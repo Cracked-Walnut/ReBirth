@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d490bfce4b9586443869aa3813c428bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _life: 1
   _enemyAnimation: {fileID: 2648458612217136749}
   _enemyMovement: {fileID: 8893243388063633586}
 --- !u!114 &8893243388063633586

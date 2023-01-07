@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d490bfce4b9586443869aa3813c428bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _life: 2
   _enemyAnimation: {fileID: 3698785923376671418}
   _enemyMovement: {fileID: 4584236226564264672}
 --- !u!114 &3698785923376671418
@@ -185,6 +186,3 @@ MonoBehaviour:
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 128
-  _whatIsCeiling:
-    serializedVersion: 2
-    m_Bits: 256

@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour {
         _midMultiplier, 
         _lowMultiplier, 
         _wallSlideSpeed;
+
+    [Range(2f, 4f)] [SerializeField] private float _wallSlideSpeedMultiplier;
     
     [SerializeField] private float _genericTransformRadius, 
         _wallCheckRadius, 
@@ -177,8 +179,12 @@ public class PlayerMovement : MonoBehaviour {
         if (!_characterController2D.GetGrounded()) {
             // wall slide
             if (_isTouchingWallBottom && _isTouchingWallTop) {
-                _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
-                _isWallSliding = true;
+                if (Input.GetKey(KeyCode.S) || Input.GetButton("Crouch"))
+                    _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed * _wallSlideSpeedMultiplier, float.MaxValue));
+                else {
+                    _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
+                    _isWallSliding = true;
+                }
             }
         }
 

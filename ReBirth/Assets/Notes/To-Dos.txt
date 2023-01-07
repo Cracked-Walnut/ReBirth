@@ -32,6 +32,8 @@ Tasks:
 			- Wall Jump Buffer isn't working
 
 Bugs:
+	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
+	- While wall sliding and holding the crouch button, upon reaching the ground the player does not enter the appropriate animation
 	- Put glowy orb thingies on layer separate from Ceiling
 	- Put all sprites in Sprite Atlas
 
@@ -114,6 +116,7 @@ Finished:
 			- on non-enemy
 				- wall
 			- on enemy
+		- Increase Wall Slide Speed
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine

@@ -8,13 +8,12 @@ Last Edited:
 */
 public class EnemyLife : MonoBehaviour {
 
-    private int _life;
+    [SerializeField] private int _life;
     private BoxCollider2D _boxCollider2D;
     [SerializeField] EnemyAnimation _enemyAnimation;
     [SerializeField] EnemyMovement _enemyMovement;
 
     void Start() {
-        _life = 1;
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
