@@ -3,7 +3,7 @@ using UnityEngine;
 Purpose:
     To handle animation related logic for the Ghoul enemy model.
 Last Edited:
-    1-05-23.
+    01-05-23.
 */
 public class EnemyAnimation : MonoBehaviour {
 

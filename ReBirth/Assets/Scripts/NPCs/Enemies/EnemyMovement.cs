@@ -27,7 +27,6 @@ public class EnemyMovement : MonoBehaviour {
             if (_ledgeDetection.collider == null || _wallDetection.collider != null)
                 transform.Rotate(0f, 180f, 0f);
         }
-
     }
 
     public void SetMovementSpeed(float _moveSpeed) { this._moveSpeed = _moveSpeed; }

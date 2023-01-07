@@ -1,11 +1,13 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
-	- Hit effect on bullet impact on enemy
-	- Death animations
-		- Ghoul [X]
-		- Spitter
-		- Summoner
+	- Hit Effect:
+		- on enemy
+		- on non-enemy
+		- How it's done:
+			- When the bullet makes contact, instantiate a hit effect separate from the bullet
+	
+
 	- Demo Pack ASAP:
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
@@ -111,6 +113,10 @@ Finished:
 					- it hits an enemy or it touches a wall or projectile timer drops below 0 seconds
 				- If player is wall sliding, choose different attack point [X]
 				- Check attack cool down and can attack
+		- Death animations
+			- Ghoul
+			- Spitter
+			- Summoner
 		
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine

@@ -126,10 +126,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpeed: 35
-  _bulletDamage: 1
   _selfDestructTime: 4
+  _bulletDamage: 1
   _enemyTag: Enemy0
   _playerTag: Player
+  _hitEffect: {fileID: 0}
+  _enemyHitEffect: {fileID: 4663249666194214885, guid: aec1e7a0ca1b6774abe360a1ab66bd2b, type: 3}
+  _wallHitEffect: {fileID: 508938916196922571, guid: e669b5c80d523af43a9a6d3c20dc8231, type: 3}
 --- !u!50 &6557564581290819741
 Rigidbody2D:
   serializedVersion: 4

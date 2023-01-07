@@ -9,11 +9,13 @@ Last Edited:
 public class EnemyLife : MonoBehaviour {
 
     private int _life;
+    private BoxCollider2D _boxCollider2D;
     [SerializeField] EnemyAnimation _enemyAnimation;
     [SerializeField] EnemyMovement _enemyMovement;
 
     void Start() {
         _life = 1;
+        _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
     void Update() {
@@ -21,6 +23,8 @@ public class EnemyLife : MonoBehaviour {
             /*Play animation, destroy object*/
             _enemyMovement.SetMovementSpeed(0);
             _enemyAnimation.GetAnimator().SetTrigger("Dead");
+            _boxCollider2D.enabled = false;
+
         }
     }
 
