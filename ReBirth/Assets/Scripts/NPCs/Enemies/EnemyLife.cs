@@ -9,8 +9,8 @@ Last Edited:
 public class EnemyLife : MonoBehaviour {
 
     private int _life;
-    [SerializeField] GhoulAnimation _ghoulAnimation;
-    [SerializeField] GhoulMovement _ghoulMovement;
+    [SerializeField] EnemyAnimation _enemyAnimation;
+    [SerializeField] EnemyMovement _enemyMovement;
 
     void Start() {
         _life = 1;
@@ -19,8 +19,8 @@ public class EnemyLife : MonoBehaviour {
     void Update() {
         if (_life <= 0) {
             /*Play animation, destroy object*/
-            _ghoulMovement.SetMovementSpeed(0);
-            _ghoulAnimation.GetAnimator().SetTrigger("Dead");
+            _enemyMovement.SetMovementSpeed(0);
+            _enemyAnimation.GetAnimator().SetTrigger("Dead");
         }
     }
 
