@@ -2,6 +2,7 @@
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
 	- Demo Pack ASAP:
+		- Enemies need "hit taken" animation
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk
 			- Use two Raycasts to detect a ledge to climb
@@ -33,7 +34,6 @@ Tasks:
 
 Bugs:
 	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
-	- While wall sliding and holding the crouch button, upon reaching the ground the player does not enter the appropriate animation
 	- Put glowy orb thingies on layer separate from Ceiling
 	- Put all sprites in Sprite Atlas
 
@@ -167,6 +167,7 @@ Finished:
 			- Fixed by removing an extra jump input from the WallJumpBuffer condition
 		- Knives go through wall
 			- Fixed with Rigidbody2D (I think)
+		- While wall sliding and holding the crouch button, upon reaching the ground the player does not enter the appropriate animation
 
 Archived:
 	Tasks:

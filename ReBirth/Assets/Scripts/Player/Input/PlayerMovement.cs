@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour {
         if (!_characterController2D.GetGrounded()) {
             // wall slide
             if (_isTouchingWallBottom && _isTouchingWallTop) {
-                if (Input.GetKey(KeyCode.S) || Input.GetButton("Crouch"))
+                if (Input.GetButton("Crouch"))
                     _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed * _wallSlideSpeedMultiplier, float.MaxValue));
                 else {
                     _rigidBody2D.velocity = new Vector2(_rigidBody2D.velocity.x, Mathf.Clamp(_rigidBody2D.velocity.y, -_wallSlideSpeed, float.MaxValue));
