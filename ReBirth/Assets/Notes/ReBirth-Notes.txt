@@ -154,19 +154,22 @@ Monster Journal:
             Lore: Knight's of the King's Realm. With no King to defend, they wonder aimlessly.
 
         - Ghoul:
-            Behaviour: Slowly walks in a pattern. Engages player on site.
-            HP: 2
+            Behaviour: Slowly walks in a pattern. Engages when player gets too close.
+            HP: 1
             Atk: 1
             Item Drops: Coins (Common)
 
         - Summoner:
-            Behaviour: Summons up to two Ghouls at any time.
+            Behaviour:
+                An invisible orb surrounds the Summoner.
+                Any Ghouls within its radius will be revived after
+                5 seconds of being dead.
             HP: 3
             Atk: 0
             Item Drops: Coins (Common)
 
         - Spitter:
-            Behaviour: Slowly walks in a pattern. Spits deadly poison at player when engaged.
+            Behaviour: Stationary. Spits deadly poison at player when sighted.
             HP: 1
             Atk: 2
             Item Drops: Coins (Common)
@@ -305,7 +308,6 @@ Items:
         LifeGem (+1 HP)
         SpiritGem (+1 FP)
             - Consumable. Common among the King's realm.
-        
 
     Misc:
         Lantern (for caves and dungeons)
@@ -374,7 +376,7 @@ Upgrades:
         2 Crimson chips 
         2 Rime chips 
         2 Glowing Fragments
-        6 Exotic Fragments 
+        6 Exotic Fragments
 
 Ornaments (Non-FP consuming, only 1 equippable slot at first, find Ornament Pouches to increase slots to max of 3):
     - Max HP +1 (+2 when upgraded)

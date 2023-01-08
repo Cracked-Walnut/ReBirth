@@ -29,6 +29,9 @@ public class EnemyLife : MonoBehaviour {
 
     public void TakeDamage(int _damage) {
         _life -= _damage;
+
+        if (_life != 0)
+            _enemyAnimation.GetAnimator().SetTrigger("Hit");
     }
 
     public void Dead() {

@@ -1,36 +1,15 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
-	- Demo Pack ASAP:
-		- Enemies need "hit taken" animation
-		- Wall Climb Logic
-			- https://www.youtube.com/watch?v=JGtlja1RStk
-			- Use two Raycasts to detect a ledge to climb
-				- 2nd raycast will look for ground to climb
-			- If 1st is false and 2nd is true
-			- Player stays put, animation plays, move player to new position
-		- Ledge Jump
-			- Shoot 2 Raycasts
+	- Currency
+		- coins
 
-		- Enemy AI:
-			- Ghoul
-				- Moves back and fourth. Rotates 180 when approaching ledge or wall
-				- Takes 1 hit
-
-			- Spitter
-				- Shoots projectiles at player
-				- Doesn't move
-				- Takes 2 hits
-
-			- Summoner
-				- Summons one dead enemy every 5 sec
-				- Doesn't move
-				- Takes 3 hits
-
-	- Refactoring Phase 1:
-		- Combine the Buffer functions
-			- Double Jump isn't working
-			- Wall Jump Buffer isn't working
+		- What to buy?
+			- HP Tonics
+			- LifeGems
+			- Various keys
+			- Coin Pouches
+			- Notes imparting knowledge to those seeking
 
 Bugs:
 	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
@@ -117,6 +96,10 @@ Finished:
 				- wall
 			- on enemy
 		- Increase Wall Slide Speed
+		- Enemies need "hit taken" animation
+			- Ghoul
+			- Spitter
+			- Summoner
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine
@@ -179,7 +162,19 @@ Archived:
 			- Attack 1
 			- Attack 2
 		- Slide Animation and Logic
-	
+		- Wall Climb Logic
+			- https://www.youtube.com/watch?v=JGtlja1RStk
+			- Use two Raycasts to detect a ledge to climb
+				- 2nd raycast will look for ground to climb
+			- If 1st is false and 2nd is true
+			- Player stays put, animation plays, move player to new position
+		- Ledge Jump
+			- Shoot 2 Raycasts
+		- Refactoring Phase 1:
+			- Combine the Buffer functions
+				- Double Jump isn't working
+				- Wall Jump Buffer isn't working
+
 	Bugs:
 
 Things to keep in mind:
