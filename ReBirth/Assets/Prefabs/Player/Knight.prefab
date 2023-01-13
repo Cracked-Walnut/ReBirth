@@ -204,11 +204,12 @@ GameObject:
   - component: {fileID: 1976082042}
   - component: {fileID: 5634567003320984572}
   - component: {fileID: 6706873230456832206}
+  - component: {fileID: 208530799}
+  - component: {fileID: 8001874437167188509}
   - component: {fileID: 1976082041}
   - component: {fileID: 1976082034}
   - component: {fileID: 1948676875057181799}
   - component: {fileID: 6682722365109449382}
-  - component: {fileID: 208530799}
   m_Layer: 3
   m_Name: Knight
   m_TagString: Player
@@ -509,6 +510,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coinLayer: 14
   _playerInventory: {fileID: 5634567003320984572}
+--- !u!114 &208530799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540457832135706004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21f15b1c7382184aaeb822a8419f8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _totalCoins: 0
+--- !u!114 &8001874437167188509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540457832135706004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296c63c235044de4db7b427cfb989b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1976082041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,19 +619,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.53}
   serializedVersion: 2
   m_Radius: 0.6570325
---- !u!114 &208530799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2540457832135706004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f21f15b1c7382184aaeb822a8419f8bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _totalCoins: 0
 --- !u!1 &3613218259859498792
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 2119071343879958206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -150,6 +150,7 @@ MonoBehaviour:
   _life: 2
   _enemyAnimation: {fileID: 3698785923376671418}
   _enemyMovement: {fileID: 4584236226564264672}
+  _player: {fileID: 0}
 --- !u!114 &3698785923376671418
 MonoBehaviour:
   m_ObjectHideFlags: 0

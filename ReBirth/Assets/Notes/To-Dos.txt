@@ -1,10 +1,6 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
-	- Enemy Tally:
-		- Use separate Tags for each enemy?
-			- Sort by Tags so incrementing is easiest
-
 	- Enemy AI:
 		- Ghoul
 			Slowly walks in a pattern. Engages when player gets too close.
@@ -14,6 +10,8 @@ Tasks:
 			An invisible orb surrounds the Summoner.
 			Any Ghouls within its radius will be revived after
 			5 seconds of being dead.
+
+	- Bullet must break walls
 
 Bugs:
 	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
@@ -160,13 +158,19 @@ Finished:
 
 Archived:
 	Tasks:
+		- Enemy Tally:
+			- Use separate Tags for each enemy?
+				- Sort by Tags so incrementing is easiest
+				- new script for player
+					- EnemyTally
+				- EnemyLife will reference MonsterTally
+				- You're gonna need a Singleton GameObject that keeps track of all enemies alive
+					- Knows then they're dead, and can update things accordingly
+					- Check your Github
 		- Animation for when player stops running
 		- Turn Around animation
 			- Run -> Turn Around -> Run
 			- Might need to modify Idle conditional statements [Horizontal Move]
-		- Animations:
-			- Attack 1
-			- Attack 2
 		- Slide Animation and Logic
 		- Wall Climb Logic
 			- https://www.youtube.com/watch?v=JGtlja1RStk

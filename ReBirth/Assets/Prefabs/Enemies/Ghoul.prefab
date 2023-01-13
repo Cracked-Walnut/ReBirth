@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2648458612217136749}
   m_Layer: 9
   m_Name: Ghoul
-  m_TagString: Enemy0
+  m_TagString: Ghoul
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1958432563023539184}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1709406499564006114}
@@ -152,6 +152,7 @@ MonoBehaviour:
   _life: 1
   _enemyAnimation: {fileID: 2648458612217136749}
   _enemyMovement: {fileID: 8893243388063633586}
+  _player: {fileID: 0}
 --- !u!114 &8893243388063633586
 MonoBehaviour:
   m_ObjectHideFlags: 0

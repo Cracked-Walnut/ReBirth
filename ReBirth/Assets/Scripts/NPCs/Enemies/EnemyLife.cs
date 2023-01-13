@@ -12,6 +12,7 @@ public class EnemyLife : MonoBehaviour {
     private BoxCollider2D _boxCollider2D;
     [SerializeField] EnemyAnimation _enemyAnimation;
     [SerializeField] EnemyMovement _enemyMovement;
+    // [SerializeField] private GameObject _player;
 
     void Start() {
         _boxCollider2D = GetComponent<BoxCollider2D>();
@@ -35,6 +36,7 @@ public class EnemyLife : MonoBehaviour {
     }
 
     public void Dead() {
+        // _player.GetComponent<MonsterTally>().IncrementMonsterTally(this.gameObject.tag);
         Destroy(this.gameObject);
     }
 
