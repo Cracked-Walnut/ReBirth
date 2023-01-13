@@ -298,6 +298,12 @@ Items:
     Currency:
         - Coin(s)
             - The currency of the King's realm. Made from gold. Not much use after the Hex Affliction.
+                - What to buy?
+                    - HP Tonics
+                    - LifeGems
+                    - Various keys
+                    - Coin Pouches
+                    - Notes imparting knowledge to those seeking
 
     Healing:
         HP Tonic (+3 HP)

@@ -1,15 +1,19 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
-	- Currency
-		- coins
+	- Enemy Tally:
+		- Use separate Tags for each enemy?
+			- Sort by Tags so incrementing is easiest
 
-		- What to buy?
-			- HP Tonics
-			- LifeGems
-			- Various keys
-			- Coin Pouches
-			- Notes imparting knowledge to those seeking
+	- Enemy AI:
+		- Ghoul
+			Slowly walks in a pattern. Engages when player gets too close.
+		- Spitter
+			Stationary. Spits deadly poison at player when sighted.
+		- Summoner
+			An invisible orb surrounds the Summoner.
+			Any Ghouls within its radius will be revived after
+			5 seconds of being dead.
 
 Bugs:
 	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
@@ -100,6 +104,8 @@ Finished:
 			- Ghoul
 			- Spitter
 			- Summoner
+		- Coin Interaction
+			- Player touches coin, coin counter increases, coin is destroyed
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine

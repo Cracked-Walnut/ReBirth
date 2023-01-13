@@ -12,11 +12,8 @@ public class Bullet : MonoBehaviour {
 
     [SerializeField] private float _bulletSpeed,
         _selfDestructTime;
-        
     [SerializeField] private int _bulletDamage;
-
     [SerializeField] private int _enemyLayer;
-
     [SerializeField] private GameObject _enemyHitEffect,
         _wallHitEffect;
 

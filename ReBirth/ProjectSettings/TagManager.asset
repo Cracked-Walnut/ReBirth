@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy0
   - Effect
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Grass
   - Trees
   - Animal
-  - 
+  - Coin
   - BG_Wall
   - Orbs
   - Effect
@@ -87,4 +88,7 @@ TagManager:
     locked: 0
   - name: Effect
     uniqueID: 1404055415
+    locked: 0
+  - name: Coin
+    uniqueID: 2897174421
     locked: 0
