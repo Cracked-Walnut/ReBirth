@@ -13,7 +13,8 @@ public class Bullet : MonoBehaviour {
     [SerializeField] private float _bulletSpeed,
         _selfDestructTime;
     [SerializeField] private int _bulletDamage;
-    [SerializeField] private int _enemyLayer;
+    [SerializeField] private int _enemyLayer,
+        _wallLayer;
     [SerializeField] private GameObject _enemyHitEffect,
         _wallHitEffect;
 
@@ -25,6 +26,7 @@ public class Bullet : MonoBehaviour {
     }
 
     void OnCollisionEnter2D(Collision2D _collision2D) {
+        
         if (_collision2D.gameObject.layer == _enemyLayer) {
             // _collision2D.gameObject.GetComponent<EnemyHealth>().TakeDamage(_bulletDamage);
             // if (_collision2D.gameObject.GetComponent<EnemyHealth>().GetHP() <= 0) {
@@ -34,6 +36,12 @@ public class Bullet : MonoBehaviour {
             _collision2D.gameObject.GetComponent<EnemyLife>().TakeDamage(_bulletDamage);
             Instantiate(_enemyHitEffect, this.transform.position, this.transform.rotation);
             // Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
+        
+        } else if (_collision2D.gameObject.layer == _wallLayer) {
+
+            _collision2D.gameObject.GetComponent<BreakableWallLife>().TakeDamage(_bulletDamage);
+            Instantiate(_enemyHitEffect, this.transform.position, this.transform.rotation);
+            
         } else {
             Instantiate(_wallHitEffect, this.transform.position, this.transform.rotation);
             // Instantiate(_bulletPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);

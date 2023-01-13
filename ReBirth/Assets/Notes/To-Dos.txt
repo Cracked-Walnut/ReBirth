@@ -2,7 +2,7 @@
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
 	- Enemy AI:
-		- Ghoul
+		- Ghoul [X]
 			Slowly walks in a pattern. Engages when player gets too close.
 		- Spitter
 			Stationary. Spits deadly poison at player when sighted.
@@ -11,7 +11,6 @@ Tasks:
 			Any Ghouls within its radius will be revived after
 			5 seconds of being dead.
 
-	- Bullet must break walls
 
 Bugs:
 	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
@@ -104,6 +103,7 @@ Finished:
 			- Summoner
 		- Coin Interaction
 			- Player touches coin, coin counter increases, coin is destroyed
+		- Bullet must break walls
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine

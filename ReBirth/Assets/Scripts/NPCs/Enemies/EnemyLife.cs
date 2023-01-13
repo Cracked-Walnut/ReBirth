@@ -22,17 +22,19 @@ public class EnemyLife : MonoBehaviour {
         if (_life <= 0) {
             /*Play animation, destroy object*/
             _enemyMovement.SetMovementSpeed(0);
+            _enemyAnimation.ResetAnimationTriggers();
             _enemyAnimation.GetAnimator().SetTrigger("Dead");
             _boxCollider2D.enabled = false;
-
         }
     }
 
     public void TakeDamage(int _damage) {
         _life -= _damage;
 
-        if (_life != 0)
+        if (_life != 0) {
+            _enemyAnimation.ResetAnimationTriggers();
             _enemyAnimation.GetAnimator().SetTrigger("Hit");
+        }
     }
 
     public void Dead() {

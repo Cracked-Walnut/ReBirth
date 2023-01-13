@@ -107,8 +107,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 747753109
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: 1563630115, guid: f05330a431416a44ea4a8c664f05c97d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -182,7 +182,6 @@ MonoBehaviour:
   _life: 3
   _enemyAnimation: {fileID: 3318324821863771648}
   _enemyMovement: {fileID: 5881896584470267654}
-  _player: {fileID: 0}
 --- !u!114 &3318324821863771648
 MonoBehaviour:
   m_ObjectHideFlags: 0
