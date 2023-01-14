@@ -3,6 +3,7 @@ using UnityEngine;
 /*
 Purpose:
     To handle attack logic for Ghoul.
+    Grabs important info from Bullet.cs.
 Last Edited:
     01-13-23.
 */

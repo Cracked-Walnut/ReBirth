@@ -4,8 +4,16 @@ Tasks:
 	- Enemy AI:
 		- Ghoul [X]
 			Slowly walks in a pattern. Engages when player gets too close.
+		
 		- Spitter
 			Stationary. Spits deadly poison at player when sighted.
+				- New Bullet Script?
+					- Bullet.cs
+						-> Knife.cs
+						-> FireBall.cs
+				- Create FireBall prefab
+				- Change events in Knife prefab
+
 		- Summoner
 			An invisible orb surrounds the Summoner.
 			Any Ghouls within its radius will be revived after
@@ -13,6 +21,7 @@ Tasks:
 
 
 Bugs:
+	- Ghoul will not die from Knife
 	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
 	- Put glowy orb thingies on layer separate from Ceiling
 	- Put all sprites in Sprite Atlas

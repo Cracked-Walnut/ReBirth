@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 72285759270571301}
   - component: {fileID: 6169626613060213043}
-  - component: {fileID: 8041008301939730335}
   - component: {fileID: 5616794365156163004}
+  - component: {fileID: 6802438233884791470}
+  - component: {fileID: 8041008301939730335}
   - component: {fileID: 6557564581290819741}
   m_Layer: 0
   m_Name: Knife
@@ -87,6 +88,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5616794365156163004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276604514490925587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78bfa6c7baf9c4c498b22b3d54a40a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpeed: 35
+  _selfDestructTime: 4
+  _bulletDamage: 1
+  _enemyLayer: 9
+  _wallLayer: 10
+  _enemyHitEffect: {fileID: 4663249666194214885, guid: aec1e7a0ca1b6774abe360a1ab66bd2b, type: 3}
+  _wallHitEffect: {fileID: 508938916196922571, guid: e669b5c80d523af43a9a6d3c20dc8231, type: 3}
+--- !u!114 &6802438233884791470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276604514490925587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9853f3bac7fb8824cac5cf6dbff9fd53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bullet: {fileID: 5616794365156163004}
 --- !u!61 &8041008301939730335
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -113,25 +146,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.56288546, y: 0.18829012}
   m_EdgeRadius: 0
---- !u!114 &5616794365156163004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4276604514490925587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78bfa6c7baf9c4c498b22b3d54a40a3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bulletSpeed: 35
-  _selfDestructTime: 4
-  _bulletDamage: 1
-  _enemyLayer: 9
-  _wallLayer: 10
-  _enemyHitEffect: {fileID: 4663249666194214885, guid: aec1e7a0ca1b6774abe360a1ab66bd2b, type: 3}
-  _wallHitEffect: {fileID: 508938916196922571, guid: e669b5c80d523af43a9a6d3c20dc8231, type: 3}
 --- !u!50 &6557564581290819741
 Rigidbody2D:
   serializedVersion: 4
