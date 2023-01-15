@@ -21,7 +21,7 @@ Tasks:
 
 
 Bugs:
-	- Ghoul will not die from Knife
+	- Blue screen in game window when game is running
 	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
 	- Put glowy orb thingies on layer separate from Ceiling
 	- Put all sprites in Sprite Atlas
@@ -164,6 +164,7 @@ Finished:
 		- Knives go through wall
 			- Fixed with Rigidbody2D (I think)
 		- While wall sliding and holding the crouch button, upon reaching the ground the player does not enter the appropriate animation
+		- Ghoul will not die from Knife
 
 Archived:
 	Tasks:
@@ -195,6 +196,10 @@ Archived:
 				- Wall Jump Buffer isn't working
 
 	Bugs:
+
+Notes:
+	- Replace player character?
+		- Knife attack may be too powerful
 
 Things to keep in mind:
 	- DustEffect's sorting layer is Player, Sorting ID is -5

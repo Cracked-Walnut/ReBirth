@@ -14,9 +14,7 @@ public class GhoulAttack : MonoBehaviour {
     [SerializeField] private LayerMask _whatIsPlayer;
     [SerializeField] private EnemyAnimation _enemyAnimation;
 
-    void Update() {
-        CheckForPlayerInAttackRange();
-    }
+    void Update() => CheckForPlayerInAttackRange();
 
     void CheckForPlayerInAttackRange() {
         Collider2D[] _players = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _whatIsPlayer);
