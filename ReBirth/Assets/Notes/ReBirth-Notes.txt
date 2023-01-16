@@ -291,7 +291,14 @@ UI:
         - Left/ Right for FP Tonic/ SpiritGem
 
 Weapon Types:
-    Knife
+    Physical:
+        Pierce
+    Element:
+        Heat
+        Chill
+    Sorcerery:
+        Incantation
+
 
 Items:
 

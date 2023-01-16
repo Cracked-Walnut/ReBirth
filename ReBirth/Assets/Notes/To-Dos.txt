@@ -1,6 +1,11 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
+	- When rolling, ignore enemy box colliders
+	- Enemy Visual Life Bars:
+		- Becomes visible when damaged
+		- Green for HP; red for lost HP
+
 	- Enemy AI:
 		- Ghoul [X]
 			Slowly walks in a pattern. Engages when player gets too close.
