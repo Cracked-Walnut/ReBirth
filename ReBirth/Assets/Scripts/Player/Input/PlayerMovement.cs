@@ -6,7 +6,7 @@ using UnityEngine;
 Purpose:
     To handle all movement related logic for the player model.
 Last Edited:
-    11-11-22.
+    01-17-23.
 */
 public class PlayerMovement : MonoBehaviour {
 
@@ -300,6 +300,15 @@ public class PlayerMovement : MonoBehaviour {
             _isRolling = true;
             CreateDust();
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D _collision2D) {
+        
+        // Primary interaction with Enemy Layer
+        if (_roll && _collision2D.gameObject.layer == 9) {
+            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), _collision2D.gameObject.GetComponent<BoxCollider2D>(), true);
+        }
+    
     }
 
     private IEnumerator MidAirDash() {

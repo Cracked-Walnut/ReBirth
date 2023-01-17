@@ -2,6 +2,8 @@
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
 	- When rolling, ignore enemy box colliders
+		- When rolling, check for enemy layer/tag colliders
+		- Not working
 	- Enemy Visual Life Bars:
 		- Becomes visible when damaged
 		- Green for HP; red for lost HP
@@ -26,7 +28,9 @@ Tasks:
 
 
 Bugs:
-	- Blue screen in game window when game is running
+	- Knife projectile passes through walls
+		- Projectile speed too fast?
+		- Try putting code into FixedUpdte()
 	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
 	- Put glowy orb thingies on layer separate from Ceiling
 	- Put all sprites in Sprite Atlas
@@ -170,6 +174,8 @@ Finished:
 			- Fixed with Rigidbody2D (I think)
 		- While wall sliding and holding the crouch button, upon reaching the ground the player does not enter the appropriate animation
 		- Ghoul will not die from Knife
+		- Blue screen in game window when game is running
+			- Spitter enemies had Camera object attached to them
 
 Archived:
 	Tasks:
