@@ -17,6 +17,15 @@ Game Loop:
     merchants. Acquire new talismans and other items in dungeons and caves.
     Regions will have pathways connecting them which will be unlocked later.
 
+    What kind of levels can the player expect?
+        - Stages will be randomly generated rooms
+        - First stage will be 2x1
+            - The Subsequent levels will grow in size
+            - Stages will become less linear
+        - Some stages will have a portal to the Otherside
+            - Successfully reaching the end of the Otherside will net the player a reward
+            - Enemies are formidable and dangerous than regular enemies
+
 Gameplay:
     - Put lifts into the game to connect larger areas
     - Some of the tailor's outfits will only be obtainable by finding cloth and the appropriate dye

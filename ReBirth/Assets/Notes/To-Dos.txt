@@ -9,8 +9,9 @@ Tasks:
 		- Green for HP; red for lost HP
 
 	- Enemy AI:
-		- Ghoul [X]
-			Slowly walks in a pattern. Engages when player gets too close.
+		- Ghoul
+			Slowly walks in a pattern. Engages when player gets too close. [X]
+			Spawn out of the ground when player approaches
 		
 		- Spitter
 			Stationary. Spits deadly poison at player when sighted.
@@ -25,6 +26,8 @@ Tasks:
 			An invisible orb surrounds the Summoner.
 			Any Ghouls within its radius will be revived after
 			5 seconds of being dead.
+
+			- Summon animation
 
 
 Bugs:
