@@ -11,17 +11,17 @@ public class Knife : MonoBehaviour {
     [SerializeField] private Bullet _bullet;
 
     // This Bullet-like object's goal is to be interacting with game objects on the enemy layer
-    void OnCollisionEnter2D(Collision2D _collision2D) {
+    void OnCollisionEnter2D(Collision2D _collider2D) {
         
         // Primary interaction with Enemy Layer
-        if (_collision2D.gameObject.layer == _bullet.GetEnemyLayer()) {
-            _collision2D.gameObject.GetComponent<EnemyLife>().TakeDamage(_bullet.GetBulletDamage());
+        if (_collider2D.gameObject.layer == _bullet.GetEnemyLayer()) {
+            _collider2D.gameObject.GetComponent<EnemyLife>().TakeDamage(_bullet.GetBulletDamage());
             Instantiate(_bullet.GetEnemyHitEffect(), this.transform.position, this.transform.rotation);
         
         // Secondary interaction with Wall Layer
-        } else if (_collision2D.gameObject.layer == _bullet.GetWallLayer()) {
+        } else if (_collider2D.gameObject.layer == _bullet.GetWallLayer()) {
 
-            _collision2D.gameObject.GetComponent<BreakableWallLife>().TakeDamage(_bullet.GetBulletDamage());
+            _collider2D.gameObject.GetComponent<BreakableWallLife>().TakeDamage(_bullet.GetBulletDamage());
             Instantiate(_bullet.GetWallHitEffect(), this.transform.position, this.transform.rotation);
             
         // Anything else

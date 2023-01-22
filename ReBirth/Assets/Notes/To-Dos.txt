@@ -1,12 +1,11 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
-	- When rolling, ignore enemy box colliders
-		- When rolling, check for enemy layer/tag colliders
-		- Not working
-	- Enemy Visual Life Bars:
-		- Becomes visible when damaged
-		- Green for HP; red for lost HP
+	- Rolling:
+		- Use two colliders:
+			- One for terrain
+			- One for enemies
+				- Disable enemy collider when rolling
 
 	- Enemy AI:
 		- Ghoul
@@ -182,6 +181,9 @@ Finished:
 
 Archived:
 	Tasks:
+		- Enemy Visual Life Bars:
+			- Becomes visible when damaged
+			- Green for HP; red for lost HP
 		- Enemy Tally:
 			- Use separate Tags for each enemy?
 				- Sort by Tags so incrementing is easiest

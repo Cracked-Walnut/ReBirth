@@ -10,6 +10,7 @@ public class PlayerCollision : MonoBehaviour {
 
     [SerializeField] private int _coinLayer;
     [SerializeField] private PlayerInventory _playerInventory;
+    [SerializeField] private PlayerMovement _playerMovement;
 
     void OnTriggerEnter2D(Collider2D _collider2D) {
         if (_collider2D.gameObject.layer == _coinLayer) {
@@ -18,7 +19,11 @@ public class PlayerCollision : MonoBehaviour {
             _playerInventory.AddCoins(_coinValue);
             Debug.Log("Total Coins: " + _playerInventory.GetTotalCoins());
             Destroy(_collider2D.gameObject);
+            
         }
+        // else if (_playerMovement.GetIsRolling() && _collider2D.gameObject.layer == 9) {
+        //     Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), _collider2D.gameObject.GetComponent<BoxCollider2D>(), true);
+        // }
     }
 
 }

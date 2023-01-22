@@ -302,15 +302,6 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D _collision2D) {
-        
-        // Primary interaction with Enemy Layer
-        if (_roll && _collision2D.gameObject.layer == 9) {
-            Physics2D.IgnoreCollision(GetComponent<BoxCollider2D>(), _collision2D.gameObject.GetComponent<BoxCollider2D>(), true);
-        }
-    
-    }
-
     private IEnumerator MidAirDash() {
         if (Input.GetButtonDown("Roll") && !_characterController2D.GetGrounded() && !_isMidAirDashing && 
             _canMidAirDash && !_isWallSliding) {
