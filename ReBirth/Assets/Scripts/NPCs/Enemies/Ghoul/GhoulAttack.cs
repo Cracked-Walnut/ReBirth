@@ -13,15 +13,17 @@ public class GhoulAttack : MonoBehaviour {
     [SerializeField] private float _attackRange;
     [SerializeField] private LayerMask _whatIsPlayer;
     [SerializeField] private EnemyAnimation _enemyAnimation;
+    private EnemyState _enemyState;
 
     void Update() => CheckForPlayerInAttackRange();
+
+    void Awake() => _enemyState = GetComponent<EnemyState>();
 
     void CheckForPlayerInAttackRange() {
         Collider2D[] _players = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _whatIsPlayer);
 
         foreach (Collider2D _player in _players) {
-            _enemyAnimation.ResetAnimationTriggers();
-            _enemyAnimation.GetAnimator().SetTrigger("Attack");
+            _enemyState.SetState("Attack");
         }
     }
 

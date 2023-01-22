@@ -11,6 +11,9 @@ Tasks:
 		- Ghoul
 			Slowly walks in a pattern. Engages when player gets too close. [X]
 			Spawn out of the ground when player approaches
+				- Make a small radius around Ghoul
+					- If player falls into radius, Spawn -> Walk
+				- Trouble setting State to Walk after Spawn
 		
 		- Spitter
 			Stationary. Spits deadly poison at player when sighted.
