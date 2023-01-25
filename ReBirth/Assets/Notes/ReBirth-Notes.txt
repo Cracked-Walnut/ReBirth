@@ -573,3 +573,6 @@ Code Design:
     - How can I build a system that involves invoking animations at will for game objects?
         - Scrap the State system
         - Invoke animation triggers without a State script as the middle-man
+
+        - Use Triggers to invoke animations. Within animations, invoke SetMovementSpeed() function to manipulate movement
+        so correct animation could play

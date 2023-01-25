@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 5224502527627440760}
   - component: {fileID: 7149439819189160574}
   - component: {fileID: 7571665216987742304}
-  - component: {fileID: 1654655050379172289}
   m_Layer: 9
   m_Name: Ghoul
   m_TagString: Ghoul
@@ -180,7 +179,6 @@ MonoBehaviour:
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 128
-  _enemyState: {fileID: 1654655050379172289}
 --- !u!114 &2648458612217136749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,23 +250,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _sightPoint: {fileID: 7771306451451223765}
-  _sightRadius: 8.21
-  _enemyState: {fileID: 0}
+  _sightRadius: 2
   _isAggroed: 0
---- !u!114 &1654655050379172289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958432563023539184}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8b14416535db04b8599ee1d0e88463, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyAnimation: {fileID: 2648458612217136749}
-  _state: 
+  _boxCollider2D: {fileID: 2757526465526060110}
 --- !u!1 &2960704142085850474
 GameObject:
   m_ObjectHideFlags: 0

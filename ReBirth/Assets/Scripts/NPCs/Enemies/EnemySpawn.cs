@@ -14,15 +14,13 @@ public class EnemySpawn : MonoBehaviour {
     [SerializeField] private LayerMask _whatIsPlayer;
     [SerializeField] private Transform _sightPoint;
     [SerializeField] private float _sightRadius;
-    [SerializeField] private EnemyState _enemyState;
     [SerializeField] private bool _isAggroed;
+    [SerializeField] private BoxCollider2D _boxCollider2D;
 
     void Update() => FindPlayer();
+    void Awake() => _isAggroed = false;
+    void Start() => _boxCollider2D.enabled = false;
 
-    void Awake() {
-        _isAggroed = false;
-        _enemyState = GetComponent<EnemyState>();
-    }
     bool FindPlayer() {
         Collider2D _playerSeen = Physics2D.OverlapCircle(_sightPoint.transform.position, _sightRadius, _whatIsPlayer);
         
@@ -36,10 +34,9 @@ public class EnemySpawn : MonoBehaviour {
     }
 
     private IEnumerator Agro() {
-        // _enemyState.SetState("Spawn");
+        _boxCollider2D.enabled = true;
         _enemyAnimation.GetAnimator().SetTrigger("Spawn");
         yield return new WaitForSeconds(.67f);
-        // _enemyState.SetState("Walking");
         _enemyAnimation.GetAnimator().SetTrigger("Walking");
     }
 

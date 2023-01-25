@@ -14,7 +14,6 @@ public class EnemyMovement : MonoBehaviour {
         _wallDetector;
     [SerializeField] private LayerMask _whatIsGround,
         _whatIsWall;
-    [SerializeField] private EnemyState _enemyState;
 
     void Update() {
         if (_isStationary) {
