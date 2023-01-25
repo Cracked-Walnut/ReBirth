@@ -1,20 +1,26 @@
 using UnityEngine;
 
+/*
+Purpose:
+    To handle animation logic for enemies.
+Last Edited:
+    01-24-23.
+*/
 public class EnemyState : MonoBehaviour {
 
     [SerializeField] private EnemyAnimation _enemyAnimation;
-    private string _state;
+    [SerializeField] private string _state;
 
-    void Start() => _state = "Spawn_Idle";
+    void Awake() => _state = "Walking";
 
     void Update() {
         switch (_state) {
             case "Spawn":
-                _enemyAnimation.ResetAnimationTriggers();
+                // _enemyAnimation.ResetAnimationTriggers();
                 _enemyAnimation.GetAnimator().SetTrigger("Spawn");
                 break;
             case "Walking":
-                _enemyAnimation.ResetAnimationTriggers();
+                // _enemyAnimation.ResetAnimationTriggers();
                 _enemyAnimation.GetAnimator().SetTrigger("Walking");
                 break;
             case "Hit":
@@ -31,7 +37,6 @@ public class EnemyState : MonoBehaviour {
                 break;
 
         }
-        Debug.Log(_state);
     }
 
     public string GetState() { return _state; }

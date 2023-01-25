@@ -170,8 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f00e37927029b4aad23a610f569a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isStationary: 0
   _moveSpeed: 3
+  _isStationary: 0
   _ledgeDetector: {fileID: 8485310514054831424}
   _wallDetector: {fileID: 8239122707153086044}
   _whatIsGround:
@@ -193,7 +193,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c573203566e7c74a8287bd5e1664c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _triggers: []
+  _triggers:
+  - Dead
+  - Hit
+  - Attack
+  - Walking
+  - Spawn
+  - Spawn_Idle
   _animator: {fileID: 6946444337838335982}
   _spriteRenderer: {fileID: 6165070820008859770}
 --- !u!114 &5224502527627440760
@@ -248,6 +254,7 @@ MonoBehaviour:
   _sightPoint: {fileID: 7771306451451223765}
   _sightRadius: 8.21
   _enemyState: {fileID: 0}
+  _isAggroed: 0
 --- !u!114 &1654655050379172289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,12 +262,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958432563023539184}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df8b14416535db04b8599ee1d0e88463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyAnimation: {fileID: 2648458612217136749}
+  _state: 
 --- !u!1 &2960704142085850474
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,7 +24,8 @@ public class EnemyLife : MonoBehaviour {
         if (_life <= 0) {
             /*Play animation, destroy object*/
             _enemyMovement.SetMovementSpeed(0);
-            _enemyState.SetState("Dead");
+            _enemyAnimation.GetAnimator().SetTrigger("Dead");
+            // _enemyState.SetState("Dead");
             _boxCollider2D.enabled = false;
         }
     }
@@ -33,7 +34,8 @@ public class EnemyLife : MonoBehaviour {
         _life -= _damage;
 
         if (_life != 0)
-            _enemyState.SetState("Hit");
+            _enemyAnimation.GetAnimator().SetTrigger("Hit");
+            // _enemyState.SetState("Hit");
     }
 
     public void Dead() {

@@ -23,7 +23,8 @@ public class GhoulAttack : MonoBehaviour {
         Collider2D[] _players = Physics2D.OverlapCircleAll(_attackPoint.position, _attackRange, _whatIsPlayer);
 
         foreach (Collider2D _player in _players) {
-            _enemyState.SetState("Attack");
+            // _enemyState.SetState("Attack");
+            _enemyAnimation.GetAnimator().SetTrigger("Attack");
         }
     }
 

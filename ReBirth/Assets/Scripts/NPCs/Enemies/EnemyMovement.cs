@@ -8,8 +8,8 @@ Last Edited:
 */
 public class EnemyMovement : MonoBehaviour {
 
-    [SerializeField] private bool _isStationary;
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private bool _isStationary;
     [SerializeField] private GameObject _ledgeDetector,
         _wallDetector;
     [SerializeField] private LayerMask _whatIsGround,
@@ -17,22 +17,18 @@ public class EnemyMovement : MonoBehaviour {
     [SerializeField] private EnemyState _enemyState;
 
     void Update() {
-        if (_isStationary)
+        if (_isStationary) {
+            _moveSpeed = 0f;
             return;
+        }
         else {
-            if (_enemyState.GetState() == "Walking") {
-                _moveSpeed = 3f;
-                RaycastHit2D _ledgeDetection = Physics2D.Raycast(_ledgeDetector.transform.position, -Vector2.up, .7f, _whatIsGround);
-                RaycastHit2D _wallDetection = Physics2D.Raycast(_wallDetector.transform.position, Vector2.right, .7f, _whatIsWall);
+            RaycastHit2D _ledgeDetection = Physics2D.Raycast(_ledgeDetector.transform.position, -Vector2.up, .7f, _whatIsGround);
+            RaycastHit2D _wallDetection = Physics2D.Raycast(_wallDetector.transform.position, Vector2.right, .7f, _whatIsWall);
 
-                transform.Translate(Vector2.right * _moveSpeed * Time.deltaTime); // movement
+            transform.Translate(Vector2.right * _moveSpeed * Time.deltaTime); // movement
 
-                if (_ledgeDetection.collider == null || _wallDetection.collider != null)
-                    transform.Rotate(0f, 180f, 0f);
-            }
-            else {
-                _moveSpeed = 0f;
-            }
+            if (_ledgeDetection.collider == null || _wallDetection.collider != null)
+                transform.Rotate(0f, 180f, 0f);
         }
     }
 
