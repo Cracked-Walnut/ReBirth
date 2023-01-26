@@ -465,7 +465,7 @@ MonoBehaviour:
   _wallSlideAttackPoint2: {fileID: 7036408808515601220}
   _characterController2D: {fileID: 1976082033}
   _attackRange: 0.25
-  _attackCoolDown: 0.15
+  _attackCoolDown: 0.25
   _whatIsWall:
     serializedVersion: 2
     m_Bits: 1024

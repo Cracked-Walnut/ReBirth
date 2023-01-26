@@ -8,11 +8,13 @@ Tasks:
 				- Disable enemy collider when rolling
 
 	- Enemy AI:
-		- Summoner
-			An invisible orb surrounds the Summoner.
-			Any Ghouls within its radius will be revived after
-			5 seconds of being dead.
-			- Summon animation
+		- Shielder
+			- Acts as a shield for enemies
+			- Must be killed first
+			- If enemies are within its shield radius, grab the enemy's EnemyLife script and turn on _isShielded bool to true
+			- In Bullet/Knife script, when grabbing EnemyLife, first check if enemy is shielded before applying damage
+			- There is currently NO ALTERNATIVE WAY of breaking a shield. The only way to break a shield is to kill the Shielder...
+				-... who may have a primitive AoE attack as a defense
 
 
 Bugs:

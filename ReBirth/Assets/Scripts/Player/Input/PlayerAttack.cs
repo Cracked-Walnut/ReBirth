@@ -34,7 +34,7 @@ public class PlayerAttack : MonoBehaviour {
                 // CheckBreakWall(); 
                 // CheckDialogue();
             if (_canAttack) {
-                _attackCoolDown = 0.15f;
+                _attackCoolDown = 0.25f;
                 if (_characterController2D.GetFacingRight()) { // facing to the right
                     if (_playerMovement.GetIsWallSliding())
                         Instantiate(_bulletPrefab, _wallSlideAttackPoint.transform.position, _attackPoint2.transform.rotation);
