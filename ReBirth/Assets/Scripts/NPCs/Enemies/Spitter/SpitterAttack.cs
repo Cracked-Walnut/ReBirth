@@ -5,11 +5,12 @@ Purpose:
     To handle attack logic for Ghoul.
     Grabs important info from Bullet.cs.
 Last Edited:
-    01-14-23.
+    01-25-23.
 */
 public class SpitterAttack : MonoBehaviour {
 
-    [SerializeField] private Transform _attackPoint;
+    [SerializeField] private Transform _attackPoint, _sightPoint;
+    [SerializeField] private GameObject _fireBallPrefab;
     [SerializeField] private float _attackRange;
     [SerializeField] private LayerMask _whatIsPlayer;
     [SerializeField] private EnemyAnimation _enemyAnimation;
@@ -18,16 +19,20 @@ public class SpitterAttack : MonoBehaviour {
     void Update() => CheckForPlayerInAttackRange();
 
     void CheckForPlayerInAttackRange() {
-        if (transform.rotation.y == 0)
-            _spotPlayer = Physics2D.Raycast(_attackPoint.position, Vector2.right, _attackRange, _whatIsPlayer);
+        if (transform.eulerAngles == new Vector3(0f, 0f, 0f))
+            _spotPlayer = Physics2D.Raycast(_sightPoint.position, Vector2.right, _attackRange, _whatIsPlayer);
         
-        else if (transform.rotation.y == 180)
-            _spotPlayer = Physics2D.Raycast(_attackPoint.position, -Vector2.right, _attackRange, _whatIsPlayer);
+        if (transform.eulerAngles == new Vector3(0f, 180f, 0f))
+            _spotPlayer = Physics2D.Raycast(_sightPoint.position, -Vector2.right, _attackRange, _whatIsPlayer);
 
         if (_spotPlayer.collider != null) {
-            _enemyAnimation.ResetAnimationTriggers();
+            // _enemyAnimation.ResetAnimationTriggers();
             _enemyAnimation.GetAnimator().SetTrigger("Attack");
         }
+    }
+
+    public void FireBall() {
+        Instantiate(_fireBallPrefab, _attackPoint.transform.position, _attackPoint.transform.rotation);
     }
 
     public Transform GetAttackPoint() { return _attackPoint; }

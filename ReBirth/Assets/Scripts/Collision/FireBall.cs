@@ -4,7 +4,7 @@ using UnityEngine;
 Purpose:
     The characteristics of a FireBall projectile.
 Last Edited:
-    01-13-23.
+    01-25-23.
 */
 public class FireBall : MonoBehaviour {
 
@@ -14,8 +14,8 @@ public class FireBall : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D _collision2D) {
         
         // Primary interaction with Enemy Layer
-        if (_collision2D.gameObject.layer == _bullet.GetEnemyLayer()) {
-            _collision2D.gameObject.GetComponent<EnemyLife>().TakeDamage(_bullet.GetBulletDamage());
+        if (_collision2D.gameObject.layer == _bullet.GetPlayerLayer()) {
+            // _collision2D.gameObject.GetComponent<EnemyLife>().TakeDamage(_bullet.GetBulletDamage());
             Instantiate(_bullet.GetEnemyHitEffect(), this.transform.position, this.transform.rotation);
         
         // Secondary interaction with Wall Layer

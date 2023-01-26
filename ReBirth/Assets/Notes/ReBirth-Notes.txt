@@ -26,6 +26,11 @@ Game Loop:
             - Successfully reaching the end of the Otherside will net the player a reward
             - Enemies are formidable and dangerous than regular enemies
 
+    ------------------------------------
+    Dungeon crawler style random stages with permanent power-ups
+    Use Code Monkey camera to prioritize one room
+
+
 Gameplay:
     - Put lifts into the game to connect larger areas
     - Some of the tailor's outfits will only be obtainable by finding cloth and the appropriate dye

@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1244615182156593005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,11 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78bfa6c7baf9c4c498b22b3d54a40a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletSpeed: 35
+  _bulletSpeed: 15
   _selfDestructTime: 4
   _bulletDamage: 1
   _enemyLayer: 9
   _wallLayer: 10
+  _playerLayer: 3
   _enemyHitEffect: {fileID: 4663249666194214885, guid: aec1e7a0ca1b6774abe360a1ab66bd2b, type: 3}
   _wallHitEffect: {fileID: 508938916196922571, guid: e669b5c80d523af43a9a6d3c20dc8231, type: 3}
 --- !u!61 &5011144909160551137
@@ -187,3 +188,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed7a7599586308c4783727ab7d4a7234, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bullet: {fileID: 7489085388902648002}
