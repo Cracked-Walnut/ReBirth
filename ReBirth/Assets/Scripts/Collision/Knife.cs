@@ -4,7 +4,7 @@ using UnityEngine;
 Purpose:
     The characteristics of a Knife projectile.
 Last Edited:
-    01-25-23.
+    01-26-23.
 */
 public class Knife : MonoBehaviour {
 
@@ -15,7 +15,8 @@ public class Knife : MonoBehaviour {
         
         // Primary interaction with Enemy Layer
         if (_collision2D.gameObject.layer == _bullet.GetEnemyLayer()) {
-            _collision2D.gameObject.GetComponent<EnemyLife>().TakeDamage(_bullet.GetBulletDamage());
+            if (!_collision2D.gameObject.GetComponent<EnemyLife>().GetIsShielded())
+                _collision2D.gameObject.GetComponent<EnemyLife>().TakeDamage(_bullet.GetBulletDamage());
             Instantiate(_bullet.GetEnemyHitEffect(), this.transform.position, this.transform.rotation);
         
         // Secondary interaction with Wall Layer

@@ -30,7 +30,6 @@ Game Loop:
     Dungeon crawler style random stages with permanent power-ups
     Use Code Monkey camera to prioritize one room
 
-
 Gameplay:
     - Put lifts into the game to connect larger areas
     - Some of the tailor's outfits will only be obtainable by finding cloth and the appropriate dye
@@ -173,13 +172,11 @@ Monster Journal:
             Atk: 1
             Item Drops: Coins (Common)
 
-        - Summoner:
+        - Protector:
             Behaviour:
-                An invisible orb surrounds the Summoner.
-                Any Ghouls within its radius will be revived after
-                5 seconds of being dead.
+                Deploys shield which protects all enemies (except other Protectors)
             HP: 3
-            Atk: 0
+            Atk: 1
             Item Drops: Coins (Common)
 
         - Spitter:
@@ -188,7 +185,7 @@ Monster Journal:
             Atk: 2
             Item Drops: Coins (Common)
 
-        --- Below you'll find enemy robots who belonged to an ancient tribe --- 
+        --- Below you'll find enemy robots who belong to an ancient tribe --- 
 
         - Ranger:
             Behaviour: Runs back and fourth. Fires projectile at player when in range.
@@ -312,7 +309,6 @@ Weapon Types:
         Chill
     Sorcerery:
         Incantation
-
 
 Items:
 

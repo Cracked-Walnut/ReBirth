@@ -9,6 +9,7 @@ Last Edited:
 public class EnemyLife : MonoBehaviour {
 
     [SerializeField] private int _life;
+    [SerializeField] private bool _isShielded;
     private BoxCollider2D _boxCollider2D;
     [SerializeField] EnemyAnimation _enemyAnimation;
     [SerializeField] EnemyMovement _enemyMovement;
@@ -38,4 +39,7 @@ public class EnemyLife : MonoBehaviour {
     }
 
     public int GetGhoulLife() { return _life; }
+    public bool GetIsShielded() { return _isShielded; }
+
+    public void SetIsShielded(bool _isShielded) { this._isShielded = _isShielded; }
 }
