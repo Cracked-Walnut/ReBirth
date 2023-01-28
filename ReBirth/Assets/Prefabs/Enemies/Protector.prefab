@@ -48,7 +48,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 12
+  m_Radius: 5.82
 --- !u!114 &8892328519371816770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 697c33802b09d6d419ad9d386e241047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shieldRadius: 12
+  _isShieldOn: 0
   _shieldPoint: {fileID: 1613445157716631281}
   _whatIsEnemy:
     serializedVersion: 2
