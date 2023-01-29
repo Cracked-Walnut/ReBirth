@@ -7,20 +7,10 @@ Tasks:
 			- One for enemies
 				- Disable enemy collider when rolling
 
-	- Enemy AI:
-		- Shielder
-			- Acts as a shield for enemies
-				- Make a radius that checks for enemy layer
-					- If enemy is found, that means enemy is alive, which means a shield should be applied
-					- Make sure enemy isn't another Shielder, though
-						- To do this, check the name of the enemy
-			- Must be killed first
-			- If enemies are within its shield radius, grab the enemy's EnemyLife script and turn on _isShielded bool to true
-			- In Bullet/Knife script, when grabbing EnemyLife, first check if enemy is shielded before applying damage
-			- There is currently NO ALTERNATIVE WAY of breaking a shield. The only way to break a shield is to kill the Shielder...
-				-... who may have a primitive AoE attack as a defense
-
-			- Modify EnemyLife to have Shield variable
+	- Attack shield animation object to all enemy types that aren't Protectors
+	- Seperate object in the hierarchy
+		- Sprite Renderer + Animator with Controller
+		- Control Shield anim with Ghoul bool
 
 
 Bugs:
@@ -133,6 +123,19 @@ Finished:
 							-> FireBall.cs
 					- Create FireBall prefab
 					- Change events in Knife prefab
+			- Shielder
+				- Acts as a shield for enemies
+					- Make a radius that checks for enemy layer
+						- If enemy is found, that means enemy is alive, which means a shield should be applied
+						- Make sure enemy isn't another Shielder, though
+							- To do this, check the name of the enemy
+				- Must be killed first
+				- If enemies are within its shield radius, grab the enemy's EnemyLife script and turn on _isShielded bool to true
+				- In Bullet/Knife script, when grabbing EnemyLife, first check if enemy is shielded before applying damage
+				- There is currently NO ALTERNATIVE WAY of breaking a shield. The only way to break a shield is to kill the Shielder...
+					-... who may have a primitive AoE attack as a defense
+
+				- Modify EnemyLife to have Shield variable
 
 	Bugs:
 		- Going into crouch activates wall slide animation, otherwise works fine

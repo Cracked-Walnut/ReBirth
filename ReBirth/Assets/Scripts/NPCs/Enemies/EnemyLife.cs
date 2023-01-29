@@ -4,7 +4,7 @@ using UnityEngine;
 Purpose:
     To handle logic related to Ghoul life.
 Last Edited:
-    01-05-23.
+    01-29-23.
 */
 public class EnemyLife : MonoBehaviour {
 
@@ -15,7 +15,9 @@ public class EnemyLife : MonoBehaviour {
     [SerializeField] EnemyMovement _enemyMovement;
     // [SerializeField] private GameObject _player;
 
-    void Start() => _boxCollider2D = GetComponent<BoxCollider2D>();
+    void Start() {
+        _boxCollider2D = GetComponent<BoxCollider2D>();
+    }
 
     void Update() {
         if (_life <= 0) {

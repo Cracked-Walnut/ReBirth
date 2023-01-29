@@ -141,7 +141,7 @@ public class CharacterController2D : MonoBehaviour
 			!_playerMovement.GetCanJumpBuffer() && !_playerMovement.GetCanWallJumpBuffer()) {
 			ResetForce();
 			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce * .85f));
-			Debug.Log("Double Jump");
+			// Debug.Log("Double Jump");
 		}
 	}
 

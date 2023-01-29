@@ -2,6 +2,7 @@ Assets:
 	https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character
 	https://narehop.itch.io/graybox-2d
 	https://codemanu.itch.io/impacthit-fx-animations
+	https://dreamypixelart.itch.io/pixel-art-effect-electric
 
 Scripts:
 	PlayerMovement.cs:

@@ -17,6 +17,4 @@ public class EnemyAnimation : MonoBehaviour {
         for (int i = 0; i < _triggers.Length; i++)
             _animator.ResetTrigger(_triggers[i]);
     }
-    
-
 }

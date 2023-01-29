@@ -265,7 +265,7 @@ public class PlayerMovement : MonoBehaviour {
                 _characterController2D.ResetForce(); // you don't want gravity or other forces applied
                 _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
                 _canDoubleJump = true; // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
-                Debug.Log("Jump Buffer");
+                // Debug.Log("Jump Buffer");
             }
         }
         else
@@ -285,7 +285,8 @@ public class PlayerMovement : MonoBehaviour {
                 _characterController2D.ResetForce(); // you don't want gravity or other forces applied
                 _characterController2D.ApplyForce(0, _characterController2D.GetJumpForce()); // same force as a single jump, since a jump buffer has the same intentions as a single jump
                 _canDoubleJump = true; // reset double jump after jump buffer (since a jump buffer is intended to act as a single jump)
-                Debug.Log("Wall Jump Buffer");
+                // Debug.Log("Wall Jump Buffer");
+                
             }
         }
         else
