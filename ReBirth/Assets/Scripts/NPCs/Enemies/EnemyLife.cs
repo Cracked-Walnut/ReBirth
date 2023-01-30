@@ -11,12 +11,14 @@ public class EnemyLife : MonoBehaviour {
     [SerializeField] private int _life;
     [SerializeField] private bool _isShielded;
     private BoxCollider2D _boxCollider2D;
+    private ShieldAnimation _shieldAnimation;
     [SerializeField] EnemyAnimation _enemyAnimation;
     [SerializeField] EnemyMovement _enemyMovement;
     // [SerializeField] private GameObject _player;
 
     void Start() {
         _boxCollider2D = GetComponent<BoxCollider2D>();
+        _shieldAnimation = GetComponent<ShieldAnimation>();
     }
 
     void Update() {
@@ -42,6 +44,9 @@ public class EnemyLife : MonoBehaviour {
 
     public int GetGhoulLife() { return _life; }
     public bool GetIsShielded() { return _isShielded; }
+
+    public void ShieldAnimOn() { _shieldAnimation.GetAnimator().SetTrigger("ShieldOn"); }
+    public void ShieldAnimOff() { _shieldAnimation.GetAnimator().SetTrigger("ShieldOff"); }
 
     public void SetIsShielded(bool _isShielded) { this._isShielded = _isShielded; }
 }

@@ -7,10 +7,9 @@ Tasks:
 			- One for enemies
 				- Disable enemy collider when rolling
 
-	- Attack shield animation object to all enemy types that aren't Protectors
-	- Seperate object in the hierarchy
-		- Sprite Renderer + Animator with Controller
-		- Control Shield anim with Ghoul bool
+	- Shield animations done
+	- Shield is not turning off and on
+
 
 
 Bugs:

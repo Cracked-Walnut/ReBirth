@@ -34,8 +34,11 @@ public class ProtectorShield : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D _collider2D) {
         if (_collider2D.gameObject.layer == 9 && _collider2D.gameObject.name != "Protector") {
             if (_collider2D.gameObject.GetComponent<EnemyLife>() != null) {
+                // set shield on
+                _collider2D.gameObject.GetComponent<EnemyLife>().ShieldAnimOn();
                 _collider2D.gameObject.GetComponent<EnemyLife>().SetIsShielded(true);
-                Debug.Log("Enemy in Shield");
+                
+                Debug.Log("On");
             }
         }
     }
@@ -43,8 +46,11 @@ public class ProtectorShield : MonoBehaviour {
     void OnTriggerExit2D(Collider2D _collider2D) {
         if (_collider2D.gameObject.layer == 9 && _collider2D.gameObject.name != "Protector") {
             if (_collider2D.gameObject.GetComponent<EnemyLife>() != null) {
+                // set shield off
+                _collider2D.gameObject.GetComponent<EnemyLife>().ShieldAnimOff();
                 _collider2D.gameObject.GetComponent<EnemyLife>().SetIsShielded(false);
-                Debug.Log("Enemy out of Shield");
+                
+                Debug.Log("Off");
             }
         }  
     }
