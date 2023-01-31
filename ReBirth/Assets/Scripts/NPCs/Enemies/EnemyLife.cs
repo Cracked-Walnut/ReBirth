@@ -4,7 +4,7 @@ using UnityEngine;
 Purpose:
     To handle logic related to Ghoul life.
 Last Edited:
-    01-29-23.
+    01-30-23.
 */
 public class EnemyLife : MonoBehaviour {
 
@@ -37,16 +37,19 @@ public class EnemyLife : MonoBehaviour {
             _enemyAnimation.GetAnimator().SetTrigger("Hit");
     }
 
-    public void Dead() {
-        // _player.GetComponent<MonsterTally>().IncrementMonsterTally(this.gameObject.tag);
-        Destroy(this.gameObject);
-    }
+    // void IncrementMonsterTally() => _player.GetComponent<MonsterTally>().IncrementMonsterTally(this.gameObject.tag);
+    
+    public void Dead() => Destroy(this.gameObject);
 
     public int GetGhoulLife() { return _life; }
     public bool GetIsShielded() { return _isShielded; }
 
-    public void ShieldAnimOn() { _shieldAnimation.GetAnimator().SetTrigger("ShieldOn"); }
-    public void ShieldAnimOff() { _shieldAnimation.GetAnimator().SetTrigger("ShieldOff"); }
+    public void SetShieldAnim(bool _isShieldAnimOn) {
+        if (_isShieldAnimOn)
+            _shieldAnimation.GetAnimator().SetTrigger("ShieldOn");
+        else
+            _shieldAnimation.GetAnimator().SetTrigger("ShieldOff");
+    }
 
-    public void SetIsShielded(bool _isShielded) { this._isShielded = _isShielded; }
+    public void SetIsShielded(bool _isShielded) => this._isShielded = _isShielded;
 }

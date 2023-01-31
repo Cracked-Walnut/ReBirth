@@ -7,18 +7,15 @@ Tasks:
 			- One for enemies
 				- Disable enemy collider when rolling
 
-	- Shield animations done
-	- Shield is not turning off and on
-
-
-
 Bugs:
 	- Knife projectile passes through walls
 		- Projectile speed too fast?
-		- Try putting code into FixedUpdte()
+		- Try putting code into FixedUpdate()
 	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
 	- Put glowy orb thingies on layer separate from Ceiling
 	- Put all sprites in Sprite Atlas
+	- Protector shield stays active after Protector is dead
+		- You're only destroying the Sprite object in the Protector hierarchy!
 
 Finished:
 	Tasks:
@@ -240,3 +237,6 @@ Things to keep in mind:
 		- Use a Camera Script to control the camera pointed at the player
 			- Otherwise, if camera references are being invoked in many scripts,
 				it would be a problem to debug
+
+	- When placing Protectors, make sure no enemies are within its shield radius
+		- Otherwise, shield activation will not work
