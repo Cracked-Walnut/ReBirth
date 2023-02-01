@@ -16,6 +16,7 @@ Bugs:
 	- Put all sprites in Sprite Atlas
 	- Protector shield stays active after Protector is dead
 		- You're only destroying the Sprite object in the Protector hierarchy!
+		- EnemyLife.cs doesn't work on Protector's parent object
 
 Finished:
 	Tasks:

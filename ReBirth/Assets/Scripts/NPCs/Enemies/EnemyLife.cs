@@ -4,7 +4,7 @@ using UnityEngine;
 Purpose:
     To handle logic related to Ghoul life.
 Last Edited:
-    01-30-23.
+    02-01-23.
 */
 public class EnemyLife : MonoBehaviour {
 
