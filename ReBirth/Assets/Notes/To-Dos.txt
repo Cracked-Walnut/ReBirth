@@ -6,6 +6,8 @@ Tasks:
 			- One for terrain
 			- One for enemies
 				- Disable enemy collider when rolling
+	
+	- Start making play test levels 
 
 Bugs:
 	- Knife projectile passes through walls
@@ -14,9 +16,6 @@ Bugs:
 	- Approaching a wall in mid-air while holding the crouch button does not trigger the wall slide animation
 	- Put glowy orb thingies on layer separate from Ceiling
 	- Put all sprites in Sprite Atlas
-	- Protector shield stays active after Protector is dead
-		- You're only destroying the Sprite object in the Protector hierarchy!
-		- EnemyLife.cs doesn't work on Protector's parent object
 
 Finished:
 	Tasks:
@@ -187,6 +186,10 @@ Finished:
 		- Ghoul will not die from Knife
 		- Blue screen in game window when game is running
 			- Spitter enemies had Camera object attached to them
+		- Protector shield stays active after Protector is dead
+			- You're only destroying the Sprite object in the Protector hierarchy!
+			- EnemyLife.cs doesn't work on Protector's parent object
+			- [Fixed]: Got rid of child objects and brought everything into the parent
 
 Archived:
 	Tasks:
