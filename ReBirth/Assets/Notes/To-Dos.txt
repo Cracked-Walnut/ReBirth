@@ -8,6 +8,9 @@ Tasks:
 				- Disable enemy collider when rolling
 	
 	- Start making play test levels 
+	- Make a rolling structure prefab
+		- Needs grid
+			- Wall and Ceiling layers aren't rendering
 
 Bugs:
 	- Knife projectile passes through walls
