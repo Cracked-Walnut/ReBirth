@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 2
+  _isShielded: 0
   _enemyAnimation: {fileID: 3698785923376671418}
   _enemyMovement: {fileID: 4584236226564264672}
 --- !u!114 &3698785923376671418
@@ -205,7 +206,7 @@ MonoBehaviour:
   _attackPoint: {fileID: 1043550084424386220}
   _sightPoint: {fileID: 1269889399769626436}
   _fireBallPrefab: {fileID: 1244615182156593005, guid: 9621ed5ec67cef8448680fbd5a044a73, type: 3}
-  _attackRange: 15
+  _attackRange: 17
   _whatIsPlayer:
     serializedVersion: 2
     m_Bits: 8
