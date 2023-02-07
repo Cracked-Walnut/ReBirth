@@ -12,23 +12,42 @@ Game Intro:
     With the letter you've received, you ventured to these lands with the intent of investigating.
     ...
 
-Game Loop:
-    Fight through a region of the world. Come across locked and unlocked doors. Discover bosses. Trade with
-    merchants. Acquire new talismans and other items in dungeons and caves.
-    Regions will have pathways connecting them which will be unlocked later.
+Game Loop for Playtest:
+    - Dungeon crawler style random stages with permanent power-ups
+    - Use Code Monkey camera to prioritize one room
 
-    What kind of levels can the player expect?
-        - Stages will be randomly generated rooms
-        - First stage will be 2x1
-            - The Subsequent levels will grow in size
-            - Stages will become less linear
-        - Some stages will have a portal to the Otherside
-            - Successfully reaching the end of the Otherside will net the player a reward
-            - Enemies are formidable and dangerous than regular enemies
+    - Kill Ghouls, Spitters, Protectors, ???
+    - Collect coins, keys, power-ups (double jump, dash, roll, health pick-ups (HP Tonics), permanent health (LifeGems))
 
-    ------------------------------------
-    Dungeon crawler style random stages with permanent power-ups
-    Use Code Monkey camera to prioritize one room
+    Game Loop:
+        - Run. Kill. Collect.
+            - Should I run past the enemy?
+            - What's that enemy?
+            - What's this item do?
+            - Can I kill this?
+            - Can I reach that item?
+            - How much health do I have?
+
+        - Clear the Room
+            - Are there any secrets?
+            - Do I have enough bombs?
+            - Do I need to come back here?
+            - What rooms can I connect to?
+            - Is there any valuable loot?
+            - How are my resources doing?
+
+        - Clear the Floor
+            - Have I gotten all of the secrets?
+            - Have I explored every room?
+            - Could I have done this better?
+
+            (Boss Fight) (Secret Rooms) (Efficient Paths)
+
+        - Clear the Game
+            - How could I have done that faster?
+            - How could I have played
+            differently?
+            - What items will I get next time?
 
 Gameplay:
     - Put lifts into the game to connect larger areas
