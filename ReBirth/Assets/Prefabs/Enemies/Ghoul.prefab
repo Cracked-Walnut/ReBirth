@@ -88,7 +88,7 @@ SpriteRenderer:
   m_SortingLayerID: 747753109
   m_SortingLayer: 12
   m_SortingOrder: 0
-  m_Sprite: {fileID: 926887151, guid: 6d597bc5479716b4f8529a0c678d9917, type: 3}
+  m_Sprite: {fileID: 1683956714, guid: 86792320902652242817cf2ed2175144, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _sightPoint: {fileID: 7771306451451223765}
-  _sightRadius: 10
+  _sightRadius: 15
   _isAggroed: 0
   _boxCollider2D: {fileID: 2757526465526060110}
 --- !u!50 &6605315987173098517
@@ -451,7 +451,7 @@ SpriteRenderer:
   m_SortingLayerID: 747753109
   m_SortingLayer: 12
   m_SortingOrder: 500
-  m_Sprite: {fileID: 1227475532, guid: f19d75462aa223f4b8e662608e279685, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d6a4c2b1255f2b4c9454011388088c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
