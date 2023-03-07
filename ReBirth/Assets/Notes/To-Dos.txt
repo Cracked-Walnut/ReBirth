@@ -1,6 +1,9 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
+	- Wall Slide stamina
+		- When stamina runs out, Disable wall objects
+			- until the player touches the ground
 	- Rolling:
 		- Use two colliders:
 			- One for terrain
