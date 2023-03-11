@@ -1,6 +1,7 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
+	- Flash Player Red when hit
 	- Wall Slide stamina
 		- When stamina runs out, Disable wall objects
 			- until the player touches the ground
