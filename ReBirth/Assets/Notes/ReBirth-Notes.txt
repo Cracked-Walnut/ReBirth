@@ -50,6 +50,8 @@ Game Loop for Playtest:
             - What items will I get next time?
 
 Gameplay:
+    - Giant levels with dungeons, caves
+        - Which house portals to other giant levels
     - Put lifts into the game to connect larger areas
     - Some of the tailor's outfits will only be obtainable by finding cloth and the appropriate dye
 
@@ -321,12 +323,12 @@ UI:
         - Left/ Right for FP Tonic/ SpiritGem
 
 Weapon Types:
-    Physical:
+    Physical (Unlimited):
         Pierce
-    Element:
+    Element (Limited):
         Heat
         Chill
-    Sorcerery:
+    Sorcerery (Limited):
         Incantation
 
 Items:
@@ -439,7 +441,7 @@ Mandatory Areas:
     Wildwoods Sanctuary:
         Platforming: Simple
         Enemy Density: Low
-        Enemy Variety: Purple Beetles, Rats, Green Worms
+        Enemy Variety: Purple Beetles, Rats, Green Worms, Troll Sanctuary
         Dungeons: 2
         Caves: 1
         Secrets: 2
@@ -459,6 +461,8 @@ Mandatory Areas:
         Dungeons: 3
         Caves: 1
         Secrets: 4
+
+    --------------------------------------------------------------------------------------
 
     Cliffside Cavern:
         Platforming: Moderate
