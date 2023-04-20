@@ -2,19 +2,13 @@
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
 	- Flash Player Red when hit
-	- Wall Slide stamina
-		- When stamina runs out, Disable wall objects
-			- until the player touches the ground
 	- Rolling:
 		- Use two colliders:
 			- One for terrain
 			- One for enemies
 				- Disable enemy collider when rolling
 	
-	- Start making play test levels 
-	- Make a rolling structure prefab
-		- Needs grid
-			- Wall and Ceiling layers aren't rendering
+	- Start making play test levels
 
 Bugs:
 	- Knife projectile passes through walls
