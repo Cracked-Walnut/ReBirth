@@ -45,8 +45,7 @@ Game Loop for Playtest:
 
         - Clear the Game
             - How could I have done that faster?
-            - How could I have played
-            differently?
+            - How could I have played differently?
             - What items will I get next time?
 
 Gameplay:

@@ -1,6 +1,11 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
+
+	- Harpy enemy:
+		- Animations
+		- Logic
+
 	- Flash Player Red when hit
 	- Rolling:
 		- Use two colliders:

@@ -3,7 +3,7 @@ using UnityEngine;
 Purpose:
     To handle animation related logic for the Ghoul enemy model.
 Last Edited:
-    01-13-23.
+    06-25-23.
 */
 public class EnemyAnimation : MonoBehaviour {
 
@@ -13,6 +13,7 @@ public class EnemyAnimation : MonoBehaviour {
 
     public Animator GetAnimator() { return _animator; }
 
+    // Some misc triggers if needed
     public void ResetAnimationTriggers() {
         for (int i = 0; i < _triggers.Length; i++)
             _animator.ResetTrigger(_triggers[i]);
