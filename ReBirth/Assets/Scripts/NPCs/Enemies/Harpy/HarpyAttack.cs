@@ -9,8 +9,8 @@ Last Edited:
 */
 public class HarpyAttack : MonoBehaviour {
     [SerializeField] private Transform player; // Reference to the player object
-    [SerializeField] private float movementSpeed = 5f; // Speed at which the monster moves towards the player
-    [SerializeField] private float bounceForce = 10f; // Force applied to the monster when colliding with the player
+    [SerializeField] private float movementSpeed; // Speed at which the monster moves towards the player
+    [SerializeField] private float bounceForce; // Force applied to the monster when colliding with the player
 
     private Rigidbody2D rb; // Reference to the Rigidbody2D component of the monster
     private AIPath aiPath; // Reference to the AIPath component of the monster for pathfinding

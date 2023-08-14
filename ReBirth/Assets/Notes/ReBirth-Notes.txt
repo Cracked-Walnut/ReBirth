@@ -90,7 +90,6 @@ Story:
     Generations passed. People started to rebuild. Many moved on to brighter pastures. Some stayed in hopes a change would come.
 
 Drop Values:
-    - Guaranteed, 100% (1)
     - Common, 50% (1/2)
     - Uncommon, 25% (1/4)
     - Rare, 12.5% (1/8)

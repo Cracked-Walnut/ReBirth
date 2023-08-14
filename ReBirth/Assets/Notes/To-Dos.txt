@@ -1,7 +1,9 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
-
+	- light mechanic
+		- 
+	- map buttons to controller
 	- Harpy enemy:
 		- Animations
 		- Logic
