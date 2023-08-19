@@ -1,21 +1,10 @@
 
 --------------------------------------GAME DEV TO-DO LIST--------------------------------------
 Tasks:
-	- light mechanic
-		- 
-	- map buttons to controller
-	- Harpy enemy:
-		- Animations
-		- Logic
-
-	- Flash Player Red when hit
-	- Rolling:
-		- Use two colliders:
-			- One for terrain
-			- One for enemies
-				- Disable enemy collider when rolling
-	
-	- Start making play test levels
+	- Finish one demo test level
+		- Wall and Mid-air Dash will be power pick-ups
+		- HP pick ups
+		- Shop items
 
 Bugs:
 	- Knife projectile passes through walls
@@ -201,6 +190,17 @@ Finished:
 
 Archived:
 	Tasks:
+		- light mechanic
+		- map buttons to controller
+		- Harpy enemy:
+			- Animations
+			- Logic
+		- Flash Player Red when hit
+		- Rolling:
+			- Use two colliders:
+				- One for terrain
+				- One for enemies
+					- Disable enemy collider when rolling
 		- Enemy Visual Life Bars:
 			- Becomes visible when damaged
 			- Green for HP; red for lost HP
@@ -231,24 +231,23 @@ Archived:
 				- Double Jump isn't working
 				- Wall Jump Buffer isn't working
 
-	Bugs:
+	Notes:
+		- Replace player character?
+			- Knife attack may be too powerful
 
-Notes:
-	- Replace player character?
-		- Knife attack may be too powerful
+	Things to keep in mind:
+		- DustEffect's sorting layer is Player, Sorting ID is -5
 
-Things to keep in mind:
-	- DustEffect's sorting layer is Player, Sorting ID is -5
+		- Among Virtual Cameras, the one with the highest priority takes precedence
+			- There is no checkbox system to prioritize cameras. Only priority values
+			- Make VirtualCamera1 the highest values (like... 100 by default)
+				- Set all other cameras -1 values from the previous virtual camera,
+					then manipulate priority values as you see fit
+			- The camera with the highest priority will take precedence
+			- Use a Camera Script to control the camera pointed at the player
+				- Otherwise, if camera references are being invoked in many scripts,
+					it would be a problem to debug
 
-	- Among Virtual Cameras, the one with the highest priority takes precedence
-		- There is no checkbox system to prioritize cameras. Only priority values
-		- Make VirtualCamera1 the highest values (like... 100 by default)
-			- Set all other cameras -1 values from the previous virtual camera,
-				then manipulate priority values as you see fit
-		- The camera with the highest priority will take precedence
-		- Use a Camera Script to control the camera pointed at the player
-			- Otherwise, if camera references are being invoked in many scripts,
-				it would be a problem to debug
-
-	- When placing Protectors, make sure no enemies are within its shield radius
-		- Otherwise, shield activation will not work
+		- When placing Protectors, make sure no enemies are within its shield radius
+			- Otherwise, shield activation will not work
+				- Probably has something to do with the code
